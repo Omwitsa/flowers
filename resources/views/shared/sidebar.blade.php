@@ -18,7 +18,7 @@
         <!--<div class="pcoded-navigation-label">Navigation</div>-->
         <ul class="pcoded-item pcoded-left-item">
             <li class="active">
-                <a href="index.html" class="waves-effect waves-dark">
+                <a href="/dashboard" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                     <span class="pcoded-mtext">Dashboard</span>
                     <span class="pcoded-mcaret"></span>
@@ -35,7 +35,7 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li class=" ">
-                        <a href="/counter" class="waves-effect waves-dark">
+                        <a href="/users" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext">Tables</span>
                             <span class="pcoded-mcaret"></span>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Counter;
+use App\Livewire\User;
 
 Route::view('/', 'welcome');
 
@@ -13,10 +13,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::view('willy', 'willy')
-    ->middleware(['auth'])
-    ->name('willy');
-
-Route::get('/counter', Counter::class);
+Route::get('/users', User::class);
 
 require __DIR__.'/auth.php';
