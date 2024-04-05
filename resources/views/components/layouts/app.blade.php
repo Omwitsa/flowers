@@ -133,6 +133,7 @@
     <script src="assets/js/vertical/vertical-layout.min.js "></script>
 
     <script type="text/javascript" src="assets/js/script.js "></script>
+
     @livewireScripts
 </body>
 
