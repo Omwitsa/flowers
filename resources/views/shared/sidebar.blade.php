@@ -27,6 +27,55 @@
         </ul>
         
         <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/recent-orders" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Recent Order</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/users" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Users</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/clients" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Clients</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/varieties" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Varieties</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/brands" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Brands</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+        <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
@@ -43,16 +92,8 @@
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul> -->
         
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="chart-morris.html" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Charts</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-            </li>
-        </ul>
+        
     </div>
 </nav>
