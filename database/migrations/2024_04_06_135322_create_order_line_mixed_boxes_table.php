@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_line_mixed_boxes', function (Blueprint $table) {
+        Schema::create('orderlinemixedbox', function (Blueprint $table) {
             $table->id();
             $table->integer('OrderLineId');
             $table->integer('VarietyId');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_line_mixed_boxes');
+        Schema::dropIfExists('orderlinemixedbox');
     }
 };

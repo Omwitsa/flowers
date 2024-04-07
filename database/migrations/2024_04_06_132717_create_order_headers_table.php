@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_headers', function (Blueprint $table) {
+        Schema::create('orderheader', function (Blueprint $table) {
             $table->id();
             $table->integer('ClientId');
             $table->dateTime('DateCreated');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_headers');
+        Schema::dropIfExists('orderheader');
     }
 };

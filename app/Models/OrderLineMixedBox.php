@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderLineMixedBox extends Model
 {
-    protected $table = 'orderlinemixedbox';
+    
 }
