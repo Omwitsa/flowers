@@ -11,7 +11,7 @@
                                     <i class="far fa-user text-c-purple f-24"></i>
                                 </div>
                                 <div class="col-8 p-l-0">
-                                    <h5>10K</h5>
+                                    <h5>13K</h5>
                                     <p class="text-muted m-b-0">Visitors</p>
                                 </div>
                             </div>
