@@ -5,8 +5,12 @@ use App\Livewire\User;
 use App\Livewire\Client;
 use App\Livewire\Brand;
 use App\Livewire\RecentOrder;
+use App\Http\Controllers\HomeController;
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
+
+// Route::get('/', 'HomeController@index');
+Route::get('/', [HomeController::class, 'index']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -15,6 +19,8 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+
 
 Route::get('/recent-orders', RecentOrder::class);
 Route::get('/users', User::class);

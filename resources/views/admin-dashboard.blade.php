@@ -12,7 +12,7 @@
                                 </div>
                                 <div class="col-8 p-l-0">
                                     <h5>13K</h5>
-                                    <p class="text-muted m-b-0">Visitors</p>
+                                    <p class="text-muted m-b-0">{{$data->title}}</p>
                                 </div>
                             </div>
                         </div>
