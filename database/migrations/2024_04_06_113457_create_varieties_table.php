@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('variety', function (Blueprint $table) {
             $table->id();
-            $table->mediumText('VarietyName');
+            $table->string('VarietyName');
             $table->string('VarietyCode');
-            $table->mediumText('FlowerType');
+            $table->string('FlowerType');
             $table->string('Range');
             $table->string('Colour');
-            $table->boolean('Active');
-            $table->mediumText('PicUrl');
+            $table->boolean('Active')->default(true);
+            $table->string('PicUrl');
             $table->timestamps();
         });
     }

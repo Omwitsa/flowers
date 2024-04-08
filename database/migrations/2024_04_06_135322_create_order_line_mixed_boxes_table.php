@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('orderlinemixedbox', function (Blueprint $table) {
             $table->id();
-            $table->integer('OrderLineId');
-            $table->integer('VarietyId');
+            $table->bigInteger('OrderLineId');
+            $table->bigInteger('VarietyId');
             $table->string('StemLength');
-            $table->mediumText('StemQty');
+            $table->string('StemQty');
             $table->timestamps();
         });
     }

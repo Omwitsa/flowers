@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('client', function (Blueprint $table) {
             $table->id();
-            $table->mediumText('ClientName');
+            $table->string('ClientName');
             $table->string('ClientCode');
-            $table->mediumText('ClientType');
+            $table->string('ClientType');
             $table->mediumText('EmailRecepients');
-            $table->mediumText('DropOff');
-            $table->mediumText('Category');
-            $table->mediumText('Country');
-            $table->mediumText('ClientDivision');
-            $table->boolean('FairTrade');
-            $table->mediumText('PackRate');
+            $table->string('DropOff');
+            $table->string('Category');
+            $table->string('Country');
+            $table->string('ClientDivision');
+            $table->boolean('FairTrade')->default(false);
+            $table->string('PackRate');
             $table->timestamps();
         });
     }

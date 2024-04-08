@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('orderline', function (Blueprint $table) {
             $table->id();
-            $table->integer('OrderHeaderId');
-            $table->integer('VarietyId');
-            $table->integer('VarietyRangeId');
+            $table->bigInteger('OrderHeaderId');
+            $table->bigInteger('VarietyId');
+            $table->bigInteger('VarietyRangeId');
             $table->string('Length');
             $table->string('BoxType');
             $table->string('StemQty');
             $table->string('PackRate');
             $table->string('Boxes');
             $table->string('Farm');
-            $table->integer('FarmMixBoxId');
-            $table->mediumText('BoxMarking');
+            $table->bigInteger('FarmMixBoxId');
+            $table->string('BoxMarking');
             $table->timestamps();
         });
     }

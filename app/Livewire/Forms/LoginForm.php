@@ -9,10 +9,13 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginForm extends Form
 {
-    #[Validate('required|string|usercode')]
+    // #[Validate('required|string|email')]
+    #[Validate('required|string')]
     public string $usercode = '';
 
     #[Validate('required|string')]

@@ -80,7 +80,7 @@
                             </a>
                         </li> -->
                         <li class="waves-effect waves-light">
-                            <a href="auth-normal-sign-in.html">
+                            <a wire:click="logout">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>

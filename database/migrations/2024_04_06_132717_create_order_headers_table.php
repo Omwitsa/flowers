@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orderheader', function (Blueprint $table) {
             $table->id();
-            $table->integer('ClientId');
+            $table->bigInteger('ClientId');
             $table->dateTime('DateCreated');
             $table->date('ReceivingDate');
             $table->string('LpoNo');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Farm');
             $table->integer('Type');
             $table->integer('IsSendEmail');
-            $table->mediumText('confirmUrl');
+            $table->string('confirmUrl');
             $table->integer('DropOffId');
             $table->integer('IsTransferred');
             $table->timestamps();
