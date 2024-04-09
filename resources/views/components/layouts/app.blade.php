@@ -89,30 +89,7 @@
     <!-- Pre-loader end -->
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
-            @include('shared.header');
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-                    @include('shared.sidebar');
-                    <div class="pcoded-content">
-                        <div class="pcoded-inner-content">
-                            <!-- Main-body start -->
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page-body start -->
-                                    <div class="page-body">
-                                        <!-- @yield('content') -->
-                                        {{ $slot }}
-                                    </div>
-                                    <!-- Page-body end -->
-                                </div>
-                                <div id="styleSelector"> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{ $slot }}
     </div>
    
     <!-- Required Jquery -->
@@ -133,7 +110,6 @@
     <script src="assets/js/vertical/vertical-layout.min.js "></script>
 
     <script type="text/javascript" src="assets/js/script.js "></script>
-
     @livewireScripts
 </body>
 
