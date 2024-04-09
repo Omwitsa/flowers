@@ -11,10 +11,7 @@ use App\Http\Controllers\HomeController;
 
 // Route::get('/', 'HomeController@index');
 Route::get('/', [HomeController::class, 'index']);
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

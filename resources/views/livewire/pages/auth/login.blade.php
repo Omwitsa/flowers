@@ -22,14 +22,14 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        if(Auth::user()->role == Roles::Admin){
-            $this->redirectIntended(default: route('admin-dashboard', absolute: false), navigate: true);
-        } 
-        if(Auth()->user()->role == Roles::Foreign){
-            $this->redirectIntended(default: route('foreign-dashboard', absolute: false), navigate: true);
-        } 
-
-        $this->redirectIntended(default: route('local-dashboard', absolute: false), navigate: true);
+        // if(Auth::user()->role == Roles::Admin){
+        //     $this->redirectIntended(default: route('admin-dashboard', absolute: false), navigate: true);
+        // } 
+        // if(Auth()->user()->role == Roles::Foreign){
+        //     $this->redirectIntended(default: route('foreign-dashboard', absolute: false), navigate: true);
+        // } 
+        $this->redirect('/dashboard', navigate: true);
+        // $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 }; ?>
 

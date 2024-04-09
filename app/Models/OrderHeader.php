@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderHeader extends Model
 {
-    
+    use HasFactory;
 }
