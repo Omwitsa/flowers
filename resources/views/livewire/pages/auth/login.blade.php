@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
+use App\Constants\Roles;
+
 new #[Layout('layouts.guest')] class extends Component
 {
     public LoginForm $form;
@@ -20,8 +22,14 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        // $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
-        $this->redirectIntended(default: route('profile', absolute: false), navigate: true);
+        if(Auth::user()->role == Roles::Admin){
+            $this->redirectIntended(default: route('admin-dashboard', absolute: false), navigate: true);
+        } 
+        if(Auth()->user()->role == Roles::Foreign){
+            $this->redirectIntended(default: route('foreign-dashboard', absolute: false), navigate: true);
+        } 
+
+        $this->redirectIntended(default: route('local-dashboard', absolute: false), navigate: true);
     }
 }; ?>
 

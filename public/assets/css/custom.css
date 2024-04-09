@@ -1,0 +1,14 @@
+body {
+	background-color: #FFE6EE !important;
+}
+.landing-card{
+	margin-top: 20px;
+}
+.landing-card .card-header, .landing-card .card-footer, .btn-primary{
+	background-color: #fc8eac;
+}
+.landing-card .card-block .btn-lg{
+	margin: 20px;
+	color: #ffffff;
+	border-radius: 20px;
+}

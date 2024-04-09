@@ -20,8 +20,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-
-
 Route::get('/recent-orders', RecentOrder::class);
 Route::get('/users', User::class);
 Route::get('/clients', Client::class);
