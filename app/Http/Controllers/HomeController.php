@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Constants\Roles;
 use Illuminate\Http\Request;
 use stdClass;
-use Auth;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -14,11 +13,12 @@ class HomeController extends Controller
         // if(Auth::check()) {
         //     return view('local-dashboard');
         // }
-        if (!Auth::user()){
+        if (!auth()->user()){
             return view('welcome');
             // return redirect()->route('login');
         }else{
-            return view('local-dashboard');
+            return redirect()->intended('/dashboard');
+            //return view('local-dashboard');
         //     return View::make('home.basic')
         //         ->with('basic1', 'Not Authorized');
         }
@@ -82,13 +82,13 @@ class HomeController extends Controller
 
         $user = User::where('usercode','=','Admin')->first();
 
-        if($user->role == 'Admin') {
+        if(auth()->user()->role === 'Admin') {
             return view('admin-dashboard')->with([
                 'data' => (object) $data
             ]);
         }
 
-        if($user->role == 'Foreign') {
+        if(auth()->user()->role === 'Foreign') {
            return view('foreign-dashboard');
         }
 
