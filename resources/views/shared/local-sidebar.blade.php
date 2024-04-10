@@ -28,9 +28,9 @@
         
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/recent-orders" class="waves-effect waves-dark">
+                <a href="/orders" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Recent Local Order</span>
+                    <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
