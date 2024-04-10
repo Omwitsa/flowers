@@ -4,7 +4,7 @@ body {
 .landing-card{
 	margin-top: 20px;
 }
-.landing-card .card-header, .landing-card .card-footer, .btn-primary{
+.landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
 	background-color: #fc8eac;
 }
 .landing-card .card-block .btn-lg{
@@ -12,3 +12,4 @@ body {
 	color: #ffffff;
 	border-radius: 20px;
 }
+

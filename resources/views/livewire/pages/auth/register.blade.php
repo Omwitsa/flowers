@@ -19,6 +19,7 @@ new #[Layout('layouts.guest')] class extends Component
     /**
      * Handle an incoming registration request.
      */
+    
     public function register(): void
     {
         $validated = $this->validate([

@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 
-class Brand extends Component
+class UserComponent extends Component
 {
     public $users;
     public function mount()
@@ -15,7 +15,7 @@ class Brand extends Component
 
     public function render()
     {
-        return view('livewire.brand')->with([
+        return view('livewire.user')->with([
             'users' => $this->users,
         ]);
     }
