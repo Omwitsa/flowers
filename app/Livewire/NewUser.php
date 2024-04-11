@@ -21,7 +21,7 @@ class NewUser extends Component
     {
         return view('livewire.new-user');
     }
-
+    
     public function createUser()
     {
         // personnel, active, role

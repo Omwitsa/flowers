@@ -9,4 +9,11 @@ class Variety extends Model
 {
     use HasFactory;
     protected $table = 'variety';
+    
+    protected $fillable = [
+        'VarietyName',
+        'VarietyCode',
+        'FlowerType',
+        'Range',
+    ];
 }

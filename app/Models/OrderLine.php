@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class OrderLine extends Model
 {
     use HasFactory;
-    protected $table = 'orderheader';
+    protected $table = 'orderline';
 }

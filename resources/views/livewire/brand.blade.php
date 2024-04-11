@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Brands</h5>
         <div class="card-header-right">
-            <a class="btn btn-primary waves-effect waves-light">New</a>
+            <a href="{{ url('/new-user') }}" class="btn btn-primary waves-effect waves-light">New</a>
         </div>
     </div>
     <div class="card-block table-border-style">
@@ -11,18 +11,16 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Farm</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($brands as $brand)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->usercode }}</td>
-                            <td>{{ $user->role }}</td>
+                            <th scope="row">{{ $loop->iteration}}</th>
+                            <td>{{ $brand->name }}</td>
+                            <td>{{ $brand->farm }}</td>
                         </tr>
                     @endforeach
                 </tbody>

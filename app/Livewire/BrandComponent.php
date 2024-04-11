@@ -3,20 +3,20 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\User;
+use App\Models\Brand;
 
-class Brand extends Component
+class BrandComponent extends Component
 {
-    public $users;
+    public $brands;
     public function mount()
     {
-        $this->users = User::all();
+        $this->brands = Brand::all();
     }
 
     public function render()
     {
         return view('livewire.brand')->with([
-            'users' => $this->users,
+            'brands' => $this->brands,
         ]);
     }
 }

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class OrderLineMixedBox extends Model
 {
     use HasFactory;
+    protected $table = 'orderlinemixedbox';
 }

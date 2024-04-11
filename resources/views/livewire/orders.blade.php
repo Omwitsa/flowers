@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-header">
-        <h5>Recent Orders</h5>
+        <h5>Orders</h5>
         <div class="card-header-right">
-            <a href="{{ url('/new-user') }}" class="btn btn-primary waves-effect waves-light">New</a>
+            <!-- <a href="{{ url('/new-user') }}" class="btn btn-primary waves-effect waves-light">New</a> -->
         </div>
     </div>
     <div class="card-block table-border-style">
@@ -11,22 +11,28 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Active</th>
-                        <th>Role</th>
+                        <th>Client Id</th>
+                        <th>Date Created</th>
+                        <th>Receiving Date</th>
+                        <th>Lpo No.</th>
+                        <th>Status</th>
+                        <th>Farm</th>
+                        <th>Type</th>
+                        <th>Drop Off Id</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($orders as $order)
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->usercode }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->active }}</td>
-                            <td>{{ $user->role }}</td>
+                            <td>{{ $order->ClientId }}</td>
+                            <td>{{ $order->DateCreated }}</td>
+                            <td>{{ $order->ReceivingDate }}</td>
+                            <td>{{ $order->LpoNo }}</td>
+                            <td>{{ $order->Status }}</td>
+                            <td>{{ $order->Farm }}</td>
+                            <td>{{ $order->Type }}</td>
+                            <td>{{ $order->DropOffId }}</td>
                         </tr>
                     @endforeach
                 </tbody>

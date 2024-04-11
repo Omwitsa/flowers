@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UserComponent;
-use App\Livewire\Client;
-use App\Livewire\Brand;
+use App\Livewire\ClientComponent;
+use App\Livewire\BrandComponent;
 use App\Livewire\Orders;
 use App\Livewire\NewUser;
+use App\Livewire\VarietyComponent;
+use App\Livewire\NewVariety;
 use App\Http\Controllers\HomeController;
 
 // Route::view('/', 'welcome');
@@ -21,8 +23,9 @@ Route::view('profile', 'profile')
 Route::get('/orders', Orders::class);
 Route::get('/users', UserComponent::class);
 Route::get('/new-user', NewUser::class);
-Route::get('/clients', Client::class);
-Route::get('/brands', Brand::class);
-
+Route::get('/clients', ClientComponent::class);
+Route::get('/brands', BrandComponent::class);
+Route::get('/varieties', VarietyComponent::class);
+Route::get('/new-variety', NewVariety::class);
 
 require __DIR__.'/auth.php';
