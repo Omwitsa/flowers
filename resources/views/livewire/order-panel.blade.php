@@ -20,6 +20,19 @@
             </div><br>
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
+                    <h4 class="sub-title">Range</h4>
+                    
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <!-- Dropdown -->
+                    <h4 class="sub-title">Variety</h4>
+                    
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
                     {{$brands}}
                 </div>
             </div><br>
