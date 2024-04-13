@@ -3,39 +3,42 @@
         <h5>Variety</h5>
     </div>
     <div class="card-block">
-        <form wire:submit="creatVariety" class="form-material">
+        <form wire:submit="creatVariety" class="form-material" autocomplete="off">
             @csrf
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <div class="form-group form-default">
-                        <input wire:model="VarietyName" name="VarietyName" type="text" class="form-control" required>
-                        <label class="float-label">Variety Name</label>
-                        <x-input-error :messages="$errors->get('VarietyName')" class="mt-2" />
-                    </div>
-                </div> 
-
-                <div class="col-xs-12 col-sm-6">
-                    <div class="form-group form-default">
-                        <input wire:model="VarietyCode" name="VarietyCode" type="text" class="form-control" required>
-                        <label class="float-label">Variety Code</label>
-                        <x-input-error :messages="$errors->get('VarietyCode')" class="mt-2" />
-                    </div>
-                </div> 
-
-                <div class="col-xs-12 col-sm-6">
-                    <div class="form-group form-default">
-                        <input wire:model="FlowerType" name="FlowerType" type="text" class="form-control" required>
-                        <label class="float-label">Flower Type</label>
-                        <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
-                    </div>
+            <div class="form-group row">
+                <label class="col-xs-12 col-sm-2 col-form-label">Variety Name</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="VarietyName" name="VarietyName" type="text" class="form-control" autocomplete="off" required>
+                    <x-input-error :messages="$errors->get('VarietyName')" class="mt-2" />
                 </div>
 
-                <div class="col-xs-12 col-sm-6">
-                    <div class="form-group form-default">
-                        <input wire:model="Range" name="Range" type="text" class="form-control" required>
-                        <label class="float-label">Range</label>
-                        <x-input-error :messages="$errors->get('Range')" class="mt-2" />
-                    </div>
+                <label class="col-xs-12 col-sm-2 col-form-label">Variety Code</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="VarietyCode" name="VarietyCode" type="text" class="form-control" autocomplete="off" required>
+                    <x-input-error :messages="$errors->get('VarietyCode')" class="mt-2" />
+                </div>
+
+                <label class="col-xs-12 col-sm-2 col-form-label">Flower Type</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="FlowerType" name="FlowerType" type="text" class="form-control" autocomplete="off" required>
+                    <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
+                </div>
+
+                <label class="col-xs-12 col-sm-2 col-form-label">Range</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="Range" name="Range" type="text" class="form-control" autocomplete="off" required>
+                    <x-input-error :messages="$errors->get('Range')" class="mt-2" />
+                </div>
+
+            <!-- $table->boolean('Active')->default(true); -->
+            <!-- $table->string('PicUrl'); -->
+
+            </div>
+            <div class="form-group row">
+                <label class="col-xs-12 col-sm-2 col-form-label">Color</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="Colour" name="Colour" type="color" class="form-control">
+                    <x-input-error :messages="$errors->get('Colour')" class="mt-2" />
                 </div>
             </div><br>
             <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>

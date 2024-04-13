@@ -11,6 +11,8 @@ class NewVariety extends Component
     public string $VarietyCode = '';
     public string $FlowerType = '';
     public string $Range = '';
+    public string $Colour = '';
+    public string $PicUrl = '';
 
     public function creatVariety()
     {
@@ -21,6 +23,8 @@ class NewVariety extends Component
             'VarietyCode' => ['required', 'string', 'max:255'],
             'FlowerType' => ['required', 'string', 'max:255'],
             'Range' => ['required', 'string', 'max:255'],
+            'Colour' => ['string', 'max:255'],
+            'PicUrl' => ['string', 'max:255'],
         ]);
 
         // Variety::create([

@@ -6,9 +6,29 @@ use App\Constants\Roles;
 use Illuminate\Http\Request;
 use stdClass;
 use App\Models\User;
+use Auth;
 
 class HomeController extends Controller
 {
+    public function logout1(Request $request) {
+        auth()->logout();
+        // Auth::logout();
+        return redirect('/login');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        // auth()->logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
+    }
+
+
     public function index() {
         // if(Auth::check()) {
         //     return view('local-dashboard');

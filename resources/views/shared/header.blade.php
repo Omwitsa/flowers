@@ -58,7 +58,7 @@
                     </ul>
                 </li> -->
                 <li class="user-profile header-notification">
-                    <a href="#!" class="waves-effect waves-light">
+                    <a  href="#" class="waves-effect waves-light">
                         <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                         <span>{{auth()->user()->usercode}}</span>
                         <i class="ti-angle-down"></i>
@@ -80,7 +80,7 @@
                             </a>
                         </li> -->
                         <li class="waves-effect waves-light">
-                            <a wire:click="logout">
+                            <a href="/logout">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>

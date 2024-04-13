@@ -15,5 +15,7 @@ class Variety extends Model
         'VarietyCode',
         'FlowerType',
         'Range',
+        'Colour',
+        'PicUrl',
     ];
 }
