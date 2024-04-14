@@ -20,7 +20,11 @@
 
                 <label class="col-xs-12 col-sm-2 col-form-label">Flower Type</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input wire:model="FlowerType" name="FlowerType" type="text" class="form-control" autocomplete="off" required>
+                    <select wire:model="FlowerType" class="form-control" required>
+                        <option disabled value=""></option>
+                        <option value="Spray">Spray</option>
+                        <option value="Standard">Standard</option>
+                    </select>
                     <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
                 </div>
 
@@ -35,13 +39,22 @@
 
             </div>
             <div class="form-group row">
+                <label class="col-xs-12 col-sm-2 col-form-label">Upload Picture</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="PicUrl" name="PicUrl" type="file" class="form-control">
+                    <x-input-error :messages="$errors->get('PicUrl')" class="mt-2" />
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label class="col-xs-12 col-sm-2 col-form-label">Color</label>
                 <div class="col-xs-12 col-sm-4">
                     <input wire:model="Colour" name="Colour" type="color" class="form-control">
                     <x-input-error :messages="$errors->get('Colour')" class="mt-2" />
                 </div>
-            </div><br>
-            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+            </div>
+            
+            <br><button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
         </form> 
     </div>
 </div>

@@ -4,15 +4,18 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Variety;
+use Livewire\WithFileUploads;
 
 class NewVariety extends Component
 {
+    use WithFileUploads;
+
     public string $VarietyName = '';
     public string $VarietyCode = '';
     public string $FlowerType = '';
     public string $Range = '';
     public string $Colour = '';
-    public string $PicUrl = '';
+    public $PicUrl;
 
     public function creatVariety()
     {
@@ -24,9 +27,10 @@ class NewVariety extends Component
             'FlowerType' => ['required', 'string', 'max:255'],
             'Range' => ['required', 'string', 'max:255'],
             'Colour' => ['string', 'max:255'],
-            'PicUrl' => ['string', 'max:255'],
+            'PicUrl' => [''],
         ]);
 
+        $this->PicUrl->store('photos');
         // Variety::create([
         //     'VarietyName' => $this->VarietyName,
         //     'VarietyCode' => $this->VarietyCode,

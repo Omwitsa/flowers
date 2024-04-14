@@ -11,10 +11,10 @@ use App\Livewire\VarietyComponent;
 use App\Livewire\NewVariety;
 use App\Http\Controllers\HomeController;
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
 
 // Route::get('/', 'HomeController@index');
-// Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/logout', [HomeController::class, 'logout']);
 

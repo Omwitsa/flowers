@@ -3,14 +3,24 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Variety;
 
 class OrderPanel extends Component
 {
-    public $brands = 'Roses';
+    public $brands = 'AAA ROSES';
+    public $range = 'Bronze';
+
+    public $varieties;
+    public function mount()
+    {
+        $this->varieties = Variety::all();
+    }
 
     public function render()
     {
-        return view('livewire.order-panel');
+        return view('livewire.order-panel')->with([
+            'varieties' => $this->varieties,
+        ]);
     }
 
     // public function updatedBrands($value)
