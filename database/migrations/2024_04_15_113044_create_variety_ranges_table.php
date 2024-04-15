@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('variety', function (Blueprint $table) {
+        Schema::create('variety_ranges', function (Blueprint $table) {
             $table->id();
-            $table->string('VarietyName'); // Unique
-            $table->string('VarietyCode'); // Unique
-            $table->string('FlowerType');
-            $table->string('Colour');
-            $table->boolean('Active')->default(true);
+            $table->string('varietyName');
+            $table->string('brand');
+            $table->string('v_range');
+            $table->string('picUrl');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('variety');
+        Schema::dropIfExists('variety_ranges');
     }
 };

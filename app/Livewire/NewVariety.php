@@ -13,9 +13,7 @@ class NewVariety extends Component
     public string $VarietyName = '';
     public string $VarietyCode = '';
     public string $FlowerType = '';
-    public string $Range = '';
     public string $Colour = '';
-    public $PicUrl;
 
     public function creatVariety()
     {
@@ -25,18 +23,8 @@ class NewVariety extends Component
             'VarietyName' => ['required', 'string', 'max:255'],
             'VarietyCode' => ['required', 'string', 'max:255'],
             'FlowerType' => ['required', 'string', 'max:255'],
-            'Range' => ['required', 'string', 'max:255'],
             'Colour' => ['string', 'max:255'],
-            'PicUrl' => [''],
         ]);
-
-        $this->PicUrl->store('photos');
-        // Variety::create([
-        //     'VarietyName' => $this->VarietyName,
-        //     'VarietyCode' => $this->VarietyCode,
-        //     'FlowerType' => $this->FlowerType,
-        //     'Range' => $this->Range,
-        // ]);
 
         Variety::create($validated);
 

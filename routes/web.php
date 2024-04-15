@@ -9,6 +9,8 @@ use App\Livewire\OrderPanel;
 use App\Livewire\NewUser;
 use App\Livewire\VarietyComponent;
 use App\Livewire\NewVariety;
+use App\Livewire\VarietyRangeComponent;
+use App\Livewire\NewVarietyRange;
 use App\Http\Controllers\HomeController;
 
 // Route::view('/', 'welcome');
@@ -30,5 +32,7 @@ Route::get('/clients', ClientComponent::class);
 Route::get('/brands', BrandComponent::class);
 Route::get('/varieties', VarietyComponent::class);
 Route::get('/new-variety', NewVariety::class);
+Route::get('/variety-range', VarietyRangeComponent::class);
+Route::get('/new-variety-range', NewVarietyRange::class);
 
 require __DIR__.'/auth.php';

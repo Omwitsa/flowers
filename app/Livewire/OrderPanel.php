@@ -3,7 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Variety;
+use App\Models\varietyRange;
+use Illuminate\Support\Facades\DB;
 
 class OrderPanel extends Component
 {
@@ -13,7 +14,7 @@ class OrderPanel extends Component
     public $varieties;
     public function mount()
     {
-        $this->varieties = Variety::all();
+        $this->varieties = varietyRange::all();
     }
 
     public function render()
@@ -23,11 +24,23 @@ class OrderPanel extends Component
         ]);
     }
 
-    // public function updatedBrands($value)
-    // {
-    //     // dd($this->selectedValue);
-    //     // Do something when the selected value changes
-    // }
+    public function updatedBrands()
+    {
+        // dd($this->brands);
+        if ($this->brands === 'AAA ROSES') {
+            $this->range = 'Bronze';
+            $this->varieties= DB::select('SELECT * FROM variety_ranges WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
+        }
+        if ($this->brands === 'BELLISSIMA') {
+            $this->range = 'Platinum';
+            $this->varieties = DB::select('SELECT * FROM variety_ranges WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
+        }
+    }
+
+    public function updatedRange()
+    {
+        $this->varieties= DB::select('SELECT * FROM variety_ranges WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
+    }
 
     // public function creatVariety()
     // {
