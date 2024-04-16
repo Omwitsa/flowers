@@ -11,6 +11,7 @@ use App\Livewire\VarietyComponent;
 use App\Livewire\NewVariety;
 use App\Livewire\VarietyRangeComponent;
 use App\Livewire\NewVarietyRange;
+use App\Livewire\NewBrand;
 use App\Http\Controllers\HomeController;
 
 // Route::view('/', 'welcome');
@@ -32,6 +33,7 @@ Route::get('/clients', ClientComponent::class);
 Route::get('/brands', BrandComponent::class);
 Route::get('/varieties', VarietyComponent::class);
 Route::get('/new-variety', NewVariety::class);
+Route::get('/new-brand', NewBrand::class);
 Route::get('/variety-range', VarietyRangeComponent::class);
 Route::get('/new-variety-range', NewVarietyRange::class);
 

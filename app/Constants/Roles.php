@@ -24,3 +24,14 @@ enum Brands: string
         return array_column(self::cases(), 'value');
     }
 }
+
+enum Farms: string
+{
+    case Simba= 'Simba';
+    case Chui= 'Chui';
+
+	public static function toArray(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
+}

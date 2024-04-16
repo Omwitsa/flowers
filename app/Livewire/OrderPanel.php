@@ -14,7 +14,8 @@ class OrderPanel extends Component
     public $varieties;
     public function mount()
     {
-        $this->varieties = varietyRange::all();
+        // $this->varieties = varietyRange::all();
+        $this->varieties= DB::select('SELECT * FROM variety_ranges WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
     }
 
     public function render()
