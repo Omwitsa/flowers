@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Orders</h5>
+        <h5>Order</h5>
     </div>
     <div class="card-block">
         <form wire:submit="creatVariety" class="form-material" autocomplete="off">
@@ -49,10 +49,12 @@
                 @foreach ($varieties as $variety)
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 variety-section">
                         <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
+                        <div>{{$variety->varietyName}}</div>
+                        <a href='#' class="btn btn-primary waves-effect waves-light">Add to Cart</a>
                     </div>
                 @endforeach
             </div><br>
-            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+            <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button> -->
         </form> 
     </div>
 </div>

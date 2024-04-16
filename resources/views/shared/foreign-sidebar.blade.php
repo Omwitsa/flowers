@@ -20,7 +20,7 @@
             <li class="active">
                 <a href="/" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                    <span class="pcoded-mtext">Dashboard</span>
+                    <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
@@ -36,7 +36,7 @@
             </li>
         </ul> -->
 
-        <ul class="pcoded-item pcoded-left-item">
+        <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="">
                 <a href="/order-panel" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
@@ -44,7 +44,7 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
         <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">

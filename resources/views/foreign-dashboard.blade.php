@@ -1,5 +1,6 @@
 <x-app-layout>
-    <div class="row">
+    <!-- <div class="row">
         INTERNATIONALLY
-    </div>
+    </div> -->
+    <livewire:order-panel>
 </x-app-layout>
