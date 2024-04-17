@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">AAA
+            <a href="#" wire:navigate>AAA
                 <!-- <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" /> -->
             </a>
             <a class="mobile-options waves-effect waves-light">
@@ -80,7 +80,7 @@
                             </a>
                         </li> -->
                         <li class="waves-effect waves-light">
-                            <a href="/logout">
+                            <a href="/logout" wire:navigate>
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>

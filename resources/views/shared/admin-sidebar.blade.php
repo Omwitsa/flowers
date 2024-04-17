@@ -18,7 +18,7 @@
         <!--<div class="pcoded-navigation-label">Navigation</div>-->
         <ul class="pcoded-item pcoded-left-item">
             <li class="active">
-                <a href="/" class="waves-effect waves-dark">
+                <a href="/" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                     <span class="pcoded-mtext">Dashboard</span>
                     <span class="pcoded-mcaret"></span>
@@ -28,7 +28,7 @@
         
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/orders" class="waves-effect waves-dark">
+                <a href="/orders" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>
@@ -38,7 +38,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/users" class="waves-effect waves-dark">
+                <a href="/users" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Users</span>
                     <span class="pcoded-mcaret"></span>
@@ -48,7 +48,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/clients" class="waves-effect waves-dark">
+                <a href="/clients" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Clients</span>
                     <span class="pcoded-mcaret"></span>
@@ -58,7 +58,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/varieties" class="waves-effect waves-dark">
+                <a href="/varieties" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Varieties</span>
                     <span class="pcoded-mcaret"></span>
@@ -68,7 +68,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/variety-range" class="waves-effect waves-dark">
+                <a href="/variety-range" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Variety Range</span>
                     <span class="pcoded-mcaret"></span>
@@ -78,7 +78,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/brands" class="waves-effect waves-dark">
+                <a href="/brands" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Brands</span>
                     <span class="pcoded-mcaret"></span>

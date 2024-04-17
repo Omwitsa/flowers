@@ -1,21 +1,3 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-use Livewire\Volt\Component;
-
-new class extends Component
-{
-    /**
-     * Log the current user out of the application.
-     */
-    public function logout(Logout $logout): void
-    {
-        $logout();
-
-        $this->redirect('/', navigate: true);
-    }
-}; ?>
-
 <nav class="pcoded-navbar">
     <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
     <div class="pcoded-inner-navbar main-menu">
@@ -36,15 +18,15 @@ new class extends Component
         <!--<div class="pcoded-navigation-label">Navigation</div>-->
         <ul class="pcoded-item pcoded-left-item">
             <li class="active">
-                <a href="/" class="waves-effect waves-dark">
+                <a href="/" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                    <span class="pcoded-mtext">Dashboard</span>
+                    <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
         </ul>
         
-        <ul class="pcoded-item pcoded-left-item">
+        <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="">
                 <a href="/orders" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
@@ -52,7 +34,17 @@ new class extends Component
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-        </ul>
+        </ul> -->
+
+        <!-- <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/order-panel" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Orders</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul> -->
 
         <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">

@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Brands</h5>
         <div class="card-header-right">
-            <a href="{{ url('/new-brand') }}" class="btn btn-primary waves-effect waves-light">New</a>
+            <a href="{{ url('/new-brand') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
         </div>
     </div>
     <div class="card-block table-border-style">
