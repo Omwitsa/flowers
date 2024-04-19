@@ -5,7 +5,7 @@ body {
 	margin-top: 20px;
 }
 .landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
-	background-color: #fc8eac;
+	background-color: #FF0000;
 }
 .landing-card .card-block .btn-lg{
 	margin: 20px;
@@ -14,5 +14,18 @@ body {
 }
 .variety-section{
 	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.variety-section img{
+	margin-top: 20px;
+}
+.variety-section .row{
+	background-color: #fc8eac;
+	color: #FFFFFF;
+}
+.variety-section .row input{
+	background-color: #ffffff;
+	padding-left: 5px;
 }
 

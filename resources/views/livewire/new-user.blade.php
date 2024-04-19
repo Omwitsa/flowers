@@ -35,6 +35,17 @@
                     <input  wire:model="email" name="email" type="email" class="form-control">
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
+
+                <label class="col-xs-12 col-sm-2 col-form-label">Role</label>
+                <div class="col-xs-12 col-sm-4">
+                    <select wire:model="role" class="form-control" required>
+                        <option disabled value=""></option>
+                        @foreach(\App\Constants\Roles::cases() as $role)
+                            <option value="{{ $role->value }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
+                </div>
             </div><br>
             <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
         </form> 

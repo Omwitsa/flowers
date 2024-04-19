@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Administrator',
             'usercode' => 'Admin',
-            'password' => Hash::make('12341234'),
+            'password' => Hash::make('sysadmin'),
             'email' => 'itsupport@aaagrowers.co.ke',
-            'role' => Roles::Admin,
+            'role' => Roles::ADMIN->value,
         ]);
     }
 }

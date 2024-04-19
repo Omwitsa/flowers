@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-block">
                         <img src="assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;">
-                        <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg" wire:navigate>Log in</a>
+                        <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg">Log in</a>
                     </div>
                     <div class="card-footer text-center">
                         <i>For immediate support call</i> &nbsp; 
