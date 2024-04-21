@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('variety', function (Blueprint $table) {
             $table->id();
-            $table->string('VarietyName'); // Unique
-            $table->string('VarietyCode'); // Unique
-            $table->string('FlowerType');
-            $table->string('Colour');
+            $table->string('VarietyName', length: 100)->unique(); 
+            $table->string('VarietyCode', length: 50)->unique();
+            $table->string('FlowerType', length: 50);
+            $table->string('Colour', length: 50);
             $table->boolean('Active')->default(true);
+            $table->string('brand', length: 100);
+            $table->string('varietyRange', length: 50);
+            $table->string('picUrl');
             $table->timestamps();
         });
     }

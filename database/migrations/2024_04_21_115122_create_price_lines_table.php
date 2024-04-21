@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('variety_ranges', function (Blueprint $table) {
+        Schema::create('price_lines', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', length: 50);
-            $table->string('HeadSize', length: 20);
-            $table->string('Brand', length: 100);
-            $table->boolean('active')->default(true);
+            $table->string('header', length: 100);
+            $table->string('variety', length: 100);
+            $table->decimal('price', total: 8, places: 2);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('variety_ranges');
+        Schema::dropIfExists('price_lines');
     }
 };

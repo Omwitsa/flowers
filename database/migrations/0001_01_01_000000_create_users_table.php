@@ -14,16 +14,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('usercode')->unique();
+            $table->string('name', length: 100);
+            $table->string('usercode', length: 50)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('active')->default(true);
-            // $table->enum('role', Roles::toArray())->default('Local');
-            // $table->enum('role', Roles::toArray())->default(Roles::LOCAL->value);
-            $table->string('role')->default(Roles::LOCAL->value);
-            $table->string('personnel')->default('AAA');
+            $table->string('role', length: 50)->default(Roles::LOCAL->value);
+            $table->string('personnel', length: 50)->default('AAA');
             $table->rememberToken();
             $table->timestamps();
         });

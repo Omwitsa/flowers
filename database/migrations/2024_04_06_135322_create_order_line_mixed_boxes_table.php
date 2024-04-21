@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('OrderLineId');
             $table->bigInteger('VarietyId');
-            $table->string('StemLength');
-            $table->string('StemQty');
+            $table->string('StemLength', length: 100);
+            $table->integer('StemQty');
             $table->timestamps();
         });
     }

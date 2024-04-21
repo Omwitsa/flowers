@@ -16,9 +16,9 @@ return new class extends Migration
             $table->bigInteger('ClientId');
             $table->dateTime('DateCreated');
             $table->date('ReceivingDate');
-            $table->string('LpoNo');
+            $table->string('LpoNo', length: 50);
             $table->integer('Status');
-            $table->string('Farm');
+            $table->string('Farm', length: 100);
             $table->integer('Type');
             $table->integer('IsSendEmail');
             $table->string('confirmUrl');

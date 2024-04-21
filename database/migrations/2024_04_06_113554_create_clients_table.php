@@ -14,15 +14,17 @@ return new class extends Migration
         Schema::create('client', function (Blueprint $table) {
             $table->id();
             $table->string('ClientName');
-            $table->string('ClientCode');
-            $table->string('ClientType');
+            $table->string('ClientCode', length: 50);
+            $table->string('ClientType', length: 50);
             $table->mediumText('EmailRecepients');
             $table->string('DropOff');
-            $table->string('Category');
-            $table->string('Country');
-            $table->string('ClientDivision');
+            $table->string('Category', length: 50);  // Inactive ... 
+            $table->string('Country', length: 50);
+            $table->string('ClientDivision', length: 100);
             $table->boolean('FairTrade')->default(false);
-            $table->string('PackRate');
+            $table->string('Price', length: 100);
+            $table->string('PackRate', length: 100);
+            $table->string('Currency', length: 20);
             $table->timestamps();
         });
     }

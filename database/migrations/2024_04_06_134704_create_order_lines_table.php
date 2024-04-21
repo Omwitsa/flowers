@@ -16,12 +16,12 @@ return new class extends Migration
             $table->bigInteger('OrderHeaderId');
             $table->bigInteger('VarietyId');
             $table->bigInteger('VarietyRangeId');
-            $table->string('Length');
-            $table->string('BoxType');
-            $table->string('StemQty');
-            $table->string('PackRate');
-            $table->string('Boxes');
-            $table->string('Farm');
+            $table->string('Length', length: 20);
+            $table->string('BoxType', length: 20);
+            $table->string('StemQty', length: 20);
+            $table->string('PackRate', length: 20);
+            $table->string('Boxes', length: 20);
+            $table->string('Farm', length: 100);
             $table->bigInteger('FarmMixBoxId');
             $table->string('BoxMarking');
             $table->timestamps();

@@ -16,6 +16,9 @@ class Variety extends Model
         'FlowerType',
         'Range',
         'Colour',
-        'PicUrl',
+        'Active',
+        'brand',
+        'varietyRange',
+        'picUrl',
     ];
 }
