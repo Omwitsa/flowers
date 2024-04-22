@@ -80,7 +80,7 @@
                             </a>
                         </li> -->
                         <li class="waves-effect waves-light">
-                            <a href="/logout" wire:navigate>
+                            <a href="/logout">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>

@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Livewire;
+
+use Livewire\Component;
+use App\Models\dropoff;
+
+class NewDropoff extends Component
+{
+    public string $name = '';
+
+
+    public function creatDropoff()
+    {
+        $validated = $this->validate([
+            'name' => ['required', 'string', 'max:100'],
+        ]);
+
+        dropoff::create($validated);
+        $this->redirect('/dropoffs', navigate: true);
+    }
+
+    public function render()
+    {
+        return view('livewire.new-dropoff');
+    }
+}

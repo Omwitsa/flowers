@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pack_rate_lines', function (Blueprint $table) {
             $table->id();
-            $table->string('header', length: 100);
+            $table->foreignId('pack_rate_headers_id')->constrained();
             $table->string('variety', length: 100);
             $table->smallInteger('35');
             $table->smallInteger('40');

@@ -13,9 +13,17 @@ return new class extends Migration
     {
         Schema::create('price_lines', function (Blueprint $table) {
             $table->id();
-            $table->string('header', length: 100);
+            $table->foreignId('price_headers_id')->constrained();
             $table->string('variety', length: 100);
-            $table->decimal('price', total: 8, places: 2);
+            $table->decimal('35', total: 8, places: 2);
+            $table->decimal('40', total: 8, places: 2);
+            $table->decimal('50', total: 8, places: 2);
+            $table->decimal('60', total: 8, places: 2);
+            $table->decimal('70', total: 8, places: 2);
+            $table->decimal('80', total: 8, places: 2);
+            $table->decimal('90', total: 8, places: 2);
+            $table->decimal('100', total: 8, places: 2);
+
             $table->timestamps();
         });
     }

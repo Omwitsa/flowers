@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Clients</h5>
         <div class="card-header-right">
-            <a href="{{ url('/new-user') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
+            <a href="{{ url('/new-client') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
         </div>
     </div>
     <div class="card-block table-border-style">
@@ -11,12 +11,15 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Client Name</th>
-                        <th>Client Code</th>
-                        <th>Client Type</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Type</th>
                         <th>Drop Off</th>
                         <th>Category</th>
-                        <th>Client Division</th>
+                        <th>Division</th>
+                        <th>Price</th>
+                        <th>PackRate</th>
+                        <th>Currency</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +32,9 @@
                             <td>{{ $client->DropOff }}</td>
                             <td>{{ $client->Category }}</td>
                             <td>{{ $client->ClientDivision }}</td>
+                            <td>{{ $client->Price }}</td>
+                            <td>{{ $client->PackRate }}</td>
+                            <td>{{ $client->Currency }}</td>
                         </tr>
                     @endforeach
                 </tbody>

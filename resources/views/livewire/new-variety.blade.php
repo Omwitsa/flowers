@@ -28,9 +28,39 @@
                     <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
                 </div>
 
+                <label class="col-xs-12 col-sm-2 col-form-label">Brand</label>
+                <div class="col-xs-12 col-sm-4">
+                    <select wire:model="brand" class="form-control" required>
+                        <option disabled value=""></option>
+                        @foreach($brands as $brand)
+                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('brand')" class="mt-2" />
+                </div>
+
+                <label class="col-xs-12 col-sm-2 col-form-label">Range</label>
+                <div class="col-xs-12 col-sm-4">
+                    <select wire:model="varietyRange" class="form-control" required>
+                        <option disabled value=""></option>
+                        @foreach($ranges as $range)
+                            <option value="{{ $range->Name }}">{{ $range->Name }}</option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('varietyRange')" class="mt-2" />
+                </div>
+
             <!-- $table->boolean('Active')->default(true); -->
             <!-- $table->string('PicUrl'); -->
 
+            </div>
+
+            <div class="form-group row">
+                <label class="col-xs-12 col-sm-2 col-form-label">Upload Picture</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="picUrl" id="picUrl" name="picUrl" type="file" class="form-control">
+                    <x-input-error :messages="$errors->get('picUrl')" class="mt-2" />
+                </div>
             </div>
             
             <div class="form-group row">

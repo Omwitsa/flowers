@@ -15,7 +15,8 @@ class NewUser extends Component
     public string $name = '';
     public string $usercode = '';
     public string $email = '';
-    
+    public string $role = '';
+    public string $password = '';
     public string $password_confirmation = '';
     public function render()
     {
