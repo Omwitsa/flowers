@@ -3,7 +3,7 @@
         <h5>Client</h5>
     </div>
     <div class="card-block">
-        <form wire:submit="creatVariety" class="form-material" autocomplete="off">
+        <form wire:submit="creatClient" class="form-material" autocomplete="off">
             @csrf
             <div class="form-group row">
                 <label class="col-xs-12 col-sm-2 col-form-label">Name</label>
@@ -72,18 +72,19 @@
                     <select wire:model="Price" class="form-control">
                         <option disabled value=""></option>
                         @foreach($prices as $price)
-                            <option value="{{ $price->name }}">{{ $price->name }}</option>
+                            <option value="{{ $price->Name }}">{{ $price->Name }}</option>
                         @endforeach
                     </select>
                     <x-input-error :messages="$errors->get('DropOff')" class="mt-2" />
                 </div>
+
 
                 <label class="col-xs-12 col-sm-2 col-form-label">Pack Rate</label>
                 <div class="col-xs-12 col-sm-4">
                     <select wire:model="PackRate" class="form-control">
                         <option disabled value=""></option>
                         @foreach($packrates as $packrate)
-                            <option value="{{ $packrate->name }}">{{ $packrate->name }}</option>
+                            <option value="{{ $packrate->Name }}">{{ $packrate->Name }}</option>
                         @endforeach
                     </select>
                     <x-input-error :messages="$errors->get('DropOff')" class="mt-2" />
@@ -100,12 +101,6 @@
                     <textarea wire:model="EmailRecepients" name="EmailRecepients" rows="3" class="form-control"></textarea>
                     <x-input-error :messages="$errors->get('EmailRecepients')" class="mt-2" />
                 </div>
-
-               
-
-            <!-- $table->boolean('Active')->default(true); -->
-            <!-- $table->string('PicUrl'); -->
-
             </div>
             
             <br><button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>

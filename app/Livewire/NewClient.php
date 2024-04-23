@@ -9,7 +9,6 @@ use App\Models\ClientCategory;
 use App\Models\Region;
 use App\Models\PriceHeader;
 use App\Models\PackRateHeader;
-use App\Constants\Roles;
 
 class NewClient extends Component
 {
@@ -28,9 +27,7 @@ class NewClient extends Component
     public string $ClientDivision = '';
     public string $Price = '';
     public string $PackRate = '';
-    // public string $ClientCode = '';
-    // public string $ClientCode = '';
-    
+    public string $Currency = '';
 
     public function mount()
     {
@@ -41,7 +38,7 @@ class NewClient extends Component
         $this->packrates = PackRateHeader::all();
     }
 
-    public function creatBrand()
+    public function creatClient()
     {
         $validated = $this->validate([
             'ClientName' => ['required', 'string', 'max:255'],
@@ -54,12 +51,7 @@ class NewClient extends Component
             'ClientDivision' => ['required', 'string', 'max:100'],
             'Price' => ['required', 'string', 'max:100'],
             'PackRate' => ['required', 'string', 'max:100'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
-            // 'ClientCode' => ['required', 'string', 'max:50'],
+            'Currency' => ['required', 'string', 'max:50'],
         ]);
 
         Client::create($validated);

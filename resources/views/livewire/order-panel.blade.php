@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div><br><hr>
-            
+        
             <div class="row">
                 @foreach ($varieties as $variety)
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 variety-section">
@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
                                 <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
-                                <h3>{{$variety->varietyName}}</h3>
+                                <h5>{{$variety->VarietyName}}</h5>
                             </div>
                             <div class="col-xs-12 col-sm-6 text-center">
                                 <p><strong>KES 500/- per bunch</strong></p>
