@@ -13,20 +13,21 @@ return new class extends Migration
     {
         Schema::create('price_lines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('price_headers_id')->constrained();
+            $table->foreignId('price_header_id')->constrained();
             $table->string('variety', length: 100);
-            $table->decimal('35', total: 8, places: 2);
-            $table->decimal('40', total: 8, places: 2);
-            $table->decimal('50', total: 8, places: 2);
-            $table->decimal('60', total: 8, places: 2);
-            $table->decimal('70', total: 8, places: 2);
-            $table->decimal('80', total: 8, places: 2);
-            $table->decimal('90', total: 8, places: 2);
-            $table->decimal('100', total: 8, places: 2);
+            $table->decimal('len35', total: 8, places: 2);
+            $table->decimal('len40', total: 8, places: 2);
+            $table->decimal('len50', total: 8, places: 2);
+            $table->decimal('len60', total: 8, places: 2);
+            $table->decimal('len70', total: 8, places: 2);
+            $table->decimal('len80', total: 8, places: 2);
+            $table->decimal('len90', total: 8, places: 2);
+            $table->decimal('len100', total: 8, places: 2);
 
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

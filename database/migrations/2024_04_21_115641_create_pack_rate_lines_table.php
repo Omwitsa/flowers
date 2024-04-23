@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('pack_rate_lines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pack_rate_headers_id')->constrained();
+            $table->foreignId('pack_rate_header_id')->constrained();
             $table->string('variety', length: 100);
-            $table->smallInteger('35');
-            $table->smallInteger('40');
-            $table->smallInteger('50');
-            $table->smallInteger('60');
-            $table->smallInteger('70');
-            $table->smallInteger('80');
-            $table->smallInteger('90');
-            $table->smallInteger('100');
+            $table->smallInteger('len35');
+            $table->smallInteger('len40');
+            $table->smallInteger('len50');
+            $table->smallInteger('len60');
+            $table->smallInteger('len70');
+            $table->smallInteger('len80');
+            $table->smallInteger('len90');
+            $table->smallInteger('len100');
             $table->timestamps();
         });
     }

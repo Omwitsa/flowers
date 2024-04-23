@@ -4,11 +4,31 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\PriceHeader;
+use App\Models\Variety;
 
 class NewPrice extends Component
 {
+    public $varieties;
     public string $Name = '';
     public string $Currency = '';
+
+    public $priceLines = [];
+
+    public function mount()
+    {
+        $this->varieties = Variety::all();
+    }
+
+    public function addPriceLine()
+    {
+        $this->priceLines[] = ['variety' => '', 'len35' => 0, 'len40' => 0, 'len50' => 0, 'len60' => 0, 'len70' => 0, 'len80' => 0, 'len90' => 0, 'len100' => 0];
+    }
+
+    public function removePriceLine($index)
+    {
+        unset($this->priceLines[$index]);
+        $this->priceLines = array_values($this->priceLines);
+    }
 
     public function createPrice()
     {
@@ -17,7 +37,11 @@ class NewPrice extends Component
             'Currency' => ['required', 'string', 'max:20'],
         ]);
 
-        PriceHeader::create($validated);
+        $price = PriceHeader::create($validated);
+        foreach ($this->priceLines as $item) {
+            $price->priceLines()->create($item);
+        }
+
         $this->redirect('/prices', navigate: true);
     }
 
