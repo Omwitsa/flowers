@@ -18,23 +18,37 @@
                     </div>
                 </div>
             </div><br><hr>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-xs-12 col-sm-2 col-form-label">Select Range</label>
+                        <div class="col-xs-12 col-sm-10">
+                            <select wire:model.live="varietyRange" class="form-control" required>
+                                <option disabled value=""></option>
+                                @foreach($ranges as $range)
+                                    <option value="{{ $range->Name }}">{{ $range->Name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
         
             <div class="row">
-                @foreach ($varieties as $variety)
+                @foreach ($groupedVarieties as $variety)
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 variety-section">
                         <!-- <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;"> -->
-                        <div class="row">
+                        <div class="row variety">
                             <div class="col-xs-12 col-sm-6">
                                 <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
-                                <h5>{{$variety->VarietyName}}</h5>
                             </div>
                             <div class="col-xs-12 col-sm-6 text-center">
-                                <p><strong>KES 500/- per bunch</strong></p>
-                                <p>Length: 60 cm</p>
-                                <p><strong>10 stems per bunch</strong></p>
-                                <div class="form-group">
+                                <h5>{{$variety->VarietyName}}</h5>
+                                <p><strong>{{$variety->currency}} {{$variety->price}} per stem</strong></p>
+                                <!-- <div class="form-group">
                                     <input type="text" class="form-control form-sm-default" placeholder="Quantity">
-                                </div>
+                                </div> -->
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#orderSpecs">
                                     Buy Me
                                 </button>

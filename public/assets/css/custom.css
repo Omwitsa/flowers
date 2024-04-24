@@ -19,13 +19,10 @@ body {
 }
 .variety-section img{
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
-.variety-section .row{
+.variety-section .variety{
 	background-color: #fc8eac;
 	color: #FFFFFF;
-}
-.variety-section .row input{
-	background-color: #ffffff;
-	padding-left: 5px;
 }
 
