@@ -17,6 +17,31 @@
                         <label class="form-check-label" for="bellissima">BELLISSIMA</label>
                     </div>
                 </div>
+            </div><br><hr>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group row">
+                        <label class="col-xs-12 col-sm-4 col-form-label">Length</label>
+                        <div class="col-xs-12 col-sm-8">
+                            <select wire:model.live="length" class="form-control" required>
+                                <option disabled value=""></option>
+                                <option value="len40">40 cm</option>
+                                <option value="len50">50 cm</option>
+                                <option value="len60">60 cm</option>
+                                <option value="len70">70 cm</option>
+                                <option value="len80">80 cm</option>
+                                <option value="len90">90 cm</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group row">
+                        
+                    </div>
+                </div>
             </div><br>
 
             <div class="row">
@@ -30,13 +55,17 @@
                                     <div class="row variety">
                                         <div class="col-xs-12 col-sm-6">
                                             <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
+                                            <h5>{{$variety->VarietyName}}</h5>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
-                                            <h5>{{$variety->VarietyName}}</h5>
                                             <p><strong>{{$variety->currency}} {{$variety->price}} per stem</strong></p>
-                                            <!-- <div class="form-group">
-                                                <input type="text" class="form-control form-sm-default" placeholder="Quantity">
-                                            </div> -->
+                                            <p><strong>BoxType: {{$packRate->Name}}</strong></p>
+                                            <p><strong>Packrate: {{$variety->packrate}}</strong></p>
+                                            <p><strong>Stems: {{$variety->stems}}</strong></p>
+                                            <!-- <p><strong>Stems: {{$packRate->Name}}</strong></p> -->
+                                            <div class="form-group">
+                                                <input wire:model.live="quantity" type="text" class="form-control form-sm-default" placeholder="Quantity">
+                                            </div>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#orderSpecs">
                                                 Buy Me
                                             </button>
@@ -48,7 +77,7 @@
                                                 Add
                                             </button> -->
 
-                                            <div class="modal fade" id="orderSpecs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <!-- <div class="modal fade" id="orderSpecs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -59,37 +88,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                <div class="col-xs-12 col-sm-12">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xs-12 col-sm-4 col-form-label">Length</label>
-                                                                        <div class="col-xs-12 col-sm-8">
-                                                                            <select class="form-control">
-                                                                                <option disabled value=""></option>
-                                                                                <option value="Bronze">40 cm</option>
-                                                                                <option value="Silver">50 cm</option>
-                                                                                <option value="Spray Deluxe">60 cm</option>
-                                                                                <option value="Spray Premium">70 cm</option>
-                                                                            </select>
-                                                                        </div>
-
-                                                                        <label class="col-xs-12 col-sm-4 col-form-label">Box Type</label>
-                                                                        <div class="col-xs-12 col-sm-8">
-                                                                            <select class="form-control">
-                                                                                <option disabled value=""></option>
-                                                                                <option value="Bronze">AAA ZIM 2018 Ref</option>
-                                                                                <option value="Silver">AAA Standard 2019</option>
-                                                                                <option value="Spray Deluxe">AAA jUMBO 2019</option>
-                                                                            </select>
-                                                                        </div>
-
-                                                                        <label class="col-xs-12 col-sm-4 col-form-label">Quantity</label>
-                                                                        <div class="col-xs-12 col-sm-8">
-                                                                            <input wire:model="name" name="name" type="text" class="form-control" autocomplete="off" >
-                                                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -98,7 +97,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

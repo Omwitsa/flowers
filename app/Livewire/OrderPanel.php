@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\PriceHeader;
 use App\Models\PackRateHeader;
 use App\Models\PriceLine;
+use App\Models\PackRateLine;
 use stdclass;
 use Illuminate\Support\Facades\DB;
 
@@ -20,12 +21,12 @@ class OrderPanel extends Component
     public $client;
     public $price;
     public $packRate;
+    public $length = 'len60';
     public $groupedVarieties = [];
     
     public function mount()
     {
         // $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
-
         $this->client = Client::firstWhere('ClientCode', auth()->user()->usercode);
         $this->price = PriceHeader::firstWhere('Name', $this->client->Price);
         $this->packRate = PackRateHeader::firstWhere('Name', $this->client->PackRate);
@@ -50,9 +51,14 @@ class OrderPanel extends Component
         $this->formatvariety();
     }
 
-    public function updatedVarietyRange()
+    public function updatedLength()
     {
-        $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND varietyRange = ?', [$this->brands, $this->varietyRange]);
+        $this->formatvariety();
+    }
+
+    public function updatedQuantity()
+    {
+        $this->varietyRange = '';
     }
 
     private function formatvariety()
@@ -66,7 +72,10 @@ class OrderPanel extends Component
             foreach ($this->varieties as $variety) {
                 $variety->currency= $this->price->Currency;
                 $priceLine = PriceLine::where('price_header_id', $this->price->id)->where('variety', $variety->VarietyName)->first();
+                $packrateLine = PackRateLine::where('pack_rate_header_id', $this->packRate->id)->where('variety', $variety->VarietyName)->first();
                 $variety->price= $priceLine->len60;
+                $variety->packrate= $packrateLine[$this->length];
+                $variety->stems= $variety->packrate;
             }
 
             $formattedRange->varieties = $this->varieties;

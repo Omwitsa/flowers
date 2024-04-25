@@ -25,4 +25,7 @@ body {
 	background-color: #fc8eac;
 	color: #FFFFFF;
 }
-
+.variety-section .row input{
+	background-color: #ffffff;
+	padding-left: 5px;
+}
