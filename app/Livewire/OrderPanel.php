@@ -20,7 +20,7 @@ class OrderPanel extends Component
     public $client;
     public $price;
     public $packRate;
-    public $groupedVarieties = array();
+    public $groupedVarieties = [];
     
     public function mount()
     {
@@ -32,20 +32,7 @@ class OrderPanel extends Component
         $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brands]);
         // $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->brands]);
 
-        foreach ($this->ranges as $range) {
-            $formattedRange = new StdClass();
-            $formattedRange->name = $range->Name;
-            $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND varietyRange = ?', [$this->brands, $range->Name]);
-
-            foreach ($this->varieties as $variety) {
-                $variety->currency= $this->price->Currency;
-                $priceLine = PriceLine::where('price_header_id', $this->price->id)->where('variety', $variety->VarietyName)->first();
-                $variety->price= $priceLine->len60;
-            }
-
-            $formattedRange->varieties = $this->varieties;
-            array_push($this->groupedVarieties, $formattedRange);
-        }
+        $this->formatvariety();
     }
 
     public function render()
@@ -60,11 +47,31 @@ class OrderPanel extends Component
         // dd($this->brands);
         $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brands]);
         $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->brands]);
+        $this->formatvariety();
     }
 
     public function updatedVarietyRange()
     {
         $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND varietyRange = ?', [$this->brands, $this->varietyRange]);
+    }
+
+    private function formatvariety()
+    {
+        $this->groupedVarieties = [];
+        foreach ($this->ranges as $range) {
+            $formattedRange = new StdClass();
+            $formattedRange->name = $range->Name;
+            $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND varietyRange = ?', [$this->brands, $range->Name]);
+
+            foreach ($this->varieties as $variety) {
+                $variety->currency= $this->price->Currency;
+                $priceLine = PriceLine::where('price_header_id', $this->price->id)->where('variety', $variety->VarietyName)->first();
+                $variety->price= $priceLine->len60;
+            }
+
+            $formattedRange->varieties = $this->varieties;
+            array_push($this->groupedVarieties, $formattedRange);
+        }
     }
 
     // public function creatVariety()
