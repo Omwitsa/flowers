@@ -83,6 +83,46 @@ class OrderPanel extends Component
         }
     }
 
+    public function selectedItem($gv_index, $v_index, $event)
+    {
+        // $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
+        // $variety->stems = $event;
+        dd($event);
+        //$this->varietyRange = $itemId;
+        // Access the selected item data using $itemId (e.g., database query)
+        // $selectedItem = Item::find($itemId);
+
+        // Update component state, perform actions, etc. based on $selectedItem
+        // $this->selectedItemId = $itemId; // Example: store the ID for further use
+    }
+
+    public function updateValue($value, $key)
+    {
+        dd($value);
+    // Update the single property with the new value
+    // $this->inputValue = $value;
+
+    // Perform actions based on the updated value and key (optional)
+    }
+
+    public function getItemInputKey($itemId)
+    {
+    // Return a unique key for the input
+    return "item_input_" . $itemId;
+    }
+
+    public function handleKeyDown($event)
+    {
+    // Access the entered value using $event->target->value
+    $enteredValue = $event->target->value;
+
+    // Perform actions based on the entered value or key pressed (optional)
+    // ...
+
+    // Update the component state if needed (optional)
+    // $this->inputValue = $enteredValue;
+    }
+
     // public function creatVariety()
     // {
     //     // $this->count--;

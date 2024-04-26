@@ -45,11 +45,11 @@
             </div><br>
 
             <div class="row">
-                @foreach ($groupedVarieties as $groupedVariety)
+                @foreach ($groupedVarieties as $gv_index => $groupedVariety)
                     <div class="col-xs-12 col-sm-12">
                         <h5>{{$groupedVariety->name}}</h5><hr>
                         <div class="row">
-                            @foreach ($groupedVariety->varieties as $variety)
+                            @foreach ($groupedVariety->varieties as $v_index => $variety)
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 variety-section">
                                     <!-- <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;"> -->
                                     <div class="row variety">
@@ -64,9 +64,9 @@
                                             <p><strong>Stems: {{$variety->stems}}</strong></p>
                                             <!-- <p><strong>Stems: {{$packRate->Name}}</strong></p> -->
                                             <div class="form-group">
-                                                <input wire:model.live="quantity" type="text" class="form-control form-sm-default" placeholder="Quantity">
+                                                <input wire:keydown="selectedItem({{ $gv_index }}, {{ $v_index }}, 40)" wire:key="{{ $variety->id }}" type="text" placeholder="Quantity">
                                             </div>
-                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#orderSpecs">
+                                            <button wire:click="selectedItem({{ $gv_index }}, {{ $v_index }}, 30)" wire:key="{{ $variety->id }}" type="button" class="btn-primary">
                                                 Buy Me
                                             </button>
                                         </div>
