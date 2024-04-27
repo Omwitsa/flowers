@@ -83,11 +83,11 @@ class OrderPanel extends Component
         }
     }
 
-    public function selectedItem($gv_index, $v_index, $event)
+    public function selectedItem($gv_index, $v_index, $value)
     {
-        // $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
-        // $variety->stems = $event;
-        dd($event);
+        $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
+        $variety->stems = $value;
+        // dd($value);
         //$this->varietyRange = $itemId;
         // Access the selected item data using $itemId (e.g., database query)
         // $selectedItem = Item::find($itemId);

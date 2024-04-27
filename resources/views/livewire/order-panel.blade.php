@@ -64,7 +64,7 @@
                                             <p><strong>Stems: {{$variety->stems}}</strong></p>
                                             <!-- <p><strong>Stems: {{$packRate->Name}}</strong></p> -->
                                             <div class="form-group">
-                                                <input wire:keydown="selectedItem({{ $gv_index }}, {{ $v_index }}, 40)" wire:key="{{ $variety->id }}" type="text" placeholder="Quantity">
+                                                <input wire:blur="selectedItem({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" type="text" placeholder="Quantity">
                                             </div>
                                             <button wire:click="selectedItem({{ $gv_index }}, {{ $v_index }}, 30)" wire:key="{{ $variety->id }}" type="button" class="btn-primary">
                                                 Buy Me
