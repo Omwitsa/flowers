@@ -75,7 +75,9 @@ class OrderPanel extends Component
                 $packrateLine = PackRateLine::where('pack_rate_header_id', $this->packRate->id)->where('variety', $variety->VarietyName)->first();
                 $variety->price= $priceLine->len60;
                 $variety->packrate= $packrateLine[$this->length];
-                $variety->stems= $variety->packrate;
+                $variety->stems= 0;
+                $variety->quantity= '';
+                $variety->sub_total= 0;
             }
 
             $formattedRange->varieties = $this->varieties;
@@ -86,7 +88,8 @@ class OrderPanel extends Component
     public function selectedItem($gv_index, $v_index, $value)
     {
         $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
-        $variety->stems = $value;
+        $variety->stems = $variety->packrate * $value;
+        $variety->sub_total = $variety->price * $value;
         // dd($value);
         //$this->varietyRange = $itemId;
         // Access the selected item data using $itemId (e.g., database query)
@@ -95,36 +98,4 @@ class OrderPanel extends Component
         // Update component state, perform actions, etc. based on $selectedItem
         // $this->selectedItemId = $itemId; // Example: store the ID for further use
     }
-
-    public function updateValue($value, $key)
-    {
-        dd($value);
-    // Update the single property with the new value
-    // $this->inputValue = $value;
-
-    // Perform actions based on the updated value and key (optional)
-    }
-
-    public function getItemInputKey($itemId)
-    {
-    // Return a unique key for the input
-    return "item_input_" . $itemId;
-    }
-
-    public function handleKeyDown($event)
-    {
-    // Access the entered value using $event->target->value
-    $enteredValue = $event->target->value;
-
-    // Perform actions based on the entered value or key pressed (optional)
-    // ...
-
-    // Update the component state if needed (optional)
-    // $this->inputValue = $enteredValue;
-    }
-
-    // public function creatVariety()
-    // {
-    //     // $this->count--;
-    // }
 }

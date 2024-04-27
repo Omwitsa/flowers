@@ -51,22 +51,22 @@
                         <div class="row">
                             @foreach ($groupedVariety->varieties as $v_index => $variety)
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 variety-section">
-                                    <!-- <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;"> -->
                                     <div class="row variety">
-                                        <div class="col-xs-12 col-sm-6">
+                                        <div class="col-xs-12 col-sm-6 text-center">
                                             <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
                                             <h5>{{$variety->VarietyName}}</h5>
+                                            <p><strong>{{$variety->currency}} {{$variety->price}}</strong></p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
-                                            <p><strong>{{$variety->currency}} {{$variety->price}} per stem</strong></p>
                                             <p><strong>BoxType: {{$packRate->Name}}</strong></p>
                                             <p><strong>Packrate: {{$variety->packrate}}</strong></p>
+                                            <p><strong>Minimum Order: 10</strong></p>
                                             <p><strong>Stems: {{$variety->stems}}</strong></p>
-                                            <!-- <p><strong>Stems: {{$packRate->Name}}</strong></p> -->
+                                            <p><strong>Sub-Total: {{$variety->currency}} {{$variety->sub_total}}</strong></p>
                                             <div class="form-group">
-                                                <input wire:blur="selectedItem({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" type="text" placeholder="Quantity">
+                                                <input wire:blur="selectedItem({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" wire:model="groupedVarieties.{{ $gv_index }}.varieties.{{ $v_index }}.quantity" type="number" placeholder="Quantity">
                                             </div>
-                                            <button wire:click="selectedItem({{ $gv_index }}, {{ $v_index }}, 30)" wire:key="{{ $variety->id }}" type="button" class="btn-primary">
+                                            <button wire:click="selectedItem({{ $gv_index }}, {{ $v_index }}, 30)" wire:key="{{ $variety->id }}" type="button" class="btn btn-primary btn-sm">
                                                 Buy Me
                                             </button>
                                         </div>
