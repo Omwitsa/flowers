@@ -64,10 +64,10 @@
                                             <p><strong>Stems: {{$variety->stems}}</strong></p>
                                             <p><strong>Sub-Total: {{$variety->currency}} {{$variety->sub_total}}</strong></p>
                                             <div class="form-group">
-                                                <input wire:blur="selectedItem({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" wire:model="groupedVarieties.{{ $gv_index }}.varieties.{{ $v_index }}.quantity" type="number" placeholder="Quantity">
+                                                <input wire:blur="onEnterQuantity({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" wire:model="groupedVarieties.{{ $gv_index }}.varieties.{{ $v_index }}.quantity" type="number" placeholder="Quantity">
                                             </div>
-                                            <button wire:click="selectedItem({{ $gv_index }}, {{ $v_index }}, 30)" wire:key="{{ $variety->id }}" type="button" class="btn btn-primary btn-sm">
-                                                Buy Me
+                                            <button wire:click="addToCart({{ $gv_index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" type="button" class="btn btn-primary btn-sm">
+                                                Add to Cart
                                             </button>
                                         </div>
                                     </div>

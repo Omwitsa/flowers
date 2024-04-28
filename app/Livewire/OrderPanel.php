@@ -85,12 +85,27 @@ class OrderPanel extends Component
         }
     }
 
-    public function selectedItem($gv_index, $v_index, $value)
+    public function onEnterQuantity($gv_index, $v_index, $value)
     {
         $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
         $variety->stems = $variety->packrate * $value;
         $variety->sub_total = $variety->price * $value;
         // dd($value);
+        //$this->varietyRange = $itemId;
+        // Access the selected item data using $itemId (e.g., database query)
+        // $selectedItem = Item::find($itemId);
+
+        // Update component state, perform actions, etc. based on $selectedItem
+        // $this->selectedItemId = $itemId; // Example: store the ID for further use
+    }
+
+    public function addToCart($gv_index, $v_index)
+    {
+        $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
+        // $collection = collect([$variety->id, $variety->VarietyName, $variety->VarietyCode, $variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price, $variety->packrate, $variety->stems, $variety->quantity,$variety->sub_total]);
+        // dd($collection);
+
+        // 
         //$this->varietyRange = $itemId;
         // Access the selected item data using $itemId (e.g., database query)
         // $selectedItem = Item::find($itemId);

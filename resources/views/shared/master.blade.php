@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +11,6 @@
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-   
     <!-- waves.css -->
     <link rel="stylesheet" href="assets/pages/waves/css/waves.min.css" type="text/css" media="all">
     <!-- Required Fremwork -->
@@ -27,6 +25,7 @@
     <!-- scrollbar.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
     <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
 
     <!-- Scripts -->
@@ -35,36 +34,27 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-2"></div>
-            <div class="col-xs-12 col-sm-8">
-                <div class="card landing-card">
-                    <div class="card-header text-center">
-                        <h3>Welcome to AAA Growers Group (Flowers)</h3>
-                    </div>
-                    <div class="card-block">
-                        <img src="assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;">
-                        <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg">Log in</a>
-                    </div>
-                    <div class="card-footer text-center">
-                        <i>For immediate support call</i> &nbsp; 
-                        <i class="fa fa-phone" aria-hidden="true"></i> <i>+254 730 779 200 </i> Or <br>
-                        email <i class="fa fa-envelope" aria-hidden="true">&nbsp; flowersales@aaagrowers.co.ke</i><br><br>
-                        AAA IT TEAM © 2024
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   
+    @yield('content')
+
     <!-- Required Jquery -->
     <script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
     <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+    <!-- waves js -->
+    <script src="assets/pages/waves/js/waves.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+    <!-- slimscroll js -->
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+
+    <!-- menu js -->
+    <script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/vertical/vertical-layout.min.js "></script>
+
+    <script type="text/javascript" src="assets/js/script.js "></script>
     @livewireScripts
 </body>
 
 </html>
-
