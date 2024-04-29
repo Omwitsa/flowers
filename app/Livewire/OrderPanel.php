@@ -8,6 +8,8 @@ use App\Models\PriceHeader;
 use App\Models\PackRateHeader;
 use App\Models\PriceLine;
 use App\Models\PackRateLine;
+use App\Models\Brand;
+use App\Models\OrderLine;
 use stdclass;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +17,6 @@ class OrderPanel extends Component
 {
     public $brands = 'AAA ROSES';
     public $varietyRange = '';
-
     public $ranges;
     public $varieties;
     public $client;
@@ -23,6 +24,8 @@ class OrderPanel extends Component
     public $packRate;
     public $length = 'len60';
     public $groupedVarieties = [];
+
+    public $collection;
     
     public function mount()
     {
@@ -101,16 +104,29 @@ class OrderPanel extends Component
 
     public function addToCart($gv_index, $v_index)
     {
+        // $this->collection->dd();
         $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
-        // $collection = collect([$variety->id, $variety->VarietyName, $variety->VarietyCode, $variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price, $variety->packrate, $variety->stems, $variety->quantity,$variety->sub_total]);
-        // dd($collection);
+        // $collection = collect([$variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price,$variety->sub_total]);
+        $selectedBrand = Brand::firstWhere('name', $variety->brand);
 
-        // 
-        //$this->varietyRange = $itemId;
-        // Access the selected item data using $itemId (e.g., database query)
-        // $selectedItem = Item::find($itemId);
+        // VarietyRangeId, BoxType
+        if(is_null($this->collection)){
+            $this->collection = collect([
+                ['VarietyId' => $variety->id, 'VarietyRangeId' => '1', 'Length' => substr($this->length,3), 'BoxType' => '1', 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]
+            ]);
+        }
+        else{
+            if($this->collection->contains('VarietyId', $variety->id)){
+                foreach ($this->collection as $key => $value) {
+                    $ordered = (object) $value;
+                    if($ordered->VarietyId === $variety->id){
+                        unset($this->collection[$key]);
+                    }
+                }
+            }
+            $this->collection->push(['VarietyId' => $variety->id, 'VarietyRangeId' => '1', 'Length' => substr($this->length,3), 'BoxType' => '1', 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]);
+        }
 
-        // Update component state, perform actions, etc. based on $selectedItem
-        // $this->selectedItemId = $itemId; // Example: store the ID for further use
+        // $value = $request->session()->get('key');
     }
 }

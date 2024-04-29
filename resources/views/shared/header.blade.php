@@ -38,7 +38,7 @@
                 <li class="header-notification">
                     <a href="#!" class="waves-effect waves-light">
                         <i class="ti-shopping-cart"></i>
-                        <span class="badge badge-warning">9</span>
+                        <span class="badge badge-warning">3</span>
                     </a>
                    
                     <!-- <ul class="show-notification">

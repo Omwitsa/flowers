@@ -10,12 +10,6 @@ use Auth;
 
 class HomeController extends Controller
 {
-    public function logout1(Request $request) {
-        auth()->logout();
-        // Auth::logout();
-        return redirect('/login');
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();

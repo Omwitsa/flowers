@@ -26,7 +26,6 @@ class NewPackRate extends Component
     public function removePackRateLine($index)
     {
         unset($this->packrateLines[$index]);
-        $this->packrateLines = array_values($this->packrateLines);
     }
 
     public function createPackRate()

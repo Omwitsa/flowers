@@ -27,7 +27,6 @@ class NewPrice extends Component
     public function removePriceLine($index)
     {
         unset($this->priceLines[$index]);
-        $this->priceLines = array_values($this->priceLines);
     }
 
     public function createPrice()

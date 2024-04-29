@@ -55,16 +55,16 @@
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
                                             <h5>{{$variety->VarietyName}}</h5>
-                                            <p><strong>{{$variety->currency}} {{$variety->price}}</strong></p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
-                                            <p><strong>BoxType: {{$packRate->Name}}</strong></p>
-                                            <p><strong>Packrate: {{$variety->packrate}}</strong></p>
-                                            <p><strong>Minimum Order: 10</strong></p>
-                                            <p><strong>Stems: {{$variety->stems}}</strong></p>
-                                            <p><strong>Sub-Total: {{$variety->currency}} {{$variety->sub_total}}</strong></p>
+                                            <strong>{{$variety->currency}} {{$variety->price}}</strong><br>
+                                            <strong>BoxType: {{$packRate->Name}}</strong><br>
+                                            <strong>Packrate: {{$variety->packrate}}</strong><br>
+                                            <strong>Minimum Order: 10</strong><br>
+                                            <strong>Stems: {{$variety->stems}}</strong><br>
+                                            <strong>Sub-Total: {{$variety->currency}} {{$variety->sub_total}}</strong>
                                             <div class="form-group">
-                                                <input wire:blur="onEnterQuantity({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" wire:model="groupedVarieties.{{ $gv_index }}.varieties.{{ $v_index }}.quantity" type="number" placeholder="Quantity">
+                                                <input wire:blur="onEnterQuantity({{ $gv_index }}, {{ $v_index }}, $event.target.value)" wire:key="{{ $variety->id }}" wire:model="groupedVarieties.{{ $gv_index }}.varieties.{{ $v_index }}.quantity" type="number" class="form-control form-control-sm" placeholder="Quantity">
                                             </div>
                                             <button wire:click="addToCart({{ $gv_index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" type="button" class="btn btn-primary btn-sm">
                                                 Add to Cart
@@ -104,11 +104,7 @@
                             @endforeach
                         </div><br>
                     </div>
-                    
-                    
                 @endforeach
-
-                
             </div><br>
             <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button> -->
         </form> 
