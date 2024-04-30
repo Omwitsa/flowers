@@ -10,6 +10,7 @@ class OrderHeader extends Model
 {
     use HasFactory;
     protected $table = 'orderheader';
+    protected $primaryKey = 'OrderHeaderId';
 
     public function orderLines(): HasMany
     {

@@ -30,7 +30,7 @@
 
                 <label class="col-xs-12 col-sm-2 col-form-label">Brand</label>
                 <div class="col-xs-12 col-sm-4">
-                    <select wire:model="brand" class="form-control" required>
+                    <select wire:model.live="brand" class="form-control" required>
                         <option disabled value=""></option>
                         @foreach($brands as $brand)
                             <option value="{{ $brand->name }}">{{ $brand->name }}</option>

@@ -7,6 +7,7 @@ use App\Models\Variety;
 use Livewire\WithFileUploads;
 use App\Models\Brand;
 use App\Models\varietyRange;
+use Illuminate\Support\Facades\DB;
 
 class NewVariety extends Component
 {
@@ -32,22 +33,26 @@ class NewVariety extends Component
     {
         // Colour, Active, PicUrl
 
-        $validated = $this->validate([
-            'VarietyName' => ['required', 'string', 'max:100'],
-            'VarietyCode' => ['required', 'string', 'max:50'],
-            'FlowerType' => ['required', 'string', 'max:50'],
-            'Colour' => ['string', 'max:50'],
-            'brand' => ['required', 'string', 'max:100'],
-            'varietyRange' => ['required', 'string', 'max:50'],
-            'picUrl' => [''],
-        ]);
-
+        $selectedRange = varietyRange::firstWhere('Name', $this->varietyRange);
         // $this->picUrl->storeAs('public/uploads', 'sq.png');
         // $this->picUrl->store('public/photos');
 
-        Variety::create($validated);
+        $variety = new Variety;
+        $variety->VarietyName = $this->VarietyName;
+        $variety->VarietyCode = $this->VarietyCode;
+        $variety->FlowerType = $this->FlowerType;
+        $variety->Colour = $this->Colour;
+        $variety->brand = $this->brand;
+        $variety->VarietyRangeId = $selectedRange->id;
+        $variety->picUrl = $this->picUrl;
+        $variety->save();
 
         $this->redirect('/varieties', navigate: true);
+    }
+
+    public function updatedBrand()
+    {
+        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brand]);
     }
 
     public function render()

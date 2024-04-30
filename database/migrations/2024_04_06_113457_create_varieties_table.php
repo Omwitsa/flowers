@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Colour', length: 50);
             $table->boolean('Active')->default(true);
             $table->string('brand', length: 100);
-            $table->string('varietyRange', length: 50);
+            $table->bigInteger('VarietyRangeId');
             $table->string('picUrl');
             $table->timestamps();
         });

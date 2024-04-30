@@ -13,8 +13,8 @@ class NewVarietyRange extends Component
 
     public $brands;
     public string $Name = '';
-    public string $HeadSize = 'AAA ROSES';
-    public string $Brand = '';
+    public string $HeadSize = '';
+    public string $Brand = 'AAA ROSES';
 
     public function mount()
     {

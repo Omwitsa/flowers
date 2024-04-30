@@ -11,6 +11,7 @@ class OrderLine extends Model
 {
     use HasFactory;
     protected $table = 'orderline';
+    protected $primaryKey = 'OrderLineId';
 
     public function orderLineMixedBoxs(): HasMany
     {

@@ -108,11 +108,9 @@ class OrderPanel extends Component
         $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
         // $collection = collect([$variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price,$variety->sub_total]);
         $selectedBrand = Brand::firstWhere('name', $variety->brand);
-
-        // VarietyRangeId, BoxType
         if(is_null($this->collection)){
             $this->collection = collect([
-                ['VarietyId' => $variety->id, 'VarietyRangeId' => '1', 'Length' => substr($this->length,3), 'BoxType' => '1', 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]
+                ['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]
             ]);
         }
         else{
