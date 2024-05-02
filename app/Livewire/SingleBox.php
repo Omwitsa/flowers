@@ -9,11 +9,11 @@ use App\Models\PackRateHeader;
 use App\Models\PriceLine;
 use App\Models\PackRateLine;
 use App\Models\Brand;
-use App\Models\OrderLine;
+use App\Models\varietyRange;
 use stdclass;
 use Illuminate\Support\Facades\DB;
 
-class OrderPanel extends Component
+class SingleBox extends Component
 {
     public $brands = 'AAA ROSES';
     public $varietyRange = '';
@@ -25,7 +25,7 @@ class OrderPanel extends Component
     public $length = 'len60';
     public $groupedVarieties = [];
 
-    public $collection;
+    public $order_lines;
     
     public function mount()
     {
@@ -39,18 +39,12 @@ class OrderPanel extends Component
         $this->formatvariety();
     }
 
-    public function render()
-    {
-        return view('livewire.order-panel')->with([
-            'varieties' => $this->varieties,
-        ]);
-    }
-
     public function updatedBrands()
     {
         // dd($this->brands);
         $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brands]);
         $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->brands]);
+
         $this->formatvariety();
     }
 
@@ -70,7 +64,8 @@ class OrderPanel extends Component
         foreach ($this->ranges as $range) {
             $formattedRange = new StdClass();
             $formattedRange->name = $range->Name;
-            $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND varietyRange = ?', [$this->brands, $range->Name]);
+            $selectedVarietyRange = varietyRange::firstWhere('Name', $range->Name);
+            $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND VarietyRangeId = ?', [$this->brands, $selectedVarietyRange->id]);
 
             foreach ($this->varieties as $variety) {
                 $variety->currency= $this->price->Currency;
@@ -104,27 +99,34 @@ class OrderPanel extends Component
 
     public function addToCart($gv_index, $v_index)
     {
-        // $this->collection->dd();
+        // $this->order_lines->dd();
         $variety = $this->groupedVarieties[$gv_index]->varieties[$v_index];
-        // $collection = collect([$variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price,$variety->sub_total]);
+        // $order_lines = collect([$variety->FlowerType,$variety->brand, $variety->varietyRange, $variety->currency, $variety->price,$variety->sub_total]);
         $selectedBrand = Brand::firstWhere('name', $variety->brand);
-        if(is_null($this->collection)){
-            $this->collection = collect([
-                ['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]
+        if(is_null($this->order_lines)){
+            $this->order_lines = collect([
+                ['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm, 'VarietyName' => $variety->VarietyName]
             ]);
         }
         else{
-            if($this->collection->contains('VarietyId', $variety->id)){
-                foreach ($this->collection as $key => $value) {
+            if($this->order_lines->contains('VarietyId', $variety->id)){
+                foreach ($this->order_lines as $key => $value) {
                     $ordered = (object) $value;
                     if($ordered->VarietyId === $variety->id){
-                        unset($this->collection[$key]);
+                        unset($this->order_lines[$key]);
                     }
                 }
             }
-            $this->collection->push(['VarietyId' => $variety->id, 'VarietyRangeId' => '1', 'Length' => substr($this->length,3), 'BoxType' => '1', 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm]);
+            $this->order_lines->push(['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm, 'VarietyName' => $variety->VarietyName]);
         }
 
-        // $value = $request->session()->get('key');
+        session(['order_lines' => $this->order_lines]);
+    }
+
+    public function render()
+    {
+        return view('livewire.single-box')->with([
+            'varieties' => $this->varieties,
+        ]);
     }
 }

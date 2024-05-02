@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Order</h5>
+        <h5>Single Box</h5>
     </div>
     <div class="card-block">
         <form wire:submit="creatVariety" class="form-material" autocomplete="off">
@@ -36,12 +36,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xs-12 col-sm-4">
-                    <div class="form-group row">
-                        
-                    </div>
-                </div>
             </div><br>
 
             <div class="row">
@@ -55,9 +49,9 @@
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
                                             <h5>{{$variety->VarietyName}}</h5>
+                                            <strong>{{$variety->currency}} {{$variety->price}}</strong>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 text-center">
-                                            <strong>{{$variety->currency}} {{$variety->price}}</strong><br>
+                                        <div class="col-xs-12 col-sm-6 text-center specs">
                                             <strong>BoxType: {{$packRate->Name}}</strong><br>
                                             <strong>Packrate: {{$variety->packrate}}</strong><br>
                                             <strong>Minimum Order: 10</strong><br>

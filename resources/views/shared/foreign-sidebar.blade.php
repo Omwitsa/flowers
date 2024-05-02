@@ -20,21 +20,21 @@
             <li class="active">
                 <a href="/" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                    <span class="pcoded-mtext">Orders</span>
+                    <span class="pcoded-mtext">Single Box</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
         </ul>
         
-        <!-- <ul class="pcoded-item pcoded-left-item">
+        <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/orders" class="waves-effect waves-dark">
+                <a href="/mixed-box" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Orders</span>
+                    <span class="pcoded-mtext">Mixed Box</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-        </ul> -->
+        </ul>
 
         <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="">

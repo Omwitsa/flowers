@@ -28,13 +28,10 @@ class HomeController extends Controller
         //     return view('local-dashboard');
         // }
         if (!auth()->user()){
-            return view('welcome');
+            return view('landing-page');
             // return redirect()->route('login');
         }else{
             return redirect()->intended('/dashboard');
-            //return view('local-dashboard');
-        //     return View::make('home.basic')
-        //         ->with('basic1', 'Not Authorized');
         }
         
         // // return redirect('/users');
@@ -103,6 +100,7 @@ class HomeController extends Controller
         }
 
         if(auth()->user()->role === 'Foreign') {
+        //    return view('foreign-home');
            return view('foreign-dashboard');
         }
 

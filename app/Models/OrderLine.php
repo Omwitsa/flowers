@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OrderLine extends Model
@@ -13,10 +12,19 @@ class OrderLine extends Model
     protected $table = 'orderline';
     protected $primaryKey = 'OrderLineId';
 
-    public function orderLineMixedBoxs(): HasMany
-    {
-        return $this->hasMany(OrderLineMixedBox::class);
-    }
+    protected $fillable = [
+        'order_header_id',
+        'VarietyId',
+        'VarietyRangeId',
+        'Length',
+        'BoxType',
+        'StemQty',
+        'PackRate',
+        'Boxes',
+        'Farm',
+        'FarmMixBoxId',
+        'BoxMarking',
+    ];
 
     public function orderHeader(): BelongsTo
     {

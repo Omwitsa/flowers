@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('orderline', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('OrderHeaderId')->constrained();
+            // $table->foreignId('order_header_id')->constrained();
+            $table->bigInteger('order_header_id');
             $table->bigInteger('VarietyId');
             $table->bigInteger('VarietyRangeId');
             $table->string('Length', length: 20);

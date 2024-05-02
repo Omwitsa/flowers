@@ -1,5 +1,6 @@
 body {
 	background-color: #FFE6EE !important;
+	color: #000000 !important;
 }
 .landing-card{
 	margin-top: 20px;
@@ -24,13 +25,29 @@ body {
 .variety-section .variety{
 	background-color: #fc8eac;
 	color: #FFFFFF;
+	padding-bottom: 10px;
+}
+.variety-section .variety .specs{
+	padding-top: 10px;
 }
 .variety-section .row input{
 	background-color: #ffffff;
 	padding-left: 5px;
 }
-
 .header-navbar .navbar-wrapper .navbar-container .badge {
     right: 1px !important;
     padding: 1px !important;
+}
+.btn-order{
+	color: #FFFFFF !important;
+}
+.home-section{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.home-section .type{
+	margin: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border:solid 2px #fc8eac;
 }

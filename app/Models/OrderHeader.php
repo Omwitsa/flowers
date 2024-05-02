@@ -10,7 +10,19 @@ class OrderHeader extends Model
 {
     use HasFactory;
     protected $table = 'orderheader';
-    protected $primaryKey = 'OrderHeaderId';
+    protected $fillable = [
+        'ClientId',
+        'DateCreated',
+        'ReceivingDate',
+        'LpoNo',
+        'Status',
+        'Farm',
+        'Type',
+        'IsSendEmail',
+        'confirmUrl',
+        'DropOffId',
+        'IsTransferred',
+    ];
 
     public function orderLines(): HasMany
     {

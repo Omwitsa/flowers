@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('orderlinemixedbox', function (Blueprint $table) {
             $table->id();
             // $table->foreignId('OrderLineId')->constrained();
+            $table->bigInteger('orderline_id');
             $table->bigInteger('VarietyId');
             $table->string('StemLength', length: 100);
             $table->integer('StemQty');

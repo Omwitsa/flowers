@@ -2,5 +2,5 @@
     <!-- <div class="row">
         INTERNATIONALLY
     </div> -->
-    <livewire:order-panel>
+    <livewire:single-box>
 </x-app-layout>

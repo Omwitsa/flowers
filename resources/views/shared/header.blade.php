@@ -36,11 +36,10 @@
             </ul>
             <ul class="nav-right">
                 <li class="header-notification">
-                    <a href="#!" class="waves-effect waves-light">
+                    <a href="/order-summary" class="waves-effect waves-light" wire:navigate>
                         <i class="ti-shopping-cart"></i>
                         <span class="badge badge-warning">3</span>
                     </a>
-                   
                     <!-- <ul class="show-notification">
                         <li>
                             <h6>Notifications</h6>
