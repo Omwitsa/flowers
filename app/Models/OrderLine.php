@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OrderLine extends Model
@@ -25,6 +26,11 @@ class OrderLine extends Model
         'FarmMixBoxId',
         'BoxMarking',
     ];
+
+    public function orderLineMixedBoxs(): HasMany
+    {
+        return $this->hasMany(OrderLineMixedBox::class);
+    }
 
     public function orderHeader(): BelongsTo
     {

@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('PackRate', length: 20);
             $table->string('Boxes', length: 20);
             $table->string('Farm', length: 100);
-            $table->bigInteger('FarmMixBoxId');
-            $table->string('BoxMarking');
+            $table->bigInteger('FarmMixBoxId')->default(1);
+            $table->string('BoxMarking')->default('');
             $table->timestamps();
         });
     }

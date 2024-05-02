@@ -18,6 +18,7 @@ class OrderSummery extends Component
     public $Status = 1;
     public function mount()
     {
+        $this->dropOff = dropoff::find(1)->name;
         $this->dropoffs = dropoff::all();
         $this->client = Client::firstWhere('ClientCode', auth()->user()->usercode);
         // $this->client = Brand::firstWhere('name', auth()->user()->usercode);

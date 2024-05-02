@@ -35,16 +35,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($order_lines as $line)
-                        <tr>
-                            <th scope="row">{{ $loop->iteration}}</th>
-                            <td>{{ $line['VarietyName'] }}</td>
-                            <td>{{ $line['Length'] }}</td>
-                            <td>{{ $line['StemQty'] }}</td>
-                            <td>{{ $line['PackRate'] }}</td>
-                            <td>{{ $line['Boxes'] }}</td>
-                        </tr>
-                    @endforeach
+                    @if ($order_lines != null)
+                        @foreach ($order_lines as $line)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration}}</th>
+                                <td>{{ $line['VarietyName'] }}</td>
+                                <td>{{ $line['Length'] }}</td>
+                                <td>{{ $line['StemQty'] }}</td>
+                                <td>{{ $line['PackRate'] }}</td>
+                                <td>{{ $line['Boxes'] }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
