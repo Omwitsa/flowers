@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Variety;
+use App\Models\MixBox;
 
 class NewMixedBox extends Component
 {
@@ -33,7 +34,7 @@ class NewMixedBox extends Component
             'Name' => ['required', 'string', 'max:100'],
         ]);
 
-        $packRate = PackRateHeader::create($validated);
+        $packRate = MixBox::create($validated);
         foreach ($this->packrateLines as $item) {
             $packRate->packRateLines()->create($item);
         }
