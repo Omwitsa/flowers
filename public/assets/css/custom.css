@@ -6,7 +6,7 @@ body {
 	margin-top: 20px;
 }
 .landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
-	background-color: #FF0000;
+	background-color: #fc8eac;
 }
 .landing-card .card-block .btn-lg{
 	margin: 20px;
@@ -23,7 +23,7 @@ body {
 	margin-bottom: 20px;
 }
 .variety-section .variety{
-	background-color: #fc8eac;
+	background-color: #000000;
 	color: #FFFFFF;
 	padding-bottom: 10px;
 }

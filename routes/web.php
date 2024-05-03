@@ -24,7 +24,9 @@ use App\Livewire\NewPrice;
 use App\Livewire\PackRateList;
 use App\Livewire\NewPackRate;
 use App\Livewire\OrderSummery;
+use App\Livewire\MixBoxComponent;
 use App\Livewire\MixedBox;
+use App\Livewire\NewMixedBox;
 use App\Http\Controllers\HomeController;
 
 // Route::view('/', 'welcome');
@@ -42,6 +44,8 @@ Route::view('profile', 'profile')
 Route::get('/orders', Orders::class);
 Route::get('/single-box', SingleBox::class);
 Route::get('/mixed-box', MixedBox::class);
+Route::get('/list-mixed-box', MixBoxComponent::class);
+Route::get('/new-miexd-box', NewMixedBox::class);
 Route::get('/users', UserComponent::class);
 Route::get('/new-user', NewUser::class);
 Route::get('/clients', ClientComponent::class);
@@ -62,6 +66,6 @@ Route::get('/prices', PriceList::class);
 Route::get('/new-price', NewPrice::class);
 Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
-Route::get('/order-summary', OrderSummery::class);
+Route::get('/order-summary', OrderSummery::class); 
 
 require __DIR__.'/auth.php';

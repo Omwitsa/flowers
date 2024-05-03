@@ -108,6 +108,16 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
+                <a href="/list-mixed-box" class="waves-effect waves-dark" wire:navigate>
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Mixed Box</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
                 <a href="/client-categories" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Client Categories</span>

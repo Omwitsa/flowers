@@ -11,7 +11,8 @@ class MixBoxLine extends Model
     use HasFactory;
 
     protected $fillable = [
-        'VarietyId',
+        'variety',
+        'stems',
     ];
 
     public function orderHeader(): BelongsTo

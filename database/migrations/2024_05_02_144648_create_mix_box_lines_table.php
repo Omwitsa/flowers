@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('mix_box_lines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mix_boxe_id')->constrained();
+            $table->string('variety', length: 100);
+            $table->smallInteger('stems');
             $table->timestamps();
         });
     }
