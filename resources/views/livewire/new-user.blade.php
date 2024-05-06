@@ -2,19 +2,23 @@
     <div class="card-header">
         <h5>User</h5>
     </div>
+    
     <div class="card-block">
         <form wire:submit="createUser" class="form-material" autocomplete="off">
             @csrf
             <div class="form-group row">
-                <label class="col-xs-12 col-sm-2 col-form-label">Name</label>
-                <div class="col-xs-12 col-sm-4">
-                    <input  wire:model="name" name="name" type="text" class="form-control" autocomplete="off" required>
-                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                </div>
-
                 <label class="col-xs-12 col-sm-2 col-form-label">Usercode</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input  wire:model="usercode" name="usercode" type="text" class="form-control" autocomplete="off" required>
+                    @if($isAdmin)
+                        <input  wire:model="usercode" name="usercode" type="text" class="form-control" autocomplete="off" required>
+                    @else
+                        <select wire:model="usercode" class="form-control" required>
+                            <option disabled value=""></option>
+                            @foreach($clients as $client)
+                                <option value="{{ $client->ClientCode }}">{{ $client->ClientName }}</option>
+                            @endforeach
+                        </select>
+                    @endif
                     <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
                 </div>
 
@@ -47,6 +51,17 @@
                     <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
                 </div>
             </div><br>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    @if(auth()->user()->usercode == 'Admin')
+                        <div class="form-check form-check-inline">
+                            <input wire:model.live="isAdmin" class="form-check-input" type="checkbox" id="isAdmin">
+                            <label class="form-check-label" for="isAdmin">Admin</label>
+                        </div>
+                    @endif
+                </div>
+            </div><br><hr>
             <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
         </form> 
     </div>

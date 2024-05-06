@@ -13,6 +13,7 @@ class UserComponent extends Component
         $this->users = User::all();
     }
 
+    
     public function render()
     {
         return view('livewire.user')->with([

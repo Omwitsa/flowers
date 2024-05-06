@@ -11,7 +11,6 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Active</th>
@@ -22,7 +21,6 @@
                     @foreach ($users as $user)
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
-                            <td>{{ $user->name }}</td>
                             <td>{{ $user->usercode }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->active }}</td>

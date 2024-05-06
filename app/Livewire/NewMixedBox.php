@@ -38,7 +38,7 @@ class NewMixedBox extends Component
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:100'],
             'brand' => ['required', 'string', 'max:100'],
-            'length' => ['integer'],
+            'length' => ['required', 'string', 'max:20'],
         ]);
 
         $mixedBox = MixBox::create($validated);

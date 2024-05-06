@@ -6,11 +6,7 @@ use Livewire\Component;
 use App\Models\Client;
 use App\Models\PriceHeader;
 use App\Models\PackRateHeader;
-use App\Models\PriceLine;
-use App\Models\PackRateLine;
 use App\Models\Brand;
-use App\Models\MixBoxLine;
-use stdclass;
 use Illuminate\Support\Facades\DB;
 
 class MixedBox extends Component
@@ -20,7 +16,7 @@ class MixedBox extends Component
     public $client;
     public $price;
     public $packRate;
-    public $length = 'len60';
+    public $length = '60';
     public $mixedBoxes;
 
     public $order_lines;

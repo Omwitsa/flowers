@@ -4,19 +4,21 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Models\Client;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
 
 class NewUser extends Component
 {
     // public $name;
+    public $clients;
     public string $name = '';
     public string $usercode = '';
     public string $email = '';
     public string $role = '';
     public string $password = '';
+    public $isAdmin = false;
     public string $password_confirmation = '';
     public function render()
     {
@@ -26,6 +28,7 @@ class NewUser extends Component
     // public $varieties;
     public function mount()
     {
+        $this->clients = Client::all();
         // $this->varieties = Variety::all();
         // users = DB::table('users')
         //         ->whereIn('id', [1, 2, 3])
