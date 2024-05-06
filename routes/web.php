@@ -45,7 +45,7 @@ Route::get('/orders', Orders::class);
 Route::get('/single-box', SingleBox::class);
 Route::get('/mixed-box', MixedBox::class);
 Route::get('/list-mixed-box', MixBoxComponent::class);
-Route::get('/new-miexd-box', NewMixedBox::class);
+Route::get('/new-mixed-box', NewMixedBox::class);
 Route::get('/users', UserComponent::class);
 Route::get('/new-user', NewUser::class);
 Route::get('/clients', ClientComponent::class);

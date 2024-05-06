@@ -24,15 +24,39 @@
                             <div class="form-group row">
                                 <label class="col-xs-12 col-sm-2 col-form-label">Mixed Box</label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input wire:model="Name" name="Name" type="text" class="form-control" autocomplete="off" required>
-                                    <x-input-error :messages="$errors->get('Name')" class="mt-2" />
+                                    <input wire:model="name" name="name" type="text" class="form-control" autocomplete="off" required>
+                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                </div>
+
+                                <label class="col-xs-12 col-sm-2 col-form-label"></label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <select wire:model="brand" class="form-control" required>
+                                        <option disabled value=""></option>
+                                        @foreach($brands as $brand)
+                                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <x-input-error :messages="$errors->get('brand')" class="mt-2" />
+                                </div>
+
+                                <label class="col-xs-12 col-sm-2 col-form-label">Length</label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <select wire:model="length" class="form-control" required>
+                                        <option disabled value=""></option>
+                                        <option value="40">40 cm</option>
+                                        <option value="50">50 cm</option>
+                                        <option value="60">60 cm</option>
+                                        <option value="70">70 cm</option>
+                                        <option value="80">80 cm</option>
+                                        <option value="90">90 cm</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
                         <div class="tab-pane" id="lineItem" role="tabpanel">
                             <div>
-                                @foreach($packrateLines as $index => $item)
+                                @foreach($LineItems as $index => $item)
                                     <div>
                                         <select wire:model="LineItems.{{ $index }}.variety" required>
                                             <option disabled value=""></option>

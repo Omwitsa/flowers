@@ -15,7 +15,7 @@ class MixBoxLine extends Model
         'stems',
     ];
 
-    public function orderHeader(): BelongsTo
+    public function mixBox(): BelongsTo
     {
         return $this->belongsTo(MixBox::class);
     }

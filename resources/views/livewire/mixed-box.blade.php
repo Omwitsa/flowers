@@ -17,25 +17,35 @@
                         <label class="form-check-label" for="bellissima">BELLISSIMA</label>
                     </div>
                 </div>
-            </div><br><hr>
-
+            </div><hr>
+            
             <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="form-group row">
-                        <label class="col-xs-12 col-sm-4 col-form-label">Length</label>
-                        <div class="col-xs-12 col-sm-8">
-                            <select wire:model.live="length" class="form-control" required>
-                                <option disabled value=""></option>
-                                <option value="len40">40 cm</option>
-                                <option value="len50">50 cm</option>
-                                <option value="len60">60 cm</option>
-                                <option value="len70">70 cm</option>
-                                <option value="len80">80 cm</option>
-                                <option value="len90">90 cm</option>
-                            </select>
+                @foreach ($mixedBoxes as $mb_index => $mixedBox)
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="card">
+                            <div class="card-block table-border-style">
+                                <h5>{{$mixedBox->name}}</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <td colspan="2"><span>Total Stems {{$mixedBox->totalStems}}</span> &nbsp;&nbsp;&nbsp; <span>{{$mixedBox->length}} cm</span></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($mixedBox->mixBoxLines as $mbl_index => $mixBoxLine)
+                                                <tr>
+                                                    <td>{{$mixBoxLine->variety}}</td>
+                                                    <td>{{$mixBoxLine->stems}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div><br>
 
             <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button> -->

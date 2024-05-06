@@ -5,17 +5,22 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Variety;
 use App\Models\MixBox;
+use App\Models\Brand;
 
 class NewMixedBox extends Component
 {
     public $varieties;
-    public string $Name = '';
+    public $brands;
+    public string $name = '';
+    public string $brand = '';
+    public string $length = '';
 
     public $LineItems = [];
 
     public function mount()
     {
         $this->varieties = Variety::all();
+        $this->brands = Brand::all();
     }
 
     public function addBox()
@@ -31,15 +36,17 @@ class NewMixedBox extends Component
     public function createMixedBox()
     {
         $validated = $this->validate([
-            'Name' => ['required', 'string', 'max:100'],
+            'name' => ['required', 'string', 'max:100'],
+            'brand' => ['required', 'string', 'max:100'],
+            'length' => ['integer'],
         ]);
 
-        $packRate = MixBox::create($validated);
-        foreach ($this->packrateLines as $item) {
-            $packRate->packRateLines()->create($item);
+        $mixedBox = MixBox::create($validated);
+        foreach ($this->LineItems as $item) {
+            $mixedBox->mixBoxLines()->create($item);
         }
 
-        $this->redirect('/packrates', navigate: true);
+        $this->redirect('/list-mixed-box', navigate: true);
     }
 
     public function render()

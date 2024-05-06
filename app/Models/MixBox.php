@@ -11,12 +11,12 @@ class MixBox extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'farm',
+        'brand',
         'length',
         'active',
     ];
 
-    public function priceLines(): HasMany
+    public function mixBoxLines(): HasMany
     {
         return $this->hasMany(MixBoxLine::class);
     }

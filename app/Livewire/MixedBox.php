@@ -9,7 +9,7 @@ use App\Models\PackRateHeader;
 use App\Models\PriceLine;
 use App\Models\PackRateLine;
 use App\Models\Brand;
-use App\Models\varietyRange;
+use App\Models\MixBoxLine;
 use stdclass;
 use Illuminate\Support\Facades\DB;
 
@@ -17,13 +17,11 @@ class MixedBox extends Component
 {
     public $brands = 'AAA ROSES';
     public $varietyRange = '';
-    public $ranges;
-    public $varieties;
     public $client;
     public $price;
     public $packRate;
     public $length = 'len60';
-    public $groupedVarieties = [];
+    public $mixedBoxes;
 
     public $order_lines;
     
@@ -41,15 +39,6 @@ class MixedBox extends Component
 
     public function updatedBrands()
     {
-        // dd($this->brands);
-        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brands]);
-        $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->brands]);
-
-        $this->formatvariety();
-    }
-
-    public function updatedLength()
-    {
         $this->formatvariety();
     }
 
@@ -60,27 +49,18 @@ class MixedBox extends Component
 
     private function formatvariety()
     {
-        $this->groupedVarieties = [];
-        foreach ($this->ranges as $range) {
-            $formattedRange = new StdClass();
-            $formattedRange->name = $range->Name;
-            $selectedVarietyRange = varietyRange::firstWhere('Name', $range->Name);
-            $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND VarietyRangeId = ?', [$this->brands, $selectedVarietyRange->id]);
-
-            foreach ($this->varieties as $variety) {
-                $variety->currency= $this->price->Currency;
-                $priceLine = PriceLine::where('price_header_id', $this->price->id)->where('variety', $variety->VarietyName)->first();
-                $packrateLine = PackRateLine::where('pack_rate_header_id', $this->packRate->id)->where('variety', $variety->VarietyName)->first();
-                $variety->price= $priceLine->len60;
-                $variety->packrate= $packrateLine[$this->length];
-                $variety->stems= 0;
-                $variety->quantity= '';
-                $variety->sub_total= 0;
+        $this->mixedBoxes = DB::select('SELECT * FROM mix_boxes WHERE brand = ?', [$this->brands]);
+        foreach ($this->mixedBoxes as $mixedBox) {
+            $totalStems = 0;
+            $mixBoxLines = DB::select('SELECT * FROM mix_box_lines WHERE mix_box_id = ?', [$mixedBox->id]);
+            foreach ($mixBoxLines as $mixBoxLine){
+                $totalStems += $mixBoxLine->stems;
             }
-
-            $formattedRange->varieties = $this->varieties;
-            array_push($this->groupedVarieties, $formattedRange);
+            $mixedBox->mixBoxLines = $mixBoxLines;
+            $mixedBox->totalStems = $totalStems;
         }
+
+        // dd($this->mixedBoxes);
     }
 
     public function onEnterQuantity($gv_index, $v_index, $value)
@@ -125,8 +105,6 @@ class MixedBox extends Component
 
     public function render()
     {
-        return view('livewire.mixed-box')->with([
-            'varieties' => $this->varieties,
-        ]);
+        return view('livewire.mixed-box');
     }
 }
