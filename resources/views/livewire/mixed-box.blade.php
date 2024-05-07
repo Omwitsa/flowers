@@ -42,6 +42,15 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="{{ $mixedBox->id }}">Select</label> &nbsp;&nbsp;
+                                            <input wire:key="{{ $mixedBox->id }}" wire:model="mixedBoxes.{{ $mb_index }}.checked" id="{{ $mixedBox->id }}" type="checkbox" class="form-check-input">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

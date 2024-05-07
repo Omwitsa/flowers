@@ -19,14 +19,14 @@ class NewVariety extends Component
     public string $VarietyCode = '';
     public string $FlowerType = '';
     public string $Colour = '';
-    public string $brand = '';
+    public string $brand = 'AAA ROSES';
     public string $varietyRange = '';
     public string $picUrl = '';
 
     public function mount()
     {
         $this->brands = Brand::all();
-        $this->ranges = varietyRange::all();
+        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brand]);
     }
 
     public function creatVariety()

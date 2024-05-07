@@ -48,7 +48,6 @@ class NewUser extends Component
     {
         // personnel, active
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
             'usercode' => ['required', 'string', 'max:255'],
             'role' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
