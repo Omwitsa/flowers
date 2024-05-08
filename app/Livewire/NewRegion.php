@@ -8,6 +8,7 @@ use App\Models\Region;
 class NewRegion extends Component
 {
     public string $name = '';
+    public $id;
 
     public function createRegion()
     {
@@ -16,6 +17,7 @@ class NewRegion extends Component
         ]);
 
         Region::create($validated);
+        toastr()->success('Region created successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         $this->redirect('/regions', navigate: true);
     }
 

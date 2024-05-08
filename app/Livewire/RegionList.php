@@ -12,6 +12,14 @@ class RegionList extends Component
     {
         $this->regions = Region::all();
     }
+    
+    public function edit($id){
+        $this->redirectRoute('edit-region', ['id' => $id]);
+    }
+
+    public function delete($id){
+        dd($id);
+    }
 
     public function render()
     {
