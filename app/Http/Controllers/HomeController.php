@@ -70,7 +70,6 @@ class HomeController extends Controller
     }
 
     public function dashboard() {
-        
         // if(Auth::check()) {
         //     return view('local-dashboard');
         // }

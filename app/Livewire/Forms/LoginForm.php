@@ -35,7 +35,7 @@ class LoginForm extends Form
 
         if (! Auth::attempt($this->only(['usercode', 'password']), $this->remember)) {
             RateLimiter::hit($this->throttleKey());
-
+            toastr()->error('Invalid username or password', 'Sorry', ['positionClass' => 'toast-top-center']);
             throw ValidationException::withMessages([
                 'form.usercode' => trans('auth.failed'),
             ]);
@@ -43,7 +43,6 @@ class LoginForm extends Form
 
         RateLimiter::clear($this->throttleKey());
     }
-
     /**
      * Ensure the authentication request is not rate limited.
      */
