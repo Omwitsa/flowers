@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\dropoff;
 use App\Models\Client;
-use stdclass;
+use Session;
 use App\Models\OrderHeader;
 
 class OrderSummery extends Component
@@ -56,8 +56,8 @@ class OrderSummery extends Component
             $order->orderLines()->create($item);
         }
 
-        session('order_lines');
-        // dd($ordered);
+        toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        Session::forget('order_lines');
         $this->redirect('/', navigate: true);
     }
 }

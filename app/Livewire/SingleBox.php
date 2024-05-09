@@ -120,6 +120,7 @@ class SingleBox extends Component
             $this->order_lines->push(['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm, 'VarietyName' => $variety->VarietyName]);
         }
 
+        toastr()->success('Item added successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         session(['order_lines' => $this->order_lines]);
     }
 
