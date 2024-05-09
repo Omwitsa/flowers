@@ -16,6 +16,7 @@
                         <th>Flower Type</th>
                         <th>Colour</th>
                         <th>Active</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -28,6 +29,10 @@
                             <td>{{ $variety->FlowerType }}</td>
                             <td>{{ $variety->Colour }}</td>
                             <td>{{ $variety->Active }}</td>
+                            <td>
+                                <button wire:click="edit({{ $variety->id }})" wire:key="{{ $variety->id }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Edit</button>|
+                                <button wire:click="delete({{ $variety->id }})" wire:key="{{ $variety->id }}" wire:confirm="Are you sure you want to delete?" type="button" class="btn btn-danger btn-sm waves-effect waves-light">Delete</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

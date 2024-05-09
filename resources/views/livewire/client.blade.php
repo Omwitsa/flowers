@@ -20,6 +20,7 @@
                         <th>Price</th>
                         <th>PackRate</th>
                         <th>Currency</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,10 @@
                             <td>{{ $client->Price }}</td>
                             <td>{{ $client->PackRate }}</td>
                             <td>{{ $client->Currency }}</td>
+                            <td>
+                                <button wire:click="edit({{ $client->id }})" wire:key="{{ $client->id }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Edit</button>|
+                                <button wire:click="delete({{ $client->id }})" wire:key="{{ $client->id }}" wire:confirm="Are you sure you want to delete?" type="button" class="btn btn-danger btn-sm waves-effect waves-light">Delete</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

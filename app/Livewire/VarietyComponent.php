@@ -13,6 +13,17 @@ class VarietyComponent extends Component
         $this->varieties = Variety::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-variety', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $region = Variety::find($id);
+        $region->delete();
+        toastr()->success('Variety deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/varieties', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.variety-component')->with([

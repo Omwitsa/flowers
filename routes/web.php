@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UserComponent;
 use App\Livewire\ClientComponent;
@@ -28,7 +29,13 @@ use App\Livewire\OrderSummery;
 use App\Livewire\MixBoxComponent;
 use App\Livewire\MixedBox;
 use App\Livewire\NewMixedBox;
-use App\Http\Controllers\HomeController;
+use App\Livewire\EditBrand;
+use App\Livewire\EditClientCategory;
+use App\Livewire\EditUser;
+use App\Livewire\EditClient;
+use App\Livewire\EditVariety;
+use App\Livewire\EditVarietyRange;
+use App\Livewire\EditDropOff;
 
 // Route::view('/', 'welcome');
 
@@ -64,6 +71,13 @@ Route::get('/new-client-category', NewClientCategory::class);
 Route::get('/regions', RegionList::class);
 Route::get('/new-region', NewRegion::class);
 Route::get('/edit-region/{id}', EditRegion::class)->name('edit-region');
+Route::get('/edit-brand/{id}', EditBrand::class)->name('edit-brand');
+Route::get('/edit-client-cat/{id}', EditClientCategory::class)->name('edit-client-cat');
+Route::get('/edit-user/{id}', EditUser::class)->name('edit-user');
+Route::get('/edit-client/{id}', EditClient::class)->name('edit-client');
+Route::get('/edit-variety/{id}', EditVariety::class)->name('edit-variety');
+Route::get('/edit-variety-range/{id}', EditVarietyRange::class)->name('edit-variety-range');
+Route::get('/edit-dropoff/{id}', EditDropOff::class)->name('edit-dropoff');
 Route::get('/prices', PriceList::class);
 Route::get('/new-price', NewPrice::class);
 Route::get('/packrates', PackRateList::class);

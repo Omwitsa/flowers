@@ -13,6 +13,17 @@ class ClientComponent extends Component
         $this->clients = Client::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-client', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $region = Client::find($id);
+        $region->delete();
+        toastr()->success('Client deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/clients', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.client')->with([

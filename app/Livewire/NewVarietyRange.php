@@ -3,14 +3,11 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\varietyRange; 
 use App\Models\Brand;
 
 class NewVarietyRange extends Component
 {
-    use WithFileUploads;
-
     public $brands;
     public string $Name = '';
     public string $HeadSize = '';

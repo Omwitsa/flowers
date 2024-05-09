@@ -13,6 +13,17 @@ class BrandComponent extends Component
         $this->brands = Brand::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-brand', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $brand = Brand::find($id);
+        $brand->delete();
+        toastr()->success('Brand deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/brands', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.brand')->with([

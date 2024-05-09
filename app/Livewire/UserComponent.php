@@ -13,6 +13,17 @@ class UserComponent extends Component
         $this->users = User::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-user', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        toastr()->success('User deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/users', navigate: true);
+    }
+
     
     public function render()
     {

@@ -13,6 +13,17 @@ class ClientCategoryList extends Component
         $this->categories = ClientCategory::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-client-cat', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $region = ClientCategory::find($id);
+        $region->delete();
+        toastr()->success('Category deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/client-categories', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.client-category-list')->with([

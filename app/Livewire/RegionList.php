@@ -18,7 +18,10 @@ class RegionList extends Component
     }
 
     public function delete($id){
-        dd($id);
+        $region = Region::find($id);
+        $region->delete();
+        toastr()->success('Region deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/regions', navigate: true);
     }
 
     public function render()

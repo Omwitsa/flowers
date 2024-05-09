@@ -13,6 +13,17 @@ class DropoffList extends Component
         $this->dropoffs = dropoff::all();
     }
 
+    public function edit($id){
+        $this->redirectRoute('edit-dropoff', ['id' => $id]);
+    }
+
+    public function delete($id){
+        $dropoff = dropoff::find($id);
+        $dropoff->delete();
+        toastr()->success('Dropoff deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect('/dropoffs', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.dropoff-list')->with([

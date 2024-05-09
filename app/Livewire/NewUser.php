@@ -11,9 +11,7 @@ use Illuminate\Auth\Events\Registered;
 
 class NewUser extends Component
 {
-    // public $name;
     public $clients;
-    public string $name = '';
     public string $usercode = '';
     public string $email = '';
     public string $role = '';

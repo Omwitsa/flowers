@@ -24,7 +24,7 @@
                             <td>{{ $region->active }}</td>
                             <td>
                                 <button wire:click="edit({{ $region->id }})" wire:key="{{ $region->id }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Edit</button>|
-                                <button wire:click="delete({{ $region->id }})" wire:key="{{ $region->id }}" type="button" class="btn btn-danger btn-sm waves-effect waves-light">Delete</button>
+                                <button wire:click="delete({{ $region->id }})" wire:key="{{ $region->id }}" wire:confirm="Are you sure you want to delete?" type="button" class="btn btn-danger btn-sm waves-effect waves-light">Delete</button>
                             </td>
                         </tr>
                     @endforeach
