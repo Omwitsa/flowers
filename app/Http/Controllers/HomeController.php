@@ -37,7 +37,8 @@ class HomeController extends Controller
         }
 
         if(auth()->user()->role === 'Foreign') {
-           return view('foreign-dashboard');
+            // foreign-dashboard
+           return view('category');
         }
 
         return view('local-dashboard');

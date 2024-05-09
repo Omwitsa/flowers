@@ -36,6 +36,7 @@ use App\Livewire\EditClient;
 use App\Livewire\EditVariety;
 use App\Livewire\EditVarietyRange;
 use App\Livewire\EditDropOff;
+use App\Livewire\SubCategory;
 
 // Route::view('/', 'welcome');
 
@@ -83,5 +84,6 @@ Route::get('/new-price', NewPrice::class);
 Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
+Route::get('/sub-category/{category}', SubCategory::class); 
 
 require __DIR__.'/auth.php';
