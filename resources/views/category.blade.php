@@ -23,8 +23,8 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>AAA <br> ROSES</h1><br>
-                                        <a href="/foreign-dashboard" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>Order Now </a>
+                                        <a href="/sub-category/roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>
                             </div>
@@ -36,6 +36,8 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>SUMMER FLOWERS</h1>
+                                        <a href="/sub-category/summer" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,8 +49,8 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>BELLISSIMA</h1><br>
-                                        <a href="/foreign-dashboard" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>Order Now </a>
+                                        <a href="/sub-category/bellissima" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +62,8 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>MIXED BOXES</h1>
+                                        <a href="/sub-category/mixed" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>
                             </div>

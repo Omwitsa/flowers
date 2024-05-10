@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubCategoryController;  
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UserComponent;
 use App\Livewire\ClientComponent;
@@ -44,6 +45,8 @@ use App\Livewire\SubCategory;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/logout', [HomeController::class, 'logout']);
+Route::get('/sub-category/{category}', [SubCategoryController::class, 'subCategory']);
+Route::get('/type/{subCategory}', [SubCategoryController::class, 'type']);
 Route::view('/foreign-dashboard', 'foreign-dashboard');
 
 Route::view('profile', 'profile')
@@ -84,6 +87,6 @@ Route::get('/new-price', NewPrice::class);
 Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
-Route::get('/sub-category/{category}', SubCategory::class); 
+// Route::get('/sub-category/{category}', SubCategory::class); 
 
 require __DIR__.'/auth.php';
