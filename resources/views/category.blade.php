@@ -23,20 +23,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>AAA <br> ROSES</h1><br>
-                                        <a href="/sub-category/roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row type">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <img src="/assets/images/flowers/mix-rose.jpg" alt="Flowers" style="width:100%;">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 text-center">
-                                        <h1>SUMMER FLOWERS</h1>
-                                        <a href="/sub-category/summer" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                        <a href="/sub-category/aaa-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                             <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>
@@ -58,11 +45,24 @@
                             <div class="col-xs-12 col-sm-6">
                                 <div class="row type">
                                     <div class="col-xs-12 col-sm-6">
+                                        <img src="/assets/images/flowers/mix-rose.jpg" alt="Flowers" style="width:100%;">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 text-center">
+                                        <h1>WILD BLOOMS</h1>
+                                        <a href="/sub-category/wild-blooms" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <i class="ti-shopping-cart"></i>View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="row type">
+                                    <div class="col-xs-12 col-sm-6">
                                         <img src="/assets/images/flowers/71.png" alt="Flowers" style="width:100%;">
                                     </div>
                                     <div class="col-xs-12 col-sm-6 text-center">
                                         <h1>MIXED BOXES</h1>
-                                        <a href="/sub-category/mixed" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                        <a href="/sub-category/mixed-box" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                             <i class="ti-shopping-cart"></i>View</a>
                                     </div>
                                 </div>

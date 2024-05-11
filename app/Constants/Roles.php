@@ -32,10 +32,12 @@ enum Roles: string
     //     ]);
 }
 
-enum Brands: string
+enum Categories: string
 {
     case AAAROSES= 'AAA ROSES';
     case BELLISSIMA= 'BELLISSIMA';
+    case WILDBLOOMS= 'WILD BLOOMS';
+    case MIXED= 'MIXED BOX';
 
 	public static function toArray(): array
     {
