@@ -15,11 +15,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        User::factory()->create([
-            'usercode' => 'Admin',
-            'password' => Hash::make('sysadmin'),
-            'email' => 'itsupport@aaagrowers.co.ke',
-            'role' => Roles::ADMIN->value,
+        // User::factory()->create([
+        //     'usercode' => 'Admin',
+        //     'password' => Hash::make('sysadmin'),
+        //     'email' => 'itsupport@aaagrowers.co.ke',
+        //     'role' => Roles::ADMIN->value,
+        // ]);
+
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            SubCategorySeeder::class,
         ]);
     }
 }

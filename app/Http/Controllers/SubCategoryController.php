@@ -14,11 +14,24 @@ class SubCategoryController extends Controller
         ]);
     }
 
-    public function type($subCategory) {
+    public function variety($subCategory) {
         $category = Str::replace('__', '', substr($subCategory, 0 , 3));
-        $subCategory = substr($subCategory,3);
-        dd($category);
-        return view('type')->with([
+        if($category === '1'){
+            $category = 'AAA ROSES';
+        }
+        if($category === '2'){
+            $category = 'BELLISSIMA';
+        }
+        if($category === '3'){
+            $category = 'WILD BLOOMS';
+        }
+        if($category === '4'){
+            $category = 'MIXED BOX';
+        }
+
+        $subCategory = Str::upper(Str::upper(Str::replace('-', ' ', substr($subCategory,3))));
+        return view('variety')->with([
+            'category' => $category,
             'subCategory' => $subCategory
         ]);
     }

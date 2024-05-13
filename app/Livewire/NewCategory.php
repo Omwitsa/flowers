@@ -3,27 +3,26 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Brand;
+use App\Models\Category;
 
-
-class NewBrand extends Component
+class NewCategory extends Component
 {
     public string $name = '';
     public string $farm = '';
 
-    public function creatBrand()
+    public function creatCategory()
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'farm' => ['required', 'string', 'max:255'],
         ]);
 
-        Brand::create($validated);
-        $this->redirect('/brands', navigate: true);
+        Category::create($validated);
+        $this->redirect('/categories', navigate: true);
     }
 
     public function render()
     {
-        return view('livewire.new-brand');
+        return view('livewire.new-category');
     }
 }

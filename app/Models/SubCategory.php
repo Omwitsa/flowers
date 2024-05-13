@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class varietyRange extends Model
+class SubCategory extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'Name',
         'HeadSize',
-        'Brand',
+        'Category',
         'active',
     ];
 }

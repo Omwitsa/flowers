@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Bronze</h1><br>
-                                            <a href="/type/1__bronze" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/1__bronze" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Silver</h1>
-                                            <a href="/type/1__silver" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/1__silver" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Spray Roses</h1><br>
-                                            <a href="/type/1__spray-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/1__spray-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Platinum</h1><br>
-                                            <a href="/type/2__platinum" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/2__platinum" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Gold</h1>
-                                            <a href="/type/2__gold" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/2__gold" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Gold+</h1><br>
-                                            <a href="/type/2__gold+" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/2__gold+" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Chrysanthemums</h1><br>
-                                            <a href="/type/3__chrysanthemums" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/3__chrysanthemums" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Mathiolas</h1>
-                                            <a href="/type/3__mathiolas" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/3__mathiolas" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>Carnations</h1><br>
-                                            <a href="/type/3__carnations" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/3__carnations" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>AAA <br> ROSES</h1><br>
-                                            <a href="/type/4__aaa-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/4__aaa-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>BELLISSIMA</h1>
-                                            <a href="/type/4__bellissima" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/4__bellissima" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>WILD BLOOMS</h1><br>
-                                            <a href="/type/4__wild-blooms" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/4__wild-blooms" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>BOUQUET</h1><br>
-                                            <a href="/type/4__bouquet" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="/variety/4__bouquet" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>

@@ -1,9 +1,9 @@
 <div class="card">
     <div class="card-header">
-        <h5>Variety Range</h5>
+        <h5>Sub Category</h5>
     </div>
     <div class="card-block">
-        <form wire:submit="creatVarietyRange" class="form-material" autocomplete="off">
+        <form wire:submit="createSubCategory" class="form-material" autocomplete="off">
             @csrf
             <div class="form-group row">
                 <label class="col-xs-12 col-sm-2 col-form-label">Name</label>
@@ -18,15 +18,15 @@
                     <x-input-error :messages="$errors->get('HeadSize')" class="mt-2" />
                 </div>
 
-                <label class="col-xs-12 col-sm-2 col-form-label">Brand</label>
+                <label class="col-xs-12 col-sm-2 col-form-label">Category</label>
                 <div class="col-xs-12 col-sm-4">
-                    <select wire:model="Brand" class="form-control" required>
+                    <select wire:model="Category" class="form-control" required>
                         <option disabled value=""></option>
-                        @foreach($brands as $brand)
-                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->name }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('Brand')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('Category')" class="mt-2" />
                 </div>
             </div>
 
