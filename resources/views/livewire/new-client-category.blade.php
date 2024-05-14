@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Category</h5>
+        <h5>Client Category</h5>
     </div>
     <div class="card-block">
         <form wire:submit="creatCategory" class="form-material" autocomplete="off">

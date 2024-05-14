@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('FlowerType', length: 50);
             $table->string('Colour', length: 50);
             $table->boolean('Active')->default(true);
-            $table->string('brand', length: 100);
-            $table->bigInteger('VarietyRangeId');
+            $table->string('Category', length: 100);
+            $table->string('SubCategory', length: 50);
+            $table->integer('MinimumOrder')->default(0);
             $table->string('picUrl');
             $table->timestamps();
         });

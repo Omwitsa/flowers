@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Constants\Roles;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubCategoryController extends Controller
 {
@@ -30,9 +31,11 @@ class SubCategoryController extends Controller
         }
 
         $subCategory = Str::upper(Str::upper(Str::replace('-', ' ', substr($subCategory,3))));
+        $varieties= DB::select('SELECT * FROM variety WHERE Category = ? AND SubCategory = ?', [$category, $subCategory]);
         return view('variety')->with([
             'category' => $category,
-            'subCategory' => $subCategory
+            'subCategory' => $subCategory,
+            'varieties' => $varieties,
         ]);
     }
 }

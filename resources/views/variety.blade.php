@@ -13,62 +13,55 @@
                         </div>
                     </div>
                     <div class="card-block">
-                        @if ($category === 'AAA ROSES')
-                            @if ($subCategory === 'BRONZE')
-                            
-                            @endif
-    
-                            @if ($subCategory === 'SILVER')
-                               
-                            @endif
-    
-                            @if ($subCategory === 'SPRAY ROSES')
-                               
-                            @endif
-                        @endif
-                        @if ($category === 'BELLISSIMA')
-                            @if ($subCategory === 'PLATINUM')
-                            
-                            @endif
-    
-                            @if ($subCategory === 'GOLD')
-                               
-                            @endif
-    
-                            @if ($subCategory === 'GOLD+')
-                               
-                            @endif
-                        @endif
-                        @if ($category === 'WILD BLOOMS')
-                            @if ($subCategory === 'CHRYSANTHEMUMS')
-                            
-                            @endif
-    
-                            @if ($subCategory === 'MATHIOLAS')
-                               
-                            @endif
-    
-                            @if ($subCategory === 'CARNATIONS')
-                               
-                            @endif
-                        @endif
-                        @if ($category === 'MIXED BOX')
-                            @if ($subCategory === 'AAA ROSES')
-                            
-                            @endif
-    
-                            @if ($subCategory === 'BELLISSIMA')
-                               
-                            @endif
-    
-                            @if ($subCategory === 'WILD BLOOMS')
-                               
-                            @endif
+                        <div class="row home-section">
+                            @foreach ($varieties as $index => $variety)
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="row type">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <h1>{{$variety->VarietyName}} </h1><br>
+                                            <strong>Minimum Order: {{$variety->MinimumOrder}}</strong><br>
+                                            <div class="form-group">
+                                                <a href="/variety/1__bronze" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                                <i class="ti-shopping-cart"></i>View</a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            @if ($subCategory === 'BOUQUET')
-                               
-                            @endif
-                        @endif
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderSpecs">
+                                                Add
+                                            </button> -->
+
+                                            <!-- <div class="modal fade" id="orderSpecs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Specifications</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                            
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="card-footer text-center">
                         <i>For immediate support call</i> &nbsp; 

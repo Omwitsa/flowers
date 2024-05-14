@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Categories</h5>
+        <h5>Client Categories</h5>
         <div class="card-header-right">
             <a href="{{ url('/new-client-category') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
         </div>

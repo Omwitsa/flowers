@@ -28,29 +28,34 @@
                     <x-input-error :messages="$errors->get('FlowerType')" class="mt-2" />
                 </div>
 
-                <label class="col-xs-12 col-sm-2 col-form-label">Brand</label>
+                <label class="col-xs-12 col-sm-2 col-form-label">Category</label>
                 <div class="col-xs-12 col-sm-4">
-                    <select wire:model.live="brand" class="form-control" required>
+                    <select wire:model.live="Category" class="form-control" required>
                         <option disabled value=""></option>
-                        @foreach($brands as $brand)
-                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->name }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('brand')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('Category')" class="mt-2" />
                 </div>
 
-                <label class="col-xs-12 col-sm-2 col-form-label">Range</label>
+                <label class="col-xs-12 col-sm-2 col-form-label">Sub-Category</label>
                 <div class="col-xs-12 col-sm-4">
-                    <select wire:model="varietyRange" class="form-control" required>
+                    <select wire:model="subCategory" class="form-control" required>
                         <option disabled value=""></option>
-                        @foreach($ranges as $range)
-                            <option value="{{ $range->Name }}">{{ $range->Name }}</option>
+                        @foreach($subCategories as $subCategory)
+                            <option value="{{ $subCategory->Name }}">{{ $subCategory->Name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('varietyRange')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('subCategory')" class="mt-2" />
                 </div>
 
-            <!-- $table->boolean('Active')->default(true); -->
+                <label class="col-xs-12 col-sm-2 col-form-label">Minimum Order</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="MinimumOrder" name="MinimumOrder" type="number" class="form-control" autocomplete="off" required>
+                    <x-input-error :messages="$errors->get('MinimumOrder')" class="mt-2" />
+                </div>
+
             <!-- $table->string('PicUrl'); -->
 
             </div>

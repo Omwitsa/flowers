@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('Country', length: 50);
             $table->string('ClientDivision', length: 100);
             $table->boolean('FairTrade')->default(false);
-            $table->string('Price', length: 100);
-            $table->string('PackRate', length: 100);
-            $table->string('Currency', length: 20);
+            $table->string('Price', length: 100)->default('');
+            $table->string('PackRate', length: 100)->default('');
+            $table->string('Currency', length: 20)->default('');
             $table->timestamps();
         });
     }

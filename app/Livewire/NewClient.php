@@ -49,9 +49,9 @@ class NewClient extends Component
             'EmailRecepients' => ['string'],
             'Country' => ['required', 'string', 'max:50'],
             'ClientDivision' => ['required', 'string', 'max:100'],
-            'Price' => ['required', 'string', 'max:100'],
-            'PackRate' => ['required', 'string', 'max:100'],
-            'Currency' => ['required', 'string', 'max:50'],
+            'Price' => ['string', 'max:100'],
+            'PackRate' => ['string', 'max:100'],
+            'Currency' => ['string', 'max:50'],
         ]);
 
         Client::create($validated);

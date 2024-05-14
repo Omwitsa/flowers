@@ -13,7 +13,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>HeadSize</th>
-                        <th>Brand</th>
+                        <th>Category</th>
                         <th>Active</th>
                         <!-- <th></th> -->
                     </tr>
@@ -25,7 +25,7 @@
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $subCategory->Name }}</td>
                             <td>{{ $subCategory->HeadSize }}</td>
-                            <td>{{ $subCategory->Brand }}</td>
+                            <td>{{ $subCategory->Category }}</td>
                             <td>{{ $subCategory->active }}</td>
                             <!-- <td>
                                 <button wire:click="edit({{ $subCategory->id }})" wire:key="{{ $subCategory->id }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Edit</button>|

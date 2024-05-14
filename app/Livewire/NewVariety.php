@@ -5,35 +5,35 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Variety;
 use Livewire\WithFileUploads;
-use App\Models\Brand;
-use App\Models\varietyRange;
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
 
 class NewVariety extends Component
 {
     use WithFileUploads;
 
-    public $brands;
-    public $ranges;
+    public $categories;
+    public $subCategories;
+    public $MinimumOrder;
     public string $VarietyName = '';
     public string $VarietyCode = '';
     public string $FlowerType = '';
     public string $Colour = '';
-    public string $brand = 'AAA ROSES';
-    public string $varietyRange = '';
+    public string $Category = 'AAA ROSES';
+    public string $SubCategory = '';
     public string $picUrl = '';
 
     public function mount()
     {
-        $this->brands = Brand::all();
-        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brand]);
+        $this->categories = Category::all();
+        $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     }
 
     public function creatVariety()
     {
         // Colour, Active, PicUrl
-
-        $selectedRange = varietyRange::firstWhere('Name', $this->varietyRange);
+        // $selectedSubCategory = SubCategory::firstWhere('Name', $this->varietyRange);
         // $this->picUrl->storeAs('public/uploads', 'sq.png');
         // $this->picUrl->store('public/photos');
 
@@ -41,18 +41,19 @@ class NewVariety extends Component
         $variety->VarietyName = $this->VarietyName;
         $variety->VarietyCode = $this->VarietyCode;
         $variety->FlowerType = $this->FlowerType;
+        $variety->MinimumOrder = $this->MinimumOrder;
         $variety->Colour = $this->Colour;
-        $variety->brand = $this->brand;
-        $variety->VarietyRangeId = $selectedRange->id;
+        $variety->Category = $this->Category;
+        $variety->SubCategory = $this->SubCategory;
         $variety->picUrl = $this->picUrl;
         $variety->save();
 
         $this->redirect('/varieties', navigate: true);
     }
 
-    public function updatedBrand()
+    public function updatedCategory()
     {
-        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brand]);
+        $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     }
 
     public function render()

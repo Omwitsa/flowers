@@ -66,36 +66,7 @@
                     </select>
                     <x-input-error :messages="$errors->get('DropOff')" class="mt-2" />
                 </div>
-
-                <label class="col-xs-12 col-sm-2 col-form-label">Price</label>
-                <div class="col-xs-12 col-sm-4">
-                    <select wire:model="Price" class="form-control">
-                        <option disabled value=""></option>
-                        @foreach($prices as $price)
-                            <option value="{{ $price->Name }}">{{ $price->Name }}</option>
-                        @endforeach
-                    </select>
-                    <x-input-error :messages="$errors->get('DropOff')" class="mt-2" />
-                </div>
-
-
-                <label class="col-xs-12 col-sm-2 col-form-label">Pack Rate</label>
-                <div class="col-xs-12 col-sm-4">
-                    <select wire:model="PackRate" class="form-control">
-                        <option disabled value=""></option>
-                        @foreach($packrates as $packrate)
-                            <option value="{{ $packrate->Name }}">{{ $packrate->Name }}</option>
-                        @endforeach
-                    </select>
-                    <x-input-error :messages="$errors->get('DropOff')" class="mt-2" />
-                </div>
-
-                <label class="col-xs-12 col-sm-2 col-form-label">Currency</label>
-                <div class="col-xs-12 col-sm-4">
-                    <input wire:model="Currency" name="Currency" type="text" class="form-control" autocomplete="off" required>
-                    <x-input-error :messages="$errors->get('Currency')" class="mt-2" />
-                </div>
-
+               
                 <label class="col-xs-12 col-sm-2 col-form-label">Email Recepients</label>
                 <div class="col-xs-12 col-sm-4">
                     <textarea wire:model="EmailRecepients" name="EmailRecepients" rows="3" class="form-control"></textarea>

@@ -17,8 +17,9 @@ class Variety extends Model
         'Range',
         'Colour',
         'Active',
-        'brand',
-        'VarietyRangeId',
+        'Category',
+        'SubCategory',
+        'MinimumOrder',
         'picUrl',
     ];
 }
