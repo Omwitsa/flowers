@@ -15,15 +15,16 @@ class OrderLine extends Model
 
     protected $fillable = [
         'order_header_id',
-        'VarietyId',
-        'VarietyRangeId',
+        'VarietyCode',
+        'VarietyName',
+        'subCategory',
+        'category',
         'Length',
         'BoxType',
         'StemQty',
         'PackRate',
         'Boxes',
         'Farm',
-        'FarmMixBoxId',
         'BoxMarking',
     ];
 

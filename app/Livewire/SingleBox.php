@@ -25,6 +25,7 @@ class SingleBox extends Component
     public $length = 'len60';
     public $groupedVarieties = [];
 
+
     public $order_lines;
     
     public function mount()

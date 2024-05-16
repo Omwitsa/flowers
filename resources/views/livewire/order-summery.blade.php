@@ -34,6 +34,7 @@
                         <th>Boxes</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @if ($order_lines != null)
                         @foreach ($order_lines as $line)

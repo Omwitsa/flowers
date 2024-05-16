@@ -7,7 +7,8 @@
             <div class="col-xs-12 col-sm-8">
                 <div class="card landing-card">
                     <div class="card-header">
-                        <div class="text-center"><h3>{{$subCategory}} VARIETY</h3></div>
+                        <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
+                        <div class="text-center"><h3>{{$subCategory->Name}} VARIETIES</h3></div>
                         <div style="text-align: right">
                             <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
                         </div>
@@ -24,8 +25,8 @@
                                             <h1>{{$variety->VarietyName}} </h1><br>
                                             <strong>Minimum Order: {{$variety->MinimumOrder}}</strong><br>
                                             <div class="form-group">
-                                                <a href="/variety/1__bronze" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                                <i class="ti-shopping-cart"></i>View</a>
+                                                <a href="/add-to-cart/{{$variety->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                                <i class="ti-shopping-cart"></i>Add to Cart</a>
                                             </div>
                                         </div>
                                     </div>

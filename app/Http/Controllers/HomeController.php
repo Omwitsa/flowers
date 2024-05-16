@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Category;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -37,8 +39,15 @@ class HomeController extends Controller
         }
 
         if(auth()->user()->role === 'Foreign') {
-            // foreign-dashboard
-           return view('category');
+            $categories = Category::all();
+            foreach ($categories as $key => $value) {
+                $category = (object) $value;
+                $category->param = Str::lower(Str::replace(' ', '-', $category->name));
+            }
+
+            return view('category')->with([
+                'categories' => $categories
+            ]);
         }
 
         return view('local-dashboard');

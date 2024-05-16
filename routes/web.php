@@ -44,8 +44,9 @@ use App\Livewire\SubCategoryList;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/logout', [HomeController::class, 'logout']);
-Route::get('/sub-category/{category}', [SubCategoryController::class, 'subCategory']);
+Route::get('/sub-category/{categoryName}', [SubCategoryController::class, 'subCategory']);
 Route::get('/variety/{subCategory}', [SubCategoryController::class, 'variety']);
+Route::get('/add-to-cart/{param}', [SubCategoryController::class, 'addToCart']);
 Route::view('/foreign-dashboard', 'foreign-dashboard');
 
 Route::view('profile', 'profile')

@@ -16,57 +16,20 @@
                         <!-- <img src="assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;"> -->
                         <!-- <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg">Log in</a> -->
                         <div class="row home-section">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row type">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <img src="/assets/images/flowers/singleflower.jpg" alt="Flowers" style="width:100%;">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 text-center">
-                                        <h1>AAA <br> ROSES</h1><br>
-                                        <a href="/sub-category/aaa-roses" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row type">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <img src="/assets/images/flowers/70.png" alt="Flowers" style="width:100%;">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 text-center">
-                                        <h1>BELLISSIMA</h1><br>
-                                        <a href="/sub-category/bellissima" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>View</a>
+                            @foreach ($categories as $index => $category)
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="row type">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <img src="/assets/images/flowers/75.png" alt="Flowers" style="width:100%;">
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <h1>{{$category->name}}</h1><br>
+                                            <a href="/sub-category/{{$category->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                                <i class="ti-shopping-cart"></i>View</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row type">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <img src="/assets/images/flowers/mix-rose.jpg" alt="Flowers" style="width:100%;">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 text-center">
-                                        <h1>WILD BLOOMS</h1>
-                                        <a href="/sub-category/wild-blooms" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row type">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <img src="/assets/images/flowers/71.png" alt="Flowers" style="width:100%;">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 text-center">
-                                        <h1>MIXED BOXES</h1>
-                                        <a href="/sub-category/mixed-box" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                            <i class="ti-shopping-cart"></i>View</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="card-footer text-center">

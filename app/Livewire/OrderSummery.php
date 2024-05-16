@@ -53,6 +53,7 @@ class OrderSummery extends Component
         foreach ($orderlines as $item) {
             $item['order_header_id'] = $order->id;
             // $ordered = (object) $item;
+            // dd(array($item));
             $order->orderLines()->create($item);
         }
 
