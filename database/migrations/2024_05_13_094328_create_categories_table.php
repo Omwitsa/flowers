@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', length: 100)->unique();
             $table->string('farm', length: 100);
             $table->boolean('active')->default(true);
+            $table->string('picUrl');
             $table->timestamps();
         });
     }

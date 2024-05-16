@@ -5,13 +5,16 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
+use Livewire\WithFileUploads;
 
 class NewSubCategory extends Component
 {
+    use WithFileUploads;
     public $categories;
     public string $Name = '';
     public string $HeadSize = '';
     public string $Category = 'AAA ROSES';
+    public string $picUrl = '';
 
     public function mount()
     {
@@ -24,6 +27,7 @@ class NewSubCategory extends Component
             'Name' => ['required', 'string', 'max:100'],
             'HeadSize' => ['required', 'string', 'max:100'],
             'Category' => ['required', 'string', 'max:100'],
+            'picUrl' => ['required'],
         ]);
 
         SubCategory::create($validated);

@@ -31,6 +31,14 @@
             </div>
 
             <div class="form-group row">
+                <label class="col-xs-12 col-sm-2 col-form-label">Upload Picture</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input wire:model="picUrl" id="picUrl" name="picUrl" type="file" class="form-control">
+                    <x-input-error :messages="$errors->get('picUrl')" class="mt-2" />
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <div class="form-check form-check-inline">
                     <input wire:model="active" class="form-check-input" type="checkbox" id="active">
                     <label class="form-check-label" for="active">Active</label>

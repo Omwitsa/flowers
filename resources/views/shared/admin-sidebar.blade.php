@@ -98,6 +98,26 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
+                <a href="/categories" class="waves-effect waves-dark" wire:navigate>
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Categories</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a href="/sub-categories" class="waves-effect waves-dark" wire:navigate>
+                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
+                    <span class="pcoded-mtext">Sub Categories</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
                 <a href="/prices" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Prices</span>
@@ -126,25 +146,6 @@
             </li>
         </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="/categories" class="waves-effect waves-dark" wire:navigate>
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Categories</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-            </li>
-        </ul>
-
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="/sub-categories" class="waves-effect waves-dark" wire:navigate>
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Sub Categories</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-            </li>
-        </ul>
         <!-- <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)" class="waves-effect waves-dark">

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('HeadSize', length: 20);
             $table->string('Category', length: 100);
             $table->boolean('active')->default(true);
+            $table->string('picUrl');
             $table->timestamps();
         });
     }

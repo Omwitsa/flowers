@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Sub Categories</h5>
         <div class="card-header-right">
-            <!-- <a href="{{ url('/new-sub-category') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a> -->
+            <a href="{{ url('/new-sub-category') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
         </div>
     </div>
     <div class="card-block table-border-style">
@@ -15,7 +15,7 @@
                         <th>HeadSize</th>
                         <th>Category</th>
                         <th>Active</th>
-                        <!-- <th></th> -->
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -27,10 +27,10 @@
                             <td>{{ $subCategory->HeadSize }}</td>
                             <td>{{ $subCategory->Category }}</td>
                             <td>{{ $subCategory->active }}</td>
-                            <!-- <td>
+                            <td>
                                 <button wire:click="edit({{ $subCategory->id }})" wire:key="{{ $subCategory->id }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Edit</button>|
                                 <button wire:click="delete({{ $subCategory->id }})" wire:key="{{ $subCategory->id }}" wire:confirm="Are you sure you want to delete?" type="button" class="btn btn-danger btn-sm waves-effect waves-light">Delete</button>
-                            </td> -->
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -5,14 +5,17 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
+use Livewire\WithFileUploads;
 
 class EditSubCategory extends Component
 {
+    use WithFileUploads;
     public $subCategory;
     public $categories;
     public string $Name = '';
     public string $HeadSize = '';
     public string $Category = 'AAA ROSES';
+    public string $picUrl = '';
     public $active;
 
     public function mount($id)
@@ -22,6 +25,7 @@ class EditSubCategory extends Component
         $this->Name = $this->subCategory->Name;
         $this->HeadSize = $this->subCategory->HeadSize;
         $this->Category = $this->subCategory->Category;
+        $this->picUrl = $this->subCategory->picUrl;
         $this->active = $this->subCategory->active === 1;
     }
 
@@ -31,6 +35,7 @@ class EditSubCategory extends Component
         $this->subCategory->HeadSize = $this->HeadSize;
         $this->subCategory->Category = $this->Category;
         $this->subCategory->active = $this->active;
+        $this->subCategory->picUrl = $this->picUrl;
         $this->subCategory->save();
 
         toastr()->success('Sub-category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

@@ -14,5 +14,6 @@ class SubCategory extends Model
         'HeadSize',
         'Category',
         'active',
+        'picUrl',
     ];
 }

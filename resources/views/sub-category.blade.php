@@ -19,7 +19,7 @@
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="row type">
                                         <div class="col-xs-12 col-sm-6">
-                                            <img src="/assets/images/flowers/singleflower.jpg" alt="Flowers" style="width:100%;">
+                                            <img src="{{ $category->picUrl }}" alt="Flowers" style="width:100%;">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>{{$subCategory->Name}}</h1><br>
