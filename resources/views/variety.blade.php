@@ -3,8 +3,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-2"></div>
-            <div class="col-xs-12 col-sm-8">
+            <div class="col-xs-12 col-sm-1"></div>
+            <div class="col-xs-12 col-sm-10">
                 <div class="card landing-card">
                     <div class="card-header">
                         <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
@@ -16,14 +16,14 @@
                     <div class="card-block">
                         <div class="row home-section">
                             @foreach ($varieties as $index => $variety)
-                                <div class="col-xs-12 col-sm-6">
+                                <div class="col-xs-12 col-sm-4">
                                     <div class="row type">
                                         <div class="col-xs-12 col-sm-6">
-                                            <img src="{{ $variety->picUrl }}" alt="Flowers" style="width:100%;">
+                                            <img src="{{ asset('storage/images/' . $variety->picUrl) }}" alt="Flowers" style="width:100%;">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
-                                            <h1>{{$variety->VarietyName}} </h1><br>
-                                            <strong>Minimum Order: {{$variety->MinimumOrder}}</strong><br>
+                                            <h2>{{$variety->VarietyName}} </h2>
+                                            <strong>Minimum Order: {{$variety->MinimumOrder}}</strong><br><br>
                                             <div class="form-group">
                                                 <a href="/add-to-cart/{{$variety->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>Add to Cart</a>

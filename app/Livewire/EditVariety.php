@@ -25,14 +25,13 @@ class EditVariety extends Component
     public string $Colour = '';
     public string $category = 'AAA ROSES';
     public string $subCategory = '';
-    public string $picUrl = '';
+    public $file;
     
     public function mount($id)
     {
         $this->categories = Category::all();
         $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->category]);
         $this->variety = Variety::find($id);
-        // $selectedSubCategory = SubCategory::firstWhere('id', $this->variety->VarietyRangeId);
         $this->VarietyName = $this->variety->VarietyName;
         $this->VarietyCode = $this->variety->VarietyCode;
         $this->FlowerType = $this->variety->FlowerType;
@@ -46,15 +45,17 @@ class EditVariety extends Component
 
     public function UpdateVariety()
     {
+        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $this->file->storeAs('images', $name);
+
         $this->variety->VarietyName = $this->VarietyName;
         $this->variety->VarietyCode = $this->VarietyCode;
         $this->variety->FlowerType = $this->FlowerType;
         $this->variety->MinimumOrder = $this->MinimumOrder;
         $this->variety->Colour = $this->Colour;
         $this->variety->Category = $this->category;
-        // $selectedSubCategory = varietyRange::firstWhere('Name', $this->varietyRange);
         $this->variety->SubCategory = $this->subCategory;
-        $this->variety->picUrl = $this->picUrl;
+        $this->variety->picUrl = $name;
         $this->variety->Active = $this->active;
         $this->variety->save();
 

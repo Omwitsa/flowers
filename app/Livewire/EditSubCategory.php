@@ -15,7 +15,7 @@ class EditSubCategory extends Component
     public string $Name = '';
     public string $HeadSize = '';
     public string $Category = 'AAA ROSES';
-    public string $picUrl = '';
+    public $file;
     public $active;
 
     public function mount($id)
@@ -31,11 +31,14 @@ class EditSubCategory extends Component
 
     public function updateSubCategory()
     {
+        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $this->file->storeAs('images', $name);
+
         $this->subCategory->Name = $this->Name;
         $this->subCategory->HeadSize = $this->HeadSize;
         $this->subCategory->Category = $this->Category;
         $this->subCategory->active = $this->active;
-        $this->subCategory->picUrl = $this->picUrl;
+        $this->subCategory->picUrl = $name;
         $this->subCategory->save();
 
         toastr()->success('Sub-category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

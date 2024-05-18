@@ -11,7 +11,7 @@ class EditCategory extends Component
     use WithFileUploads;
     public string $name = '';
     public string $farm = '';
-    public string $picUrl = '';
+    public $file;
     public $active;
     public $category;
 
@@ -26,10 +26,13 @@ class EditCategory extends Component
 
     public function UpdateCategory()
     {
+        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $this->file->storeAs('images', $name);
+
         $this->category->name = $this->name;
         $this->category->farm = $this->farm;
         $this->category->active = $this->active;
-        $this->category->picUrl = $this->picUrl;
+        $this->category->picUrl = $name;
         $this->category->save();
 
         toastr()->success('Category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

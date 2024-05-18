@@ -22,7 +22,7 @@ class NewVariety extends Component
     public string $Colour = '';
     public string $Category = 'AAA ROSES';
     public string $SubCategory = '';
-    public string $picUrl = '';
+    public $file;
 
     public function mount()
     {
@@ -33,9 +33,8 @@ class NewVariety extends Component
     public function creatVariety()
     {
         // Colour, Active, PicUrl
-        // $selectedSubCategory = SubCategory::firstWhere('Name', $this->varietyRange);
-        // $this->picUrl->storeAs('public/uploads', 'sq.png');
-        // $this->picUrl->store('public/photos');
+        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $this->file->storeAs('images', $name);
 
         $variety = new Variety;
         $variety->VarietyName = $this->VarietyName;
@@ -45,7 +44,7 @@ class NewVariety extends Component
         $variety->Colour = $this->Colour;
         $variety->Category = $this->Category;
         $variety->SubCategory = $this->SubCategory;
-        $variety->picUrl = $this->picUrl;
+        $variety->picUrl = $name;
         $variety->save();
 
         $this->redirect('/varieties', navigate: true);

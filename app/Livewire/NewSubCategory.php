@@ -14,7 +14,7 @@ class NewSubCategory extends Component
     public string $Name = '';
     public string $HeadSize = '';
     public string $Category = 'AAA ROSES';
-    public string $picUrl = '';
+    public $file;
 
     public function mount()
     {
@@ -27,9 +27,13 @@ class NewSubCategory extends Component
             'Name' => ['required', 'string', 'max:100'],
             'HeadSize' => ['required', 'string', 'max:100'],
             'Category' => ['required', 'string', 'max:100'],
-            'picUrl' => ['required'],
+            'file' => 'image|max:1024', // 1MB Max
         ]);
 
+        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $validated['picUrl'] = $name;
+
+        $this->file->storeAs('images', $name);
         SubCategory::create($validated);
         $this->redirect('/sub-categories', navigate: true);
     }
