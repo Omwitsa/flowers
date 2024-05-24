@@ -2,11 +2,14 @@
 
 namespace App\Livewire;
 
+use Session;
 use Livewire\Component;
 use App\Models\dropoff;
 use App\Models\Client;
 use App\Models\PackRateHeader;
 use App\Models\PackRateLine;
+use App\Models\OrderHeader;
+use App\Models\Category;
 
 class OrderSummery extends Component
 {
@@ -71,32 +74,45 @@ class OrderSummery extends Component
 
     public function order()
     {
-        // dd($this->order_lines);
-        // VarietyName, Length, BoxType, PackRate, quantity, StemQty
+        if($this->receivingDate === null){
+            toastr()->error("Kindly provide recieving date", 'Sorry', ['positionClass' => 'toast-top-center']);
+            return $this->redirect('/order-summary', navigate: true);
+        }
 
-        
-        // $selectedDropOff = dropoff::firstWhere('name', $this->dropOff);
-        // $order = OrderHeader::create([
-        //     'ClientId' => $this->client->id,
-        //     'DateCreated' => date('Y-m-d', time()),
-        //     'ReceivingDate' => $this->receivingDate,
-        //     'LpoNo' => $this->LpoNo,
-        //     'Status' => $this->Status,
-        //     'Farm' => 'AAA ROSES',
-        //     'Type' => '1',
-        //     'IsSendEmail' => '1',
-        //     'confirmUrl' => '',
-        //     'DropOffId' => $selectedDropOff->id,
-        //     'IsTransferred' => '1',
-        // ]);
+        foreach ($this->order_lines as $item){
+            if($item->BoxType === ""){
+                toastr()->error("Kindly select boxtype for $item->VarietyName", 'Sorry', ['positionClass' => 'toast-top-center']);
+                return $this->redirect('/order-summary', navigate: true);
+            }
+            if($item->Boxes < $item->MinimumOrder){
+                toastr()->error("$item->VarietyName quantity must be atleast $item->MinimumOrder", 'Sorry', ['positionClass' => 'toast-top-center']);
+                return $this->redirect('/order-summary', navigate: true);
+            }
+        }
 
-        // foreach ($this->order_lines as $item) {
-        //     $item['order_header_id'] = $order->id;
-        //     $order->orderLines()->create($item);
-        // }
+        // $category = Category::firstWhere('name', $this->dropOff);
+        $selectedDropOff = dropoff::firstWhere('name', $this->dropOff);
+        $order = OrderHeader::create([
+            'ClientId' => $this->client->id,
+            'DateCreated' => date('Y-m-d', time()),
+            'ReceivingDate' => $this->receivingDate,
+            'LpoNo' => $this->LpoNo,
+            'Status' => $this->Status,
+            'Farm' => 'AAA ROSES',
+            'Type' => '1',
+            'IsSendEmail' => '1',
+            'confirmUrl' => '',
+            'DropOffId' => $selectedDropOff->id,
+            'IsTransferred' => '1',
+        ]);
 
-        // toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        // Session::forget('order_lines');
-        // $this->redirect('/', navigate: true);
+        foreach ($this->order_lines as $item) {
+            $item->order_header_id = $order->id;
+            $order->orderLines()->create((array)$item);
+        }
+
+        toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        Session::forget('order_lines');
+        $this->redirect('/', navigate: true);
     }
 }

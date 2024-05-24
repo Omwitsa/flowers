@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Constants\Roles;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use stdclass;
 use Illuminate\Support\Facades\DB;
 use App\Models\Variety;
@@ -53,21 +51,26 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::firstWhere('id', $collection->get(1));
         $varietyCode = $collection->get(2);
         $variety = Variety::firstWhere('VarietyCode', $varietyCode);
+
+        $order_line = new StdClass();
+        $order_line->BoxType = '';
+        $order_line->BoxMarking = '';
+        $order_line->VarietyCode = $variety->VarietyCode;
+        $order_line->VarietyName = $variety->VarietyName;
+        $order_line->subCategory = $subCategory->Name;
+        $order_line->category = $category->name;
+        $order_line->Length = 'len60';
+        $order_line->Boxes = $variety->MinimumOrder;
+        $order_line->MinimumOrder = $variety->MinimumOrder;
+        $order_line->PackRate = 0;
+        $order_line->StemQty = $order_line->PackRate * $order_line->Boxes;
        
         $order_lines = session('order_lines');
-        if(!in_array($variety->VarietyName, array_column($order_lines, 'VarietyName'))){
-            $order_line = new StdClass();
-            $order_line->BoxType = '';
-            $order_line->BoxMarking = '';
-            $order_line->VarietyCode = $variety->VarietyCode;
-            $order_line->VarietyName = $variety->VarietyName;
-            $order_line->subCategory = $subCategory->Name;
-            $order_line->category = $category->name;
-            $order_line->Length = 'len60';
-            $order_line->Boxes = $variety->MinimumOrder;
-            $order_line->PackRate = 0;
-            $order_line->StemQty = $order_line->PackRate * $order_line->Boxes;
-
+        if($order_lines == null){
+            Session::push('order_lines', $order_line);
+        }
+        
+        if($order_lines != null && !in_array($variety->VarietyName, array_column($order_lines, 'VarietyName'))){
             Session::push('order_lines', $order_line);
         }
 

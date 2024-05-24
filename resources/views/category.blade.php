@@ -7,11 +7,14 @@
             <div class="col-xs-12 col-sm-8">
                 <div class="card landing-card">
                     <div class="card-header">
-                        <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
+                        @if (Auth::check())
+                            <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
+                            <div style="text-align: right">
+                                <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
+                            </div>
+                        @endif
+                        
                         <div class="text-center"><h3>CATEGORIES</h3></div>
-                        <div style="text-align: right">
-                            <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
-                        </div>
                     </div>
                     <div class="card-block">
                         <!-- <img src="assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;"> -->

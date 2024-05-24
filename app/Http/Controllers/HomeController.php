@@ -55,4 +55,18 @@ class HomeController extends Controller
 
         return view('local-dashboard');
     }
+
+    public function guest() {
+        $categories = DB::table('categories')
+                ->orderBy('id', 'desc')
+                ->get();
+        foreach ($categories as $key => $value) {
+            $category = (object) $value;
+            $category->param = Str::lower(Str::replace(' ', '-', $category->name));
+        }
+
+        return view('category')->with([
+            'categories' => $categories
+        ]);
+    }
 }
