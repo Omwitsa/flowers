@@ -31,7 +31,8 @@ class EditSubCategory extends Component
 
     public function updateSubCategory()
     {
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $name = time().'-'.$this->file->getClientOriginalName();
         $this->file->storeAs('images', $name);
 
         $this->subCategory->Name = $this->Name;

@@ -23,9 +23,10 @@ class NewCategory extends Component
 
         // $name = $this->file->getClientOriginalName();
         // $validated['picUrl'] = $this->file->path();
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
-        $validated['picUrl'] = $name;
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
 
+        $name = time().'-'.$this->file->getClientOriginalName();
+        $validated['picUrl'] = $name;
         $this->file->storeAs('images', $name);
         Category::create($validated);
         $this->redirect('/categories', navigate: true);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Constants\Roles;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use stdclass;
 use Illuminate\Support\Facades\DB;
 use App\Models\Variety;
 use App\Models\Category;
@@ -51,25 +52,26 @@ class SubCategoryController extends Controller
         $category = Category::firstWhere('id', $collection->get(0));
         $subCategory = SubCategory::firstWhere('id', $collection->get(1));
         $varietyCode = $collection->get(2);
-        $length = 'len60';
-        $packRate = 180;
-        $boxType = 'len60';
-        $quantity = 30;
-        $stems =  $packRate * $quantity;
         $variety = Variety::firstWhere('VarietyCode', $varietyCode);
-        // $request->session()->push('user.teams', 'developers');
+       
+        $order_lines = session('order_lines');
+        if(!in_array($variety->VarietyName, array_column($order_lines, 'VarietyName'))){
+            $order_line = new StdClass();
+            $order_line->BoxType = '';
+            $order_line->BoxMarking = '';
+            $order_line->VarietyCode = $variety->VarietyCode;
+            $order_line->VarietyName = $variety->VarietyName;
+            $order_line->subCategory = $subCategory->Name;
+            $order_line->category = $category->name;
+            $order_line->Length = 'len60';
+            $order_line->Boxes = $variety->MinimumOrder;
+            $order_line->PackRate = 0;
+            $order_line->StemQty = $order_line->PackRate * $order_line->Boxes;
 
-        // $order_lines  = session('order_lines');
-        // $order_lines = collect();
-        // $order_lines = collect([
-        //     ['varietyCode' => $variety->VarietyCode, 'VarietyName' => $variety->VarietyName, 'subCategory' => $subCategory->Name, 'category' => $category->name, 'Length' => substr($length,3), 'BoxType' => $boxType, 'StemQty' => $stems, 'PackRate' => $packRate, 'Boxes' => $quantity]
-        // ]);
-        $order_lines = collect(['varietyCode' => $variety->VarietyCode, 'VarietyName' => $variety->VarietyName, 'subCategory' => $subCategory->Name, 'category' => $category->name, 'Length' => substr($length,3), 'BoxType' => $boxType, 'StemQty' => $stems, 'PackRate' => $packRate, 'Boxes' => $quantity]);
-        Session::push('order_lines', $order_lines);
-        // $order_lines->push(['VarietyId' => $variety->id, 'VarietyRangeId' => $variety->VarietyRangeId, 'Length' => substr($this->length,3), 'BoxType' => $this->packRate->id, 'StemQty' => $variety->stems, 'PackRate' => $variety->packrate, 'Boxes' => $variety->quantity, 'Farm' => $selectedBrand->farm, 'VarietyName' => $variety->VarietyName]);
+            Session::push('order_lines', $order_line);
+        }
+
         toastr()->success('Item added successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        // session(['order_lines' => $this->order_lines]);
-
         $subCategory->param = Str::lower(Str::replace(' ', '-', $subCategory->Name));
         $param = "/variety/$category->id--$subCategory->param";
         return redirect($param);

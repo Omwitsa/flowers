@@ -18,21 +18,22 @@ class CategorySeeder extends Seeder
         if(DB::table('categories')->count() == 0){
 
             DB::table('categories')->insert([
-                [
-                    'name' => 'AAA ROSES',
-                    'farm' => 'Simba',
-                ],
-                [
-                    'name' => 'BELLISSIMA',
-                    'farm' => 'Chui',
-                ],
-                [
-                    'name' => 'WILD BLOOMS',
-                    'farm' => 'Simba',
-                ],
+                // [
+                //     'name' => 'AAA ROSES',
+                //     'farm' => 'Simba',
+                // ],
+                // [
+                //     'name' => 'BELLISSIMA',
+                //     'farm' => 'Chui',
+                // ],
+                // [
+                //     'name' => 'WILD BLOOMS',
+                //     'farm' => 'Simba',
+                // ],
                 [
                     'name' => 'MIXED BOX',
                     'farm' => 'Simba',
+                    'picUrl' => '83.png',
                 ]
             ]);
         }

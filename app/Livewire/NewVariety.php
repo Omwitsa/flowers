@@ -33,7 +33,8 @@ class NewVariety extends Component
     public function creatVariety()
     {
         // Colour, Active, PicUrl
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $name = time().'-'.$this->file->getClientOriginalName();
         $this->file->storeAs('images', $name);
 
         $variety = new Variety;

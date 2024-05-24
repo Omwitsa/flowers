@@ -4,6 +4,7 @@ use App\Livewire\Forms\LoginForm;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\Constants\Roles;
 
@@ -17,6 +18,16 @@ new #[Layout('layouts.guest')] class extends Component
     public function login(): void
     {
         $this->validate();
+        // $isInactive = DB::table('client')
+        //     ->where('ClientCode', $this->form->usercode)
+        //     ->where('Category', 'Inactive')
+        //     ->exists();
+
+        // if($isInactive){
+        //     toastr()->error('Your account is inactive, Kindly contact admin', 'Sorry', ['positionClass' => 'toast-top-center']);
+        //     $this->redirect('/login', navigate: true);
+        // }
+        
         $this->form->authenticate();
         Session::regenerate();
         toastr()->success('Logged in successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

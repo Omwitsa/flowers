@@ -26,7 +26,8 @@ class EditCategory extends Component
 
     public function UpdateCategory()
     {
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $name = time().'-'.$this->file->getClientOriginalName();
         $this->file->storeAs('images', $name);
 
         $this->category->name = $this->name;

@@ -45,7 +45,8 @@ class EditVariety extends Component
 
     public function UpdateVariety()
     {
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $name = time().'-'.$this->file->getClientOriginalName();
         $this->file->storeAs('images', $name);
 
         $this->variety->VarietyName = $this->VarietyName;

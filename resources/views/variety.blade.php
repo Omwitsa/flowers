@@ -68,7 +68,7 @@
                         <i>For immediate support call</i> &nbsp; 
                         <i class="fa fa-phone" aria-hidden="true"></i> <i>+254 730 779 200 </i> Or <br>
                         email <i class="fa fa-envelope" aria-hidden="true">&nbsp; flowersales@aaagrowers.co.ke</i><br><br>
-                        AAA IT TEAM © 2024
+                        AAA IT TEAM © {{date('Y')}}
                     </div>
                 </div>
             </div>

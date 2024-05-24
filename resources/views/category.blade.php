@@ -7,6 +7,7 @@
             <div class="col-xs-12 col-sm-8">
                 <div class="card landing-card">
                     <div class="card-header">
+                        <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
                         <div class="text-center"><h3>CATEGORIES</h3></div>
                         <div style="text-align: right">
                             <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
@@ -36,7 +37,7 @@
                         <i>For immediate support call</i> &nbsp; 
                         <i class="fa fa-phone" aria-hidden="true"></i> <i>+254 730 779 200 </i> Or <br>
                         email <i class="fa fa-envelope" aria-hidden="true">&nbsp; flowersales@aaagrowers.co.ke</i><br><br>
-                        AAA IT TEAM © 2024
+                        AAA IT TEAM © {{date('Y')}}
                     </div>
                 </div>
             </div>

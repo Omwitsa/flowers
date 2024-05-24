@@ -29,22 +29,39 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Length</th>
-                        <th>StemQty</th>
+                        <th>Box Type</th>
                         <th>PackRate</th>
-                        <th>Boxes</th>
+                        <th>Quantity</th>
+                        <th>Box Marking</th>
+                        <th>Stems</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @if ($order_lines != null)
-                        @foreach ($order_lines as $line)
+                        @foreach($order_lines as $index => $line)
                             <tr>
                                 <th scope="row">{{ $loop->iteration}}</th>
-                                <td>{{ $line['VarietyName'] }}</td>
-                                <td>{{ $line['Length'] }}</td>
-                                <td>{{ $line['StemQty'] }}</td>
-                                <td>{{ $line['PackRate'] }}</td>
-                                <td>{{ $line['Boxes'] }}</td>
+                                <td>{{ $line->VarietyName }}</td>
+                                <td><select wire:change="onLengthChange({{ $index }}, $event.target.value)" wire:key="{{ $index }}" wire:model="order_lines.{{ $index }}.Length" class="form-control" required>
+                                    <option disabled value=""></option>
+                                    <option value="len40">40 cm</option>
+                                    <option value="len50">50 cm</option>
+                                    <option value="len60">60 cm</option>
+                                    <option value="len70">70 cm</option>
+                                    <option value="len80">80 cm</option>
+                                    <option value="len90">90 cm</option>
+                                </select></td>
+                                <td><select wire:change="onBoxTypeChange({{ $index }}, $event.target.value)" wire:key="{{ $index }}" wire:model="order_lines.{{ $index }}.BoxType" class="form-control" required>
+                                    <option disabled value=""></option>
+                                    @foreach($boxTypes as $boxType)
+                                        <option value="{{ $boxType->Name }}">{{ $boxType->Name }}</option>
+                                    @endforeach
+                                </select></td>
+                                <td>{{ $line->PackRate }}</td>
+                                <td><input wire:blur="onEnterQuantity({{ $index }}, $event.target.value)" wire:key="{{ $index }}" type="number" wire:model="order_lines.{{ $index }}.Boxes" class="form-control" required></td>
+                                <td><input wire:key="{{ $index }}" type="text" wire:model="order_lines.{{ $index }}.BoxMarking" class="form-control"></td>
+                                <td>{{ $line->StemQty}}</td>
                             </tr>
                         @endforeach
                     @endif

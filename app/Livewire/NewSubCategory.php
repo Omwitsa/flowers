@@ -30,7 +30,8 @@ class NewSubCategory extends Component
             'file' => 'image|max:1024', // 1MB Max
         ]);
 
-        $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+        $name = time().'-'.$this->file->getClientOriginalName();
         $validated['picUrl'] = $name;
 
         $this->file->storeAs('images', $name);

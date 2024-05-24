@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,9 @@ class HomeController extends Controller
         }
 
         if(auth()->user()->role === 'Foreign') {
-            $categories = Category::all();
+            $categories = DB::table('categories')
+                ->orderBy('id', 'desc')
+                ->get();
             foreach ($categories as $key => $value) {
                 $category = (object) $value;
                 $category->param = Str::lower(Str::replace(' ', '-', $category->name));
