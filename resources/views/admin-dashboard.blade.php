@@ -179,10 +179,10 @@
                                 <tr>
                                     <td>
                                         <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
                                             <div class="d-inline-block">
-                                                <h6>James Alexander</h6>
-                                                <p class="text-muted m-b-0">Sales executive , EL</p>
+                                                <h6>Shirley Hoe</h6>
+                                                <p class="text-muted m-b-0">Sales executive , NY</p>
                                             </div>
                                         </div>
                                     </td>
@@ -201,16 +201,16 @@
                                         </div>
                                     </td>
                                     <td class="text-right">
-                                        <h6 class="f-w-700">$89.051<i class="fas fa-level-up-alt text-c-green m-l-10"></i></h6>
+                                        <h6 class="f-w-700">$78.001<i class="fas fa-level-down-alt text-c-red m-l-10"></i></h6>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
                                             <div class="d-inline-block">
-                                                <h6>Nick Xander</h6>
-                                                <p class="text-muted m-b-0">Sales executive , EL</p>
+                                                <h6>Shirley Hoe</h6>
+                                                <p class="text-muted m-b-0">Sales executive , NY</p>
                                             </div>
                                         </div>
                                     </td>
