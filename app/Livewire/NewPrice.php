@@ -41,7 +41,7 @@ class NewPrice extends Component
             $price->priceLines()->create($item);
         }
 
-        $this->redirect('/prices', navigate: true);
+        $this->redirect(env('APP_ROOT').'prices', navigate: true);
     }
 
     public function render()

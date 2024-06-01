@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Mixed Boxes</h5>
         <div class="card-header-right">
-            <a href="{{ url('/new-mixed-box') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
+            <a href="{{ url(env('APP_ROOT').'new-mixed-box') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
         </div>
     </div>
     <div class="card-block table-border-style">

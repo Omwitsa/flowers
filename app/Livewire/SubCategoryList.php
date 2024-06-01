@@ -14,14 +14,14 @@ class SubCategoryList extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute('edit-sub-category', ['id' => $id]);
+        $this->redirectRoute(env('APP_ROOT').'edit-sub-category', ['id' => $id]);
     }
 
     public function delete($id){
         $subCategory = SubCategory::find($id);
         $subCategory->delete();
         toastr()->success('Sub Category deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/sub-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'sub-categories', navigate: true);
     }
     
 

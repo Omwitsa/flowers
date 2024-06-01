@@ -17,7 +17,7 @@ class NewClientCategory extends Component
         ]);
 
         ClientCategory::create($validated);
-        $this->redirect('/client-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'client-categories', navigate: true);
     }
 
     public function render()

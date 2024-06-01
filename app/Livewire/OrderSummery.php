@@ -76,17 +76,17 @@ class OrderSummery extends Component
     {
         if($this->receivingDate === null){
             toastr()->error("Kindly provide recieving date", 'Sorry', ['positionClass' => 'toast-top-center']);
-            return $this->redirect('/order-summary', navigate: true);
+            return $this->redirect(env('APP_ROOT').'order-summary', navigate: true);
         }
 
         foreach ($this->order_lines as $item){
             if($item->BoxType === ""){
                 toastr()->error("Kindly select boxtype for $item->VarietyName", 'Sorry', ['positionClass' => 'toast-top-center']);
-                return $this->redirect('/order-summary', navigate: true);
+                return $this->redirect(env('APP_ROOT').'order-summary', navigate: true);
             }
             if($item->Boxes < $item->MinimumOrder){
                 toastr()->error("$item->VarietyName quantity must be atleast $item->MinimumOrder", 'Sorry', ['positionClass' => 'toast-top-center']);
-                return $this->redirect('/order-summary', navigate: true);
+                return $this->redirect(env('APP_ROOT').'order-summary', navigate: true);
             }
         }
 
@@ -113,6 +113,6 @@ class OrderSummery extends Component
 
         toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         Session::forget('order_lines');
-        $this->redirect('/', navigate: true);
+        $this->redirect(env('APP_ROOT'), navigate: true);
     }
 }

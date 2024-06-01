@@ -10,9 +10,9 @@
                         <h3>Welcome to AAA Growers Group (Flowers)</h3>
                     </div>
                     <div class="card-block">
-                        <img src="assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;">
+                        <img src="{{env('APP_ROOT')}}assets/images/rosebg.jpg" alt="roses" style="width:100%; height:500px;">
                         <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg">Log in</a>
-                        <a href="/guest" class="btn btn-primary btn-lg" wire:navigate>Our Products</a>
+                        <a href="{{env('APP_ROOT')}}guest" class="btn btn-primary btn-lg" wire:navigate>Our Products</a>
                     </div>
                     <div class="card-footer text-center">
                         <i>For immediate support call</i> &nbsp; 

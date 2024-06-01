@@ -14,14 +14,14 @@ class ClientCategoryList extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute('edit-client-cat', ['id' => $id]);
+        $this->redirectRoute(env('APP_ROOT').'edit-client-cat', ['id' => $id]);
     }
 
     public function delete($id){
         $region = ClientCategory::find($id);
         $region->delete();
         toastr()->success('Category deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/client-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'client-categories', navigate: true);
     }
 
     public function render()

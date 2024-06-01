@@ -43,7 +43,7 @@ class EditSubCategory extends Component
         $this->subCategory->save();
 
         toastr()->success('Sub-category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/sub-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'sub-categories', navigate: true);
     }
     public function render()
     {

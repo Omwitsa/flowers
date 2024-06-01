@@ -8,9 +8,9 @@
                 <div class="card landing-card">
                     <div class="card-header">
                         @if (Auth::check())
-                            <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
+                            <a style="color: #FFFFFF" href="{{env('APP_ROOT')}}order-summary"> Summary<i></i></a>
                             <div style="text-align: right">
-                                <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
+                                <a style="color: #FFFFFF" href="{{env('APP_ROOT')}}logout">logout <i class="ti-arrow-right"></i></a>
                             </div>
                         @endif
                         
@@ -29,7 +29,7 @@
                                             <strong>Minimum Order: {{$variety->MinimumOrder}}</strong><br><br>
                                             @if (Auth::check())
                                                 <div class="form-group">
-                                                    <a href="/add-to-cart/{{$variety->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                                    <a href="{{env('APP_ROOT')}}add-to-cart/{{$variety->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                     <i class="ti-shopping-cart"></i>Add to Cart</a>
                                                 </div>
                                             @endif

@@ -19,7 +19,7 @@ class SubCategoryController extends Controller
             $subCategory = (object) $value;
             $subCategory->param = Str::lower(Str::replace(' ', '-', $subCategory->Name));
         }
-        return view('sub-category')->with([
+        return view(env('APP_ROOT').'sub-category')->with([
             'category' => (object) $category,
             'subCategories' => $subCategories
         ]);
@@ -37,7 +37,7 @@ class SubCategoryController extends Controller
             $variety->param = $categoryId . '--' . $subCategory->id . '--' . $variety->VarietyCode;
         }
 
-        return view('variety')->with([
+        return view(env('APP_ROOT').'variety')->with([
             'category' => $category,
             'subCategory' => $subCategory,
             'varieties' => $varieties,
@@ -76,7 +76,7 @@ class SubCategoryController extends Controller
 
         toastr()->success('Item added successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         $subCategory->param = Str::lower(Str::replace(' ', '-', $subCategory->Name));
-        $param = "/variety/$category->id--$subCategory->param";
+        $param = env('APP_ROOT')."variety/$category->id--$subCategory->param";
         return redirect($param);
     }
 }

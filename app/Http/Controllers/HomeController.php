@@ -15,14 +15,14 @@ class HomeController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect(env('APP_ROOT'));
     }
 
     public function index() {
         if (!auth()->user()){
-            return view('landing-page');
+            return view(env('APP_ROOT').'landing-page');
         }else{
-            return redirect()->intended('/dashboard');
+            return redirect()->intended(env('APP_ROOT').'dashboard');
         }
     }
 
@@ -34,7 +34,7 @@ class HomeController extends Controller
         );
 
         if(auth()->user()->role === 'Admin') {
-            return view('admin-dashboard')->with([
+            return view(env('APP_ROOT').'admin-dashboard')->with([
                 'data' => (object) $data
             ]);
         }
@@ -48,12 +48,12 @@ class HomeController extends Controller
                 $category->param = Str::lower(Str::replace(' ', '-', $category->name));
             }
 
-            return view('category')->with([
+            return view(env('APP_ROOT').'category')->with([
                 'categories' => $categories
             ]);
         }
 
-        return view('local-dashboard');
+        return view(env('APP_ROOT').'local-dashboard');
     }
 
     public function guest() {
@@ -65,7 +65,7 @@ class HomeController extends Controller
             $category->param = Str::lower(Str::replace(' ', '-', $category->name));
         }
 
-        return view('category')->with([
+        return view(env('APP_ROOT').'category')->with([
             'categories' => $categories
         ]);
     }

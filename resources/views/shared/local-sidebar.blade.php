@@ -18,7 +18,7 @@
         <!--<div class="pcoded-navigation-label">Navigation</div>-->
         <ul class="pcoded-item pcoded-left-item">
             <li class="active">
-                <a href="/" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                     <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>

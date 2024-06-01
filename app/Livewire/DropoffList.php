@@ -14,14 +14,14 @@ class DropoffList extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute('edit-dropoff', ['id' => $id]);
+        $this->redirectRoute(env('APP_ROOT').'edit-dropoff', ['id' => $id]);
     }
 
     public function delete($id){
         $dropoff = dropoff::find($id);
         $dropoff->delete();
         toastr()->success('Dropoff deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/dropoffs', navigate: true);
+        $this->redirect(env('APP_ROOT').'dropoffs', navigate: true);
     }
 
     public function render()

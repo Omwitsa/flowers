@@ -25,7 +25,7 @@ class EditDropOff extends Component
         $this->dropoff->save();
 
         toastr()->success('Dropoff updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/dropoffs', navigate: true);
+        $this->redirect(env('APP_ROOT').'dropoffs', navigate: true);
     }
 
     public function render()

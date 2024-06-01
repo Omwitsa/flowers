@@ -36,7 +36,7 @@
             </ul>
             <ul class="nav-right">
                 <li class="header-notification">
-                    <a href="/order-summary" class="waves-effect waves-light" wire:navigate>
+                    <a href="{{env('APP_ROOT')}}order-summary" class="waves-effect waves-light" wire:navigate>
                         <i class="ti-shopping-cart"></i>
                         <span class="badge badge-warning">3</span>
                     </a>
@@ -59,7 +59,7 @@
                 </li>
                 <li class="user-profile header-notification">
                     <a  href="#" class="waves-effect waves-light">
-                        <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                        <img src="{{env('APP_ROOT')}}assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                         <span>{{auth()->user()->usercode}}</span>
                         <i class="ti-angle-down"></i>
                     </a>
@@ -80,7 +80,7 @@
                             </a>
                         </li> -->
                         <li class="waves-effect waves-light">
-                            <a href="/logout">
+                            <a href="{{env('APP_ROOT')}}logout">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>

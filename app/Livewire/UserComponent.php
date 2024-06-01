@@ -14,14 +14,14 @@ class UserComponent extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute('edit-user', ['id' => $id]);
+        $this->redirectRoute(env('APP_ROOT').'edit-user', ['id' => $id]);
     }
 
     public function delete($id){
         $user = User::find($id);
         $user->delete();
         toastr()->success('User deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/users', navigate: true);
+        $this->redirect(env('APP_ROOT').'users', navigate: true);
     }
 
     

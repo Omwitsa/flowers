@@ -8,9 +8,9 @@
                 <div class="card landing-card">
                     <div class="card-header">
                         @if (Auth::check())
-                            <a style="color: #FFFFFF" href="/order-summary"> Summary<i></i></a>
+                            <a style="color: #FFFFFF" href="{{env('APP_ROOT')}}order-summary"> Summary<i></i></a>
                             <div style="text-align: right">
-                                <a style="color: #FFFFFF" href="/logout">logout <i class="ti-arrow-right"></i></a>
+                                <a style="color: #FFFFFF" href="{{env('APP_ROOT')}}logout">logout <i class="ti-arrow-right"></i></a>
                             </div>
                         @endif
                         
@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>{{$subCategory->Name}}</h1><br>
-                                            <a href="/variety/{{$category->id}}--{{$subCategory->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                            <a href="{{env('APP_ROOT')}}variety/{{$category->id}}--{{$subCategory->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
                                                 <i class="ti-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
