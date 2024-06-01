@@ -39,7 +39,7 @@ class NewPackRate extends Component
             $packRate->packRateLines()->create($item);
         }
 
-        $this->redirect(env('APP_ROOT').'packrates', navigate: true);
+        $this->redirect(env('APP_ROOT').'packrates');
     }
 
     public function render()

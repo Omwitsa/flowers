@@ -61,7 +61,7 @@ class EditVariety extends Component
         $this->variety->save();
 
         toastr()->success('Variety updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'varieties', navigate: true);
+        $this->redirect(env('APP_ROOT').'varieties');
     }
 
     public function render()

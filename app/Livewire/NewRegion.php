@@ -18,7 +18,7 @@ class NewRegion extends Component
 
         Region::create($validated);
         toastr()->success('Region created successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'regions', navigate: true);
+        $this->redirect(env('APP_ROOT').'regions');
     }
 
     public function render()

@@ -55,7 +55,7 @@ class NewClient extends Component
         ]);
 
         Client::create($validated);
-        $this->redirect(env('APP_ROOT').'clients', navigate: true);
+        $this->redirect(env('APP_ROOT').'clients');
     }
 
     public function render()

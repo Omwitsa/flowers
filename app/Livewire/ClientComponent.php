@@ -14,14 +14,14 @@ class ClientComponent extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute(env('APP_ROOT').'edit-client', ['id' => $id]);
+        $this->redirectRoute('edit-client', ['id' => $id]);
     }
 
     public function delete($id){
         $region = Client::find($id);
         $region->delete();
         toastr()->success('Client deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'clients', navigate: true);
+        $this->redirect(env('APP_ROOT').'clients');
     }
 
     public function render()

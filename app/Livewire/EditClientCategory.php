@@ -24,7 +24,7 @@ class EditClientCategory extends Component
         $this->category->save();
 
         toastr()->success('Category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'client-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'client-categories');
     }
 
     public function render()

@@ -113,6 +113,6 @@ class OrderSummery extends Component
 
         toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         Session::forget('order_lines');
-        $this->redirect(env('APP_ROOT'), navigate: true);
+        $this->redirect(env('APP_ROOT'));
     }
 }

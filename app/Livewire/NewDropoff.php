@@ -17,7 +17,7 @@ class NewDropoff extends Component
         ]);
 
         dropoff::create($validated);
-        $this->redirect(env('APP_ROOT').'dropoffs', navigate: true);
+        $this->redirect(env('APP_ROOT').'dropoffs');
     }
 
     public function render()

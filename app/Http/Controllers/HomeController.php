@@ -15,14 +15,14 @@ class HomeController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect(env('APP_ROOT'));
+        return redirect('login');
     }
 
     public function index() {
         if (!auth()->user()){
-            return view(env('APP_ROOT').'landing-page');
+            return view('landing-page');
         }else{
-            return redirect()->intended(env('APP_ROOT').'dashboard');
+            return redirect()->intended('dashboard');
         }
     }
 
@@ -34,7 +34,7 @@ class HomeController extends Controller
         );
 
         if(auth()->user()->role === 'Admin') {
-            return view(env('APP_ROOT').'admin-dashboard')->with([
+            return view('admin-dashboard')->with([
                 'data' => (object) $data
             ]);
         }

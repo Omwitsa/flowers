@@ -46,7 +46,7 @@ class NewMixedBox extends Component
             $mixedBox->mixBoxLines()->create($item);
         }
 
-        $this->redirect(env('APP_ROOT').'list-mixed-box', navigate: true);
+        $this->redirect(env('APP_ROOT').'list-mixed-box');
     }
 
     public function render()

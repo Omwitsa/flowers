@@ -14,14 +14,14 @@ class VarietyComponent extends Component
     }
 
     public function edit($id){
-        $this->redirectRoute(env('APP_ROOT').'edit-variety', ['id' => $id]);
+        $this->redirectRoute('edit-variety', ['id' => $id]);
     }
 
     public function delete($id){
         $region = Variety::find($id);
         $region->delete();
         toastr()->success('Variety deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'varieties', navigate: true);
+        $this->redirect(env('APP_ROOT').'varieties');
     }
 
     public function render()

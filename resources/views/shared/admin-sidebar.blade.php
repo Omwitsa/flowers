@@ -18,7 +18,7 @@
         <!--<div class="pcoded-navigation-label">Navigation</div>-->
         <ul class="pcoded-item pcoded-left-item">
             <li class="active">
-                <a href="{{env('APP_ROOT')}}" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                     <span class="pcoded-mtext">Dashboard</span>
                     <span class="pcoded-mcaret"></span>
@@ -28,7 +28,7 @@
         
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}orders" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}orders" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Orders</span>
                     <span class="pcoded-mcaret"></span>
@@ -38,7 +38,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}users" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}users" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Users</span>
                     <span class="pcoded-mcaret"></span>
@@ -48,7 +48,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}clients" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}clients" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Clients</span>
                     <span class="pcoded-mcaret"></span>
@@ -58,7 +58,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}dropoffs" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}dropoffs" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Drop Off</span>
                     <span class="pcoded-mcaret"></span>
@@ -68,7 +68,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}client-categories" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}client-categories" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Client Categories</span>
                     <span class="pcoded-mcaret"></span>
@@ -78,7 +78,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}regions" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}regions" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Regions</span>
                     <span class="pcoded-mcaret"></span>
@@ -88,7 +88,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}varieties" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}varieties" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Varieties</span>
                     <span class="pcoded-mcaret"></span>
@@ -98,7 +98,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}sub-categories" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}sub-categories" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Sub Categories</span>
                     <span class="pcoded-mcaret"></span>
@@ -108,7 +108,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}categories" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}categories" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Categories</span>
                     <span class="pcoded-mcaret"></span>
@@ -118,7 +118,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}packrates" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}packrates" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Pack Rates</span>
                     <span class="pcoded-mcaret"></span>
@@ -128,7 +128,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}list-mixed-box" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}list-mixed-box" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Mixed Box</span>
                     <span class="pcoded-mcaret"></span>
@@ -138,7 +138,7 @@
 
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{env('APP_ROOT')}}prices" class="waves-effect waves-dark" wire:navigate>
+                <a href="{{env('APP_ROOT')}}prices" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
                     <span class="pcoded-mtext">Prices</span>
                     <span class="pcoded-mcaret"></span>

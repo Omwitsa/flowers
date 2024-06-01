@@ -48,7 +48,7 @@ class EditUser extends Component
         $this->user->save();
 
         toastr()->success('User updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'users', navigate: true);
+        $this->redirect(env('APP_ROOT').'users');
     }
 
     public function render()

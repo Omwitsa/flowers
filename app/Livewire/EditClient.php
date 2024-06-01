@@ -67,7 +67,7 @@ class EditClient extends Component
         
         $this->client->save();
         toastr()->success('Client updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'clients', navigate: true);
+        $this->redirect(env('APP_ROOT').'clients');
     }
 
     public function render()

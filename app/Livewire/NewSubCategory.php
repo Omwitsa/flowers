@@ -36,7 +36,7 @@ class NewSubCategory extends Component
 
         $this->file->storeAs('images', $name);
         SubCategory::create($validated);
-        $this->redirect(env('APP_ROOT').'sub-categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'sub-categories');
     }
 
     public function render()

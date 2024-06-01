@@ -31,7 +31,7 @@ new #[Layout('layouts.guest')] class extends Component
         $this->form->authenticate();
         Session::regenerate();
         toastr()->success('Logged in successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect('/dashboard', navigate: true);
+        $this->redirect(env('APP_ROOT').'dashboard');
     }
 }; ?>
 

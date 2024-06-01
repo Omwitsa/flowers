@@ -48,7 +48,7 @@ class NewVariety extends Component
         $variety->picUrl = $name;
         $variety->save();
 
-        $this->redirect(env('APP_ROOT').'varieties', navigate: true);
+        $this->redirect(env('APP_ROOT').'varieties');
     }
 
     public function updatedCategory()

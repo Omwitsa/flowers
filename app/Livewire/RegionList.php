@@ -14,14 +14,14 @@ class RegionList extends Component
     }
     
     public function edit($id){
-        $this->redirectRoute(env('APP_ROOT').'edit-region', ['id' => $id]);
+        $this->redirectRoute('edit-region', ['id' => $id]);
     }
 
     public function delete($id){
         $region = Region::find($id);
         $region->delete();
         toastr()->success('Region deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'regions', navigate: true);
+        $this->redirect(env('APP_ROOT').'regions');
     }
 
     public function render()

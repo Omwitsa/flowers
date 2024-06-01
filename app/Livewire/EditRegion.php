@@ -25,7 +25,7 @@ class EditRegion extends Component
         $this->region->save();
 
         toastr()->success('Region updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'regions', navigate: true);
+        $this->redirect(env('APP_ROOT').'regions');
     }
 
     public function render()

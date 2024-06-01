@@ -54,6 +54,6 @@ class NewUser extends Component
 
         $validated['password'] = Hash::make($validated['password']);
         event(new Registered($user = User::create($validated)));
-        $this->redirect(env('APP_ROOT').'users', navigate: true);
+        $this->redirect(env('APP_ROOT').'users');
     }
 }

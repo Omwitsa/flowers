@@ -29,7 +29,7 @@ class NewCategory extends Component
         $validated['picUrl'] = $name;
         $this->file->storeAs('images', $name);
         Category::create($validated);
-        $this->redirect(env('APP_ROOT').'categories', navigate: true);
+        $this->redirect(env('APP_ROOT').'categories');
     }
 
     public function render()
