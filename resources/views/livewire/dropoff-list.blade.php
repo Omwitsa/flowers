@@ -2,7 +2,7 @@
     <div class="card-header">
         <h5>Drop Offs</h5>
         <div class="card-header-right">
-            <a href="{{ url('new-dropoff') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>New</a>
+            <a href="{{ url('new-dropoff') }}" class="btn btn-primary waves-effect waves-light">New</a>
         </div>
     </div>
     <div class="card-block table-border-style">

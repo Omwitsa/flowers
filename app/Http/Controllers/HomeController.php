@@ -48,12 +48,12 @@ class HomeController extends Controller
                 $category->param = Str::lower(Str::replace(' ', '-', $category->name));
             }
 
-            return view(env('APP_ROOT').'category')->with([
+            return view('category')->with([
                 'categories' => $categories
             ]);
         }
 
-        return view(env('APP_ROOT').'local-dashboard');
+        return view('local-dashboard');
     }
 
     public function guest() {
@@ -65,7 +65,7 @@ class HomeController extends Controller
             $category->param = Str::lower(Str::replace(' ', '-', $category->name));
         }
 
-        return view(env('APP_ROOT').'category')->with([
+        return view('category')->with([
             'categories' => $categories
         ]);
     }
