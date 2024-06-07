@@ -5,9 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Variety;
 use App\Models\Category;
-use App\Models\SubCategory;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Validate;
 
 class EditVariety extends Component
 {
@@ -25,6 +25,7 @@ class EditVariety extends Component
     public string $Colour = '';
     public string $category = 'AAA ROSES';
     public string $subCategory = '';
+    #[Validate('image|max:1024')] // 1MB Max
     public $file;
     
     public function mount($id)
@@ -45,9 +46,11 @@ class EditVariety extends Component
 
     public function UpdateVariety()
     {
-        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
-        $name = time().'-'.$this->file->getClientOriginalName();
-        $this->file->storeAs('images', $name);
+        if($this->file){
+            $name = time().'-'.$this->file->getClientOriginalName();
+            $path = $this->file->storeAs('images', $name, 'public');
+            $this->variety->picUrl = $path;
+        }
 
         $this->variety->VarietyName = $this->VarietyName;
         $this->variety->VarietyCode = $this->VarietyCode;
@@ -56,7 +59,6 @@ class EditVariety extends Component
         $this->variety->Colour = $this->Colour;
         $this->variety->Category = $this->category;
         $this->variety->SubCategory = $this->subCategory;
-        $this->variety->picUrl = $name;
         $this->variety->Active = $this->active;
         $this->variety->save();
 

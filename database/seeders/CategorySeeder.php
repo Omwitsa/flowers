@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
                 [
                     'name' => 'MIXED BOX',
                     'farm' => 'Simba',
-                    'picUrl' => '83.png',
+                    'picUrl' => '5.png',
                 ]
             ]);
         }

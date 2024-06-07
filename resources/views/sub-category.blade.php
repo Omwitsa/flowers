@@ -23,7 +23,7 @@
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="row type">
                                         <div class="col-xs-12 col-sm-6">
-                                            <img src="{{ asset('storage/images/' . $subCategory->picUrl) }}" alt="Flowers" style="width:100%;">
+                                            <img src="{{ asset('storage'.env('IMG_STORAGE').$subCategory->picUrl) }}" alt="Flowers" style="width:100%;">
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>{{$subCategory->Name}}</h1><br>

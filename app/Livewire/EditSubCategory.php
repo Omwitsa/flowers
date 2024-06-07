@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 
 class EditSubCategory extends Component
 {
@@ -15,6 +16,7 @@ class EditSubCategory extends Component
     public string $Name = '';
     public string $HeadSize = '';
     public string $Category = 'AAA ROSES';
+    #[Validate('image|max:1024')] // 1MB Max
     public $file;
     public $active;
 
@@ -31,15 +33,16 @@ class EditSubCategory extends Component
 
     public function updateSubCategory()
     {
-        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
-        $name = time().'-'.$this->file->getClientOriginalName();
-        $this->file->storeAs('images', $name);
+        if($this->file){
+            $name = time().'-'.$this->file->getClientOriginalName();
+            $path = $this->file->storeAs('images', $name, 'public');
+            $this->subCategory->picUrl = $path;
+        }
 
         $this->subCategory->Name = $this->Name;
         $this->subCategory->HeadSize = $this->HeadSize;
         $this->subCategory->Category = $this->Category;
         $this->subCategory->active = $this->active;
-        $this->subCategory->picUrl = $name;
         $this->subCategory->save();
 
         toastr()->success('Sub-category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

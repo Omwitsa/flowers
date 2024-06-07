@@ -5,12 +5,14 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 
 class EditCategory extends Component
 {
     use WithFileUploads;
     public string $name = '';
     public string $farm = '';
+    #[Validate('image|max:1024')] // 1MB Max
     public $file;
     public $active;
     public $category;
@@ -26,14 +28,15 @@ class EditCategory extends Component
 
     public function UpdateCategory()
     {
-        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
-        $name = time().'-'.$this->file->getClientOriginalName();
-        $this->file->storeAs('images', $name);
-
+        if($this->file){
+            $name = time().'-'.$this->file->getClientOriginalName();
+            $path = $this->file->storeAs('images', $name, 'public');
+            $this->category->picUrl = $path;
+        }
+        
         $this->category->name = $this->name;
         $this->category->farm = $this->farm;
         $this->category->active = $this->active;
-        $this->category->picUrl = $name;
         $this->category->save();
 
         toastr()->success('Category updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);

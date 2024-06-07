@@ -6,8 +6,8 @@ use Livewire\Component;
 use App\Models\Variety;
 use Livewire\WithFileUploads;
 use App\Models\Category;
-use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Validate;
 
 class NewVariety extends Component
 {
@@ -22,6 +22,7 @@ class NewVariety extends Component
     public string $Colour = '';
     public string $Category = 'AAA ROSES';
     public string $SubCategory = '';
+    #[Validate('image|max:1024')] // 1MB Max
     public $file;
 
     public function mount()
@@ -33,9 +34,9 @@ class NewVariety extends Component
     public function creatVariety()
     {
         // Colour, Active, PicUrl
-        // $name = md5($this->file . microtime()).'.'.$this->file->extension();
+       
         $name = time().'-'.$this->file->getClientOriginalName();
-        $this->file->storeAs('images', $name);
+        $path = $this->file->storeAs('images', $name, 'public');
 
         $variety = new Variety;
         $variety->VarietyName = $this->VarietyName;
@@ -45,7 +46,7 @@ class NewVariety extends Component
         $variety->Colour = $this->Colour;
         $variety->Category = $this->Category;
         $variety->SubCategory = $this->SubCategory;
-        $variety->picUrl = $name;
+        $variety->picUrl = $path;
         $variety->save();
 
         $this->redirect(env('APP_ROOT').'varieties');

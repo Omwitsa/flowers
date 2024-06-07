@@ -28,8 +28,6 @@
     <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/css/custom.css">
 
-    <!-- Scripts -->
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
     @livewireStyles
 </head>
 
@@ -54,6 +52,7 @@
     <script src="{{env('APP_ROOT')}}assets/js/vertical/vertical-layout.min.js "></script>
 
     <script type="text/javascript" src="{{env('APP_ROOT')}}assets/js/script.js "></script>
+    
     @livewireScripts
 </body>
 

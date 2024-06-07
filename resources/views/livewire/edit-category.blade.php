@@ -32,6 +32,17 @@
             </div>
 
             <div class="form-group row">
+                <div class="col-xs-12 col-sm-1">
+                    <div wire:loading wire:target="file"> Uploading... </div>
+                    @if($file)         
+                        <img src="{{ $file->temporaryUrl() }}" alt="Flowers" style="width:100%;">
+                    @else
+                        <img src="{{ asset('storage'.env('IMG_STORAGE').$category->picUrl) }}" alt="Flowers" style="width:100%;">
+                    @endif
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <div class="form-check form-check-inline">
                     <input wire:model="active" class="form-check-input" type="checkbox" id="active">
                     <label class="form-check-label" for="active">Active</label>

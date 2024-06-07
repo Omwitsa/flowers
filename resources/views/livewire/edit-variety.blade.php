@@ -67,6 +67,17 @@
                     <x-input-error :messages="$errors->get('file')" class="mt-2" />
                 </div>
             </div>
+
+            <div class="form-group row">
+                <div class="col-xs-12 col-sm-1">
+                    <div wire:loading wire:target="file"> Uploading... </div>
+                    @if($file)         
+                        <img src="{{ $file->temporaryUrl() }}" alt="Flowers" style="width:100%;">
+                    @else
+                        <img src="{{ asset('storage'.env('IMG_STORAGE').$variety->picUrl) }}" alt="Flowers" style="width:100%;">
+                    @endif
+                </div>
+            </div>
             
             <div class="form-group row">
                 <label class="col-xs-12 col-sm-2 col-form-label">Color</label>
