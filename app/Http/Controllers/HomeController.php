@@ -20,7 +20,8 @@ class HomeController extends Controller
 
     public function index() {
         if (!auth()->user()){
-            return view('landing-page');
+            // return view('landing-page');
+            return redirect('login');
         }else{
             return redirect()->intended('dashboard');
         }

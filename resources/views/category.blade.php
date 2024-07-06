@@ -28,8 +28,13 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-center">
                                             <h1>{{$category->name}}</h1><br>
-                                            <a href="{{env('APP_ROOT')}}sub-category/{{$category->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
-                                                <i class="ti-shopping-cart"></i>View</a>
+                                            @if($category->name =='MIXED BOX')  
+                                                <a href="{{env('APP_ROOT')}}mixed-box" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary">
+                                                <i class="ti-shopping-cart"></i>View</a>       
+                                            @else
+                                                <a href="{{env('APP_ROOT')}}sub-category/{{$category->param}}" style="color: #FFFFFF" class="btn waves-effect waves-light btn-primary btn-outline-primary" wire:navigate>
+                                                <i class="ti-shopping-cart"></i>View</a>         
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

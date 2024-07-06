@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-header">
         <h5>Mixed Boxes</h5>
+        
         <div class="card-header-right">
             <a href="{{ url('new-mixed-box') }}" class="btn btn-primary waves-effect waves-light">New</a>
         </div>
@@ -12,7 +13,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Brand</th>
+                        <th>Category</th>
                         <th>Length</th>
                         <th>Active</th>
                     </tr>
@@ -23,7 +24,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $box->name }}</td>
-                            <td>{{ $box->brand }}</td>
+                            <td>{{ $box->Category }}</td>
                             <td>{{ $box->length }}</td>
                             <td>{{ $box->active }}</td>
                         </tr>

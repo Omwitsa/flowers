@@ -5,14 +5,14 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Variety;
 use App\Models\MixBox;
-use App\Models\Brand;
+use Illuminate\Support\Facades\DB;
 
 class NewMixedBox extends Component
 {
     public $varieties;
-    public $brands;
+    public $categories;
     public string $name = '';
-    public string $brand = '';
+    public string $Category = '';
     public string $length = '';
 
     public $LineItems = [];
@@ -20,12 +20,12 @@ class NewMixedBox extends Component
     public function mount()
     {
         $this->varieties = Variety::all();
-        $this->brands = Brand::all();
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
     }
 
     public function addBox()
     {
-        $this->LineItems[] = ['variety' => '', 'stems' => 0];
+        $this->LineItems[] = ['variety' => '', 'stems' => 1];
     }
 
     public function removeLineItems($index)
@@ -37,7 +37,7 @@ class NewMixedBox extends Component
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:100'],
-            'brand' => ['required', 'string', 'max:100'],
+            'Category' => ['required', 'string', 'max:100'],
             'length' => ['required', 'string', 'max:20'],
         ]);
 

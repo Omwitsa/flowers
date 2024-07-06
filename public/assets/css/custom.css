@@ -1,6 +1,51 @@
 body {
-	background-color: #FFE6EE !important;
+	background-color: #fea0b2 !important;
 	color: #000000 !important;
+}
+.login-content{
+	background-image: url("/assets/images/bg.jpg");
+	margin-top: 30px;
+}
+.login-section{
+	padding-top: 100px;
+	padding-left: 100px;
+}
+.login-section span{
+	color: #fc6f8b;
+	font-family: "Lucida Handwriting", cursive;
+	font-size: 30px; 
+}
+.login-section H1{
+	font-family: Georgia, serif;
+	font-weight: bold;
+	color: gray;
+}
+.login-img{
+	width:110%;
+}
+.client-home{
+	background-image: url("/assets/images/home-bg-img.jpg");
+}
+.client-home a{
+	background-color: #fc6f8b;
+}
+.client-home a h4{
+	color: #B45068 !important;
+}
+.categories{
+	background-image: url("/assets/images/home-bg-img.jpg");
+}
+.client-category-nav{
+	padding-top: 100px;
+}
+.client-home-nav-cards{
+	padding-top: 100px;
+}
+.client-home-nav-cards .orders{
+	padding-bottom: 80px;
+}
+.client-home-nav-cards{
+	margin-top: 30px;
 }
 .landing-card{
 	margin-top: 20px;
@@ -8,7 +53,7 @@ body {
 .landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
 	background-color: #fc8eac;
 }
-.landing-card .card-block .btn-lg{
+.landing-card .card-block .btn-lg, .login-bg-img .form-material .btn-lg{
 	margin: 20px;
 	color: #ffffff;
 	border-radius: 20px;

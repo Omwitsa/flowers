@@ -54,9 +54,10 @@
             </div>
         </div>
     </div>
+    
     <!-- Pre-loader end -->
     <section class="login-block">
-        <div class="container">
+        <div class="container-fluid">
             {{ $slot }}
         </div>
     </section>

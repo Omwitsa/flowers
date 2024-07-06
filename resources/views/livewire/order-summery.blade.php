@@ -4,7 +4,7 @@
     </div>
     <div class="card-block table-border-style">
         <div class="form-group row">
-            <label class="col-xs-12 col-sm-2 col-form-label">Receiving Date</label>
+            <label class="col-xs-12 col-sm-2 col-form-label">Flight Date</label>
             <div class="col-xs-12 col-sm-2">
                 <input wire:model="receivingDate" name="receivingDate" type="date" class="form-control" autocomplete="off" required>
                 <x-input-error :messages="$errors->get('receivingDate')" class="mt-2" />
@@ -34,6 +34,7 @@
                         <th>Quantity</th>
                         <th>Box Marking</th>
                         <th>Stems</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -62,6 +63,7 @@
                                 <td><input wire:blur="onEnterQuantity({{ $index }}, $event.target.value)" wire:key="{{ $index }}" type="number" wire:model="order_lines.{{ $index }}.Boxes" class="form-control" required></td>
                                 <td><input wire:key="{{ $index }}" type="text" wire:model="order_lines.{{ $index }}.BoxMarking" class="form-control"></td>
                                 <td>{{ $line->StemQty}}</td>
+                                <td><a wire:click="removeItem({{ $index }})" wire:confirm="Are you sure you want to delete?" class="btn btn-danger btn-sm waves-effect waves-light">Remove</a></td>
                             </tr>
                         @endforeach
                     @endif

@@ -30,13 +30,13 @@
 
                                 <label class="col-xs-12 col-sm-2 col-form-label"></label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <select wire:model="brand" class="form-control" required>
+                                    <select wire:model="Category" class="form-control" required>
                                         <option disabled value=""></option>
-                                        @foreach($brands as $brand)
-                                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->name }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
-                                    <x-input-error :messages="$errors->get('brand')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('Category')" class="mt-2" />
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 col-form-label">Length</label>
@@ -55,20 +55,35 @@
                         </div>
 
                         <div class="tab-pane" id="lineItem" role="tabpanel">
-                            <div>
-                                @foreach($LineItems as $index => $item)
-                                    <div>
-                                        <select wire:model="LineItems.{{ $index }}.variety" required>
-                                            <option disabled value=""></option>
-                                            @foreach($varieties as $variety)
-                                                <option value="{{ $variety->VarietyName }}">{{ $variety->VarietyName }}</option>
-                                            @endforeach
-                                        </select>
-                                        <input type="text" wire:model="LineItems.{{ $index }}.stems" placeholder="Stems">
-                                        <a class="btn btn-warning btn-sm waves-effect waves-light" wire:click="removeLineItems({{ $index }})">Remove</a>
-                                    </div><hr>
-                                @endforeach
-                                
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Variety</th>
+                                            <th>Stems</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach($LineItems as $index => $item)
+                                            <tr>
+                                                <th scope="row">{{ $loop->iteration}}</th>
+                                                <td><select wire:model="LineItems.{{ $index }}.variety" class="form-control" required>
+                                                    <option disabled value=""></option>
+                                                    @foreach($varieties as $variety)
+                                                        <option value="{{ $variety->VarietyName }}">{{ $variety->VarietyName }}</option>
+                                                    @endforeach
+                                                </select></td>
+
+                                                <td><input type="text" wire:model="LineItems.{{ $index }}.stems" class="form-control" placeholder="Stems"></td>
+                                                <td><a class="btn btn-warning btn-sm waves-effect waves-light" wire:click="removeLineItems({{ $index }})">Remove</a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
                                 <a class="btn btn-info waves-effect waves-light" wire:click="addBox">Add</a>
                             </div>
                         </div>

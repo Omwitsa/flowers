@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class MixedBox extends Component
 {
-    public $brands = 'AAA ROSES';
-    public $varietyRange = '';
+    public $category = 'AAA ROSES';
+    public $subCategory = '';
     public $client;
     public $price;
+    public $categories;
     public $packRate;
     public $length = '60';
     public $mixedBoxes;
@@ -23,17 +24,18 @@ class MixedBox extends Component
     
     public function mount()
     {
-        // $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ? AND v_range = ?', [$this->brands, $this->range]);
+        // $this->varieties= DB::select('SELECT * FROM variety WHERE category = ? AND v_range = ?', [$this->category, $this->range]);
         $this->client = Client::firstWhere('ClientCode', auth()->user()->usercode);
         $this->price = PriceHeader::firstWhere('Name', $this->client->Price);
         $this->packRate = PackRateHeader::firstWhere('Name', $this->client->PackRate);
-        $this->ranges = DB::select('SELECT * FROM variety_ranges WHERE brand = ?', [$this->brands]);
-        // $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->brands]);
+        $this->ranges = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->category]);
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
+        // $this->varieties= DB::select('SELECT * FROM variety WHERE brand = ?', [$this->category]);
 
         $this->formatvariety();
     }
 
-    public function updatedBrands()
+    public function updatedCategory()
     {
         $this->formatvariety();
     }
@@ -45,7 +47,7 @@ class MixedBox extends Component
 
     private function formatvariety()
     {
-        $this->mixedBoxes = DB::select('SELECT * FROM mix_boxes WHERE brand = ?', [$this->brands]);
+        $this->mixedBoxes = DB::select('SELECT * FROM mix_boxes WHERE Category = ?', [$this->category]);
         foreach ($this->mixedBoxes as $mixedBox) {
             $totalStems = 0;
             $mixBoxLines = DB::select('SELECT * FROM mix_box_lines WHERE mix_box_id = ?', [$mixedBox->id]);

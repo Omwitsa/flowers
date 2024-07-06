@@ -7,15 +7,13 @@
             @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                    <h4 class="sub-title">Brands</h4>
-                    <div class="form-check form-check-inline">
-                        <input wire:model.change="brands" class="form-check-input" type="radio" id="roses" value="AAA ROSES">
-                        <label class="form-check-label" for="roses">AAA ROSES</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input wire:model.change="brands" class="form-check-input" type="radio" id="bellissima" value="BELLISSIMA">
-                        <label class="form-check-label" for="bellissima">BELLISSIMA</label>
-                    </div>
+                    <h4 class="sub-title">Category</h4>
+                    @foreach ($categories as $index => $category)
+                        <div class="form-check form-check-inline">
+                            <input wire:model.change="category" wire:model="{{$category->name}}" class="form-check-input" type="radio" id="{{$category->name}}" value="{{$category->name}}">
+                            <label class="form-check-label" for="{{$category->name}}">{{$category->name}}</label>
+                        </div>
+                    @endforeach
                 </div>
             </div><hr>
             

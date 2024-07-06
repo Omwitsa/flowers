@@ -9,7 +9,8 @@ use App\Models\Client;
 use App\Models\PackRateHeader;
 use App\Models\PackRateLine;
 use App\Models\OrderHeader;
-use App\Models\Category;
+use App\Mail\OrderNotification;
+use Illuminate\Support\Facades\Mail;
 
 class OrderSummery extends Component
 {
@@ -33,6 +34,11 @@ class OrderSummery extends Component
     public function render()
     {
         return view('livewire.order-summery');
+    }
+
+    public function removeItem($index)
+    {
+        unset($this->order_lines[$index]);
     }
 
     public function onLengthChange($index, $value)
@@ -111,6 +117,7 @@ class OrderSummery extends Component
             $order->orderLines()->create((array)$item);
         }
 
+        Mail::to(auth()->user()->email)->send(new OrderNotification($order));
         toastr()->success('Ordered successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         Session::forget('order_lines');
         $this->redirect(env('APP_ROOT'));

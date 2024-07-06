@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('VarietyName', length: 100);
             $table->string('subCategory', length: 50);
             $table->string('category', length: 100);
+            $table->string('ClientDivision', length: 100);
             $table->string('Length', length: 20);
             $table->string('BoxType', length: 20);
             $table->string('StemQty', length: 20);

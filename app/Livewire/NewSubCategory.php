@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\DB;
 
 class NewSubCategory extends Component
 {
@@ -20,7 +21,7 @@ class NewSubCategory extends Component
 
     public function mount()
     {
-        $this->categories = Category::all();
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
     }
 
     public function createSubCategory()

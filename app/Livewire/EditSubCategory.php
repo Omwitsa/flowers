@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\DB;
 
 class EditSubCategory extends Component
 {
@@ -22,7 +23,7 @@ class EditSubCategory extends Component
 
     public function mount($id)
     {
-        $this->categories = Category::all();
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
         $this->subCategory = SubCategory::find($id);
         $this->Name = $this->subCategory->Name;
         $this->HeadSize = $this->subCategory->HeadSize;

@@ -37,7 +37,11 @@ use App\Livewire\EditVariety;
 use App\Livewire\EditSubCategory;
 use App\Livewire\EditDropOff;
 use App\Livewire\SubCategoryList;
+use App\Livewire\ClientHome;
+use App\Livewire\CategoryComponent;
 
+use App\Models\OrderHeader;
+use App\Mail\OrderNotification;
 // Route::view('/', 'welcome');
 
 // Route::get('/', 'HomeController@index');
@@ -55,6 +59,8 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::get('/orders', Orders::class);
+Route::get('/client-home', ClientHome::class);
+Route::get('/category-component', CategoryComponent::class);
 Route::get('/single-box', SingleBox::class);
 Route::get('/mixed-box', MixedBox::class);
 Route::get('/list-mixed-box', MixBoxComponent::class);
@@ -89,5 +95,11 @@ Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
 // Route::get('/sub-category/{category}', SubCategory::class); 
+
+// Route for mailing
+Route::get('/email', function(){
+    $order = OrderHeader::find(10);
+    return new OrderNotification($order);
+});
 
 require __DIR__.'/auth.php';

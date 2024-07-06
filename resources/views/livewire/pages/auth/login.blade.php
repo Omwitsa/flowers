@@ -31,62 +31,53 @@ new #[Layout('layouts.guest')] class extends Component
         $this->form->authenticate();
         Session::regenerate();
         toastr()->success('Logged in successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
-        $this->redirect(env('APP_ROOT').'dashboard');
+        // $this->redirect(env('APP_ROOT').'dashboard');
+        $this->redirect(env('APP_ROOT').'client-home');
     }
 }; ?>
 
 
 <div class="row">
-    <div class="col-sm-12">
-        <!-- Authentication card start -->
-            <form wire:submit="login" class="md-float-material form-material" autocomplete="off">
-                <div class="auth-box card">
-                    <div class="card-block">
-                        <div class="row m-b-20">
-                            <div class="col-md-12">
-                                <h3 class="text-center">Sign In</h3>
-                            </div>
-                        </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 login-content">
+        <div class="row">
+            <div class="col-sm-6 login-section">
+                <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="roses" style="width:12%;"><br><br><br>
 
-                        <div class="form-group row">
-                            <label class="col-xs-12 col-sm-3 col-form-label">UserCode</label>
-                            <div class="col-xs-12 col-sm-9">
-                                <input wire:model="form.usercode" name="usercode" type="text" class="form-control" autocomplete="off" required>
+                <span>Welcome to...</span>
+                <H1>THE WORLD OF <br> ROSES</H1><br>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <form wire:submit="login" class="form-material" autocomplete="off">
+                            <div class="form-group form-default form-static-label">
+                                <input wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" autocomplete="off" required>
+                                <span class="form-bar"></span>
+                                <label class="float-label">User Code</label>
                                 <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-xs-12 col-sm-3 col-form-label">Password</label>
-                            <div class="col-xs-12 col-sm-9">
-                                <input wire:model="form.password" name="password" type="password" class="form-control" autocomplete="off" required>
+                            <div class="form-group form-default form-static-label">
+                                <input wire:model="form.password" name="password" type="password" placeholder="**********" class="form-control" autocomplete="off" required>
+                                <span class="form-bar"></span>
+                                <label class="float-label">Password</label>
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
-                        </div>
 
-                        <div class="row m-t-25 text-left">
-                            <div class="col-12">
-                                <!-- <div class="checkbox-fade fade-in-primary d-">
-                                    <label for="remember">
-                                        <input wire:model="form.remember" value="" id="remember" type="checkbox" id="remember">
-                                        <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                        <span class="text-inverse">Remember me</span>
-                                    </label>
-                                </div> -->
+                            <div class="row m-t-30">
+                                <div class="col-md-12">
+                                    <x-primary-button class="btn btn-primary btn-lg">
+                                        {{ __('Log in') }}
+                                    </x-primary-button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                                <x-primary-button class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">
-                                    {{ __('Log in') }}
-                                </x-primary-button>
-                            </div>
-                        </div>
-                        <hr/>
+                        </form>
                     </div>
                 </div>
-            </form>
-            <!-- end of form -->
+            </div>
+
+            <div class="col-sm-6">
+                <img class="login-img" src="{{env('APP_ROOT')}}assets/images/login-img.png" alt="roses">
+            </div>
+        </div>
     </div>
-    <!-- end of col-sm-12 -->
 </div>

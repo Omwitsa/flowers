@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mix_boxes', function (Blueprint $table) {
             $table->id();
             $table->string('name', length: 100)->unique();
-            $table->string('brand', length: 100);
+            $table->string('Category', length: 100);
             $table->string('length', length: 20);
             $table->boolean('active')->default(true);
             $table->timestamps();

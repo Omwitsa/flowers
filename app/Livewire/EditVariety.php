@@ -30,7 +30,7 @@ class EditVariety extends Component
     
     public function mount($id)
     {
-        $this->categories = Category::all();
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
         $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->category]);
         $this->variety = Variety::find($id);
         $this->VarietyName = $this->variety->VarietyName;

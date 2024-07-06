@@ -27,7 +27,7 @@ class NewVariety extends Component
 
     public function mount()
     {
-        $this->categories = Category::all();
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
         $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     }
 

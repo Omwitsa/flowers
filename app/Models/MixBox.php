@@ -11,7 +11,7 @@ class MixBox extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'brand',
+        'Category',
         'length',
         'active',
     ];
