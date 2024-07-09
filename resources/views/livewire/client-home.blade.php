@@ -3,25 +3,26 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 client-home-nav-cards">
-                <a href="{{env('APP_ROOT')}}category-component" class="card total-card">
+                <a href="{{env('APP_ROOT')}}category-component" class="card">
                     <div class="card-block orders">
                         <div class="text-left">
-                            <h4>NEW <br>ORDER</h4>
+                            <h4><b>NEW <br>ORDER</b></h4>
                         </div>
                     </div>
                 </a><br>
 
-                <a class="card total-card">
+                <a class="card">
                     <div class="card-block orders">
                         <div class="text-left">
-                            <h4>RECENT <br>ORDERS</h4>
+                            <h4><b>RECENT <br>ORDERS</b></h4>
                         </div>
                     </div>
                 </a><br>
 
-                <a class="card total-card">
-                    <div class="text-left">
-                        <h4>CATEGORIES</h4>
+
+                <a class="card">
+                    <div>
+                        <h4><b>CATEGORIES</b></h4>
                     </div>
                 </a>
             </div>

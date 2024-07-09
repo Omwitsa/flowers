@@ -39,45 +39,40 @@ new #[Layout('layouts.guest')] class extends Component
 
 <div class="row">
     <div class="col-sm-1"></div>
-    <div class="col-sm-10 login-content">
+    <div class="col-sm-5 login-section">
+        <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="roses" style="width:15%;"><br><br><br>
+
+        <span>Welcome to...</span>
+        <H1>THE WORLD OF <br> ROSES</H1><br><br>
+
         <div class="row">
-            <div class="col-sm-6 login-section">
-                <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="roses" style="width:12%;"><br><br><br>
-
-                <span>Welcome to...</span>
-                <H1>THE WORLD OF <br> ROSES</H1><br>
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <form wire:submit="login" class="form-material" autocomplete="off">
-                            <div class="form-group form-default form-static-label">
-                                <input wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" autocomplete="off" required>
-                                <span class="form-bar"></span>
-                                <label class="float-label">User Code</label>
-                                <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
-                            </div>
-                            <div class="form-group form-default form-static-label">
-                                <input wire:model="form.password" name="password" type="password" placeholder="**********" class="form-control" autocomplete="off" required>
-                                <span class="form-bar"></span>
-                                <label class="float-label">Password</label>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                            </div>
-
-                            <div class="row m-t-30">
-                                <div class="col-md-12">
-                                    <x-primary-button class="btn btn-primary btn-lg">
-                                        {{ __('Log in') }}
-                                    </x-primary-button>
-                                </div>
-                            </div>
-                        </form>
+            <div class="col-md-8">
+                <form wire:submit="login" class="form-material" autocomplete="off">
+                    <div class="form-group form-default form-static-label">
+                        <input wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" autocomplete="off" required>
+                        <span class="form-bar"></span>
+                        <label class="float-label">User Code</label>
+                        <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
                     </div>
-                </div>
-            </div>
+                    <div class="form-group form-default form-static-label">
+                        <input wire:model="form.password" name="password" type="password" placeholder="**********" class="form-control" autocomplete="off" required>
+                        <span class="form-bar"></span>
+                        <label class="float-label">Password</label>
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
 
-            <div class="col-sm-6">
-                <img class="login-img" src="{{env('APP_ROOT')}}assets/images/login-img.png" alt="roses">
+                    <div class="row m-t-30">
+                        <div class="col-md-12">
+                            <x-primary-button class="btn btn-primary btn-lg">
+                                {{ __('Login') }}
+                            </x-primary-button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+    <div class="col-sm-6">
+        <img class="login-img" src="{{env('APP_ROOT')}}assets/images/login-img.png" alt="roses">
     </div>
 </div>

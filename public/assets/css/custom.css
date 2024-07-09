@@ -1,14 +1,14 @@
 body {
-	background-color: #fea0b2 !important;
+	/* background-color: #fea0b2 !important; */
 	color: #000000 !important;
 }
 .login-content{
-	background-image: url("/assets/images/bg.jpg");
-	margin-top: 30px;
+	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/bg.jpg");
+	background-size: 100% 100%;
 }
 .login-section{
 	padding-top: 100px;
-	padding-left: 100px;
+	padding-bottom: 100px;
 }
 .login-section span{
 	color: #fc6f8b;
@@ -21,31 +21,52 @@ body {
 	color: gray;
 }
 .login-img{
-	width:110%;
+	height: 100%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
 }
 .client-home{
-	background-image: url("/assets/images/home-bg-img.jpg");
+	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.jpg");
+	background-size: 100% 100%;
 }
 .client-home a{
-	background-color: #fc6f8b;
+	background-color: #fea0b2;
 }
 .client-home a h4{
-	color: #B45068 !important;
+	color: #b34f67 !important;
 }
 .categories{
-	background-image: url("/assets/images/home-bg-img.jpg");
+	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.jpg");
+	background-size: 100% 100%;
+}
+
+.categories:before {
+	filter : blur(10px);
 }
 .client-category-nav{
-	padding-top: 100px;
+	margin-top: 150px;
+	margin-bottom: 150px;
+	font-family: "Lucida Handwriting", cursive;
+	color: #FFFFFF;
+	font-size: 30px;
 }
 .client-home-nav-cards{
-	padding-top: 100px;
+	margin-top: 120px;
+	margin-bottom: 120px;
 }
 .client-home-nav-cards .orders{
 	padding-bottom: 80px;
 }
-.client-home-nav-cards{
-	margin-top: 30px;
+.category-img{
+	width:100%;
+	height: 250px;
+}
+.client-category-nav .col-sm-3{
+	padding: 30px;
+}
+.client-category-nav img{
+	border-radius: 20px;
 }
 .landing-card{
 	margin-top: 20px;
@@ -53,7 +74,7 @@ body {
 .landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
 	background-color: #fc8eac;
 }
-.landing-card .card-block .btn-lg, .login-bg-img .form-material .btn-lg{
+.landing-card .card-block .btn-lg, .login-content .form-material .btn-lg{
 	margin: 20px;
 	color: #ffffff;
 	border-radius: 20px;
