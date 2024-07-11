@@ -47,23 +47,21 @@ new #[Layout('layouts.guest')] class extends Component
 
         <div class="row">
             <div class="col-md-8">
-                <form wire:submit="login" class="form-material" autocomplete="off">
-                    <div class="form-group form-default form-static-label">
-                        <input wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" autocomplete="off" required>
-                        <span class="form-bar"></span>
-                        <label class="float-label">User Code</label>
+                <form wire:submit="login" autocomplete="off">
+                    <div class="user-credential active">
+                        <label class="form-control-label">UserName</label>
+                        <input  wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" aria-describedby="emailHelp" autocomplete="off" required>
                         <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
                     </div>
-                    <div class="form-group form-default form-static-label">
+                    <div class="user-credential">
+                        <label for="exampleInputPassword1" class="form-control-label">Password</label>
                         <input wire:model="form.password" name="password" type="password" placeholder="**********" class="form-control" autocomplete="off" required>
-                        <span class="form-bar"></span>
-                        <label class="float-label">Password</label>
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
                     <div class="row m-t-30">
                         <div class="col-md-12">
-                            <x-primary-button class="btn btn-primary btn-lg">
+                            <x-primary-button class="btn btn-primary">
                                 {{ __('Login') }}
                             </x-primary-button>
                         </div>

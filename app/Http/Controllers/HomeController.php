@@ -23,7 +23,8 @@ class HomeController extends Controller
             // return view('landing-page');
             return redirect('login');
         }else{
-            return redirect()->intended('dashboard');
+            // return redirect()->intended('dashboard');
+            return redirect('client-home');
         }
     }
 

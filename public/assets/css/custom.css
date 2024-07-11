@@ -1,10 +1,11 @@
-body {
-	/* background-color: #fea0b2 !important; */
-	color: #000000 !important;
+.main-header-top > .navbar, .main-header-top{
+	background-color: #ff6e8b;
 }
-.login-content{
-	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/bg.jpg");
-	background-size: 100% 100%;
+.sidebar-menu > li.active > a {
+    background: #ff6e8b;
+}
+.common-img-bg{
+    background-size: 100% 100% !important;
 }
 .login-section{
 	padding-top: 100px;
@@ -20,100 +21,61 @@ body {
 	font-weight: bold;
 	color: gray;
 }
-.login-img{
-	height: 100%;
-	max-width: 100%;
-	display: block;
-	margin: auto;
-}
-.client-home{
-	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.jpg");
-	background-size: 100% 100%;
-}
-.client-home a{
-	background-color: #fea0b2;
-}
-.client-home a h4{
-	color: #b34f67 !important;
-}
-.categories{
-	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.jpg");
-	background-size: 100% 100%;
-}
-
-.categories:before {
-	filter : blur(10px);
-}
-.client-category-nav{
-	margin-top: 150px;
-	margin-bottom: 150px;
-	font-family: "Lucida Handwriting", cursive;
-	color: #FFFFFF;
-	font-size: 30px;
-}
-.client-home-nav-cards{
-	margin-top: 120px;
-	margin-bottom: 120px;
-}
-.client-home-nav-cards .orders{
-	padding-bottom: 80px;
-}
-.category-img{
-	width:100%;
-	height: 250px;
-}
-.client-category-nav .col-sm-3{
-	padding: 30px;
-}
-.client-category-nav img{
-	border-radius: 20px;
-}
-.landing-card{
-	margin-top: 20px;
-}
-.landing-card .card-header, .landing-card .card-footer, .btn-primary, .pcoded .pcoded-header[header-theme="theme1"]{
-	background-color: #fc8eac;
-}
-.landing-card .card-block .btn-lg, .login-content .form-material .btn-lg{
+.landing-card .card-block .btn-lg, .login-section .btn{
 	margin: 20px;
 	color: #ffffff;
 	border-radius: 20px;
+	padding: 12px 40px;
+	font-size: 17px;
 }
-.variety-section{
-	margin-top: 20px;
-	margin-left: 10px;
-	margin-right: 10px;
+.btn-primary{
+    background-color: #fc8eac !important;
 }
-.variety-section img{
-	margin-top: 20px;
+.client-img-bg{
+    background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.png");
+	background-size: 100% 100%;
+}
+.client-home-nav{
+    margin-top: 130px;
+	margin-bottom: 130px;
+}
+.client-home-nav a{
+    background-color: #fea0b2;
+    border-radius: 20px;
+    color: #b34f67 !important;
+}
+.client-home-nav .orders{
+    padding-bottom: 40px;
+}
+.client-home-nav a{
+	margin-bottom: 40px;
+}
+.client-category-bg{
+    /* background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-bg-img.png"); */
+	background-size: 100% 100%;
+    font-family: "Lucida Handwriting", cursive;
+	color: #FFFFFF;
+    padding-top: 150px;
+    padding-bottom: 150px;
+	font-size: 30px;
+}
+.client-category-bg img{
+	border-radius: 20px;
+}
+.category-img{
+    /* width:100%;
+	height: 250px; */
+	object-fit: cover;
+	width: 250px;
+	height: 250px;
 	margin-bottom: 20px;
 }
-.variety-section .variety{
-	background-color: #000000;
-	color: #FFFFFF;
-	padding-bottom: 10px;
+.user-credential{
+	border-style: solid;
+	border-color: gray;
+	border-width: thin;
 }
-.variety-section .variety .specs{
-	padding-top: 10px;
-}
-.variety-section .row input{
-	background-color: #ffffff;
-	padding-left: 5px;
-}
-.header-navbar .navbar-wrapper .navbar-container .badge {
-    right: 1px !important;
-    padding: 1px !important;
-}
-.btn-order{
-	color: #FFFFFF !important;
-}
-.home-section{
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-.home-section .type{
-	margin: 1px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border:solid 2px #fc8eac;
+.user-credential.active{
+	border-left-color: #ff6e8b;
+	border-left-width: 1em;
 }
