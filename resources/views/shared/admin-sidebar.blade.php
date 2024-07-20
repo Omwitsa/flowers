@@ -1,172 +1,184 @@
-<nav class="pcoded-navbar">
-    <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-    <div class="pcoded-inner-navbar main-menu">
-        <div class="">
-            <div class="main-menu-content">
-                <ul>
-                    <li class="more-details">
-                        <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                        <a href="#!"><i class="ti-settings"></i>Settings</a>
-                        <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
-                    </li>
-                </ul>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="index3.html" class="brand-link">
+        <img src="{{env('APP_ROOT')}}assets/images/logo.png" alt="AAA" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AAA</span>
+    </a>
+
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{env('APP_ROOT')}}assets/images/avatar-4.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{auth()->user()->usercode}}</a>
             </div>
         </div>
-        <div class="p-15 p-b-0">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
             
-        </div>
-        <!--<div class="pcoded-navigation-label">Navigation</div>-->
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="active">
-                <a href="{{env('APP_ROOT')}}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                    <span class="pcoded-mtext">Dashboard</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item menu-open">
+                <a href="{{env('APP_ROOT')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Dashboard</p>
                 </a>
             </li>
-        </ul>
-        
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}orders" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Orders</span>
-                    <span class="pcoded-mcaret"></span>
+
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}orders" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Orders</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}users" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Users</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}users" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Users</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}clients" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Clients</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}clients" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Clients</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}dropoffs" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Drop Off</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}dropoffs" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Drop Off</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}client-categories" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Client Categories</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}client-categories" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Client Categories</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}regions" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Regions</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}regions" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Regions</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}varieties" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Varieties</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}varieties" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Varieties</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}sub-categories" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Sub Categories</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}sub-categories" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Sub Categories</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}categories" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Categories</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}categories" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Categories</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}packrates" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Pack Rates</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}packrates" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Pack Rates</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}list-mixed-box" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Mixed Box</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}list-mixed-box" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Mixed Box</p>
                 </a>
             </li>
-        </ul>
 
-        <ul class="pcoded-item pcoded-left-item">
-            <li class="">
-                <a href="{{env('APP_ROOT')}}prices" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                    <span class="pcoded-mtext">Prices</span>
-                    <span class="pcoded-mcaret"></span>
+            <li class="nav-item">
+                <a href="{{env('APP_ROOT')}}prices" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Prices</p>
                 </a>
             </li>
-        </ul>
-
-        
-
-        <!-- <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu">
-                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
-                    <span class="pcoded-mtext">Basic</span>
-                    <span class="pcoded-mcaret"></span>
+            
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Account
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
                 </a>
-                <ul class="pcoded-submenu">
-                    <li class=" ">
-                        <a href="/users" class="waves-effect waves-dark">
-                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                            <span class="pcoded-mtext">Tables</span>
-                            <span class="pcoded-mcaret"></span>
-                        </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{env('APP_ROOT')}}logout" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Logout</p>
+                    </a>
                     </li>
+                    
+                    <!-- <li class="nav-item">
+                        <a href="pages/examples/blank.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Blank Page</p>
+                        </a>
+                    </li> -->
                 </ul>
             </li>
-        </ul> -->
-        
-        
+
+            <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-circle"></i>
+                <p>
+                Level 1
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Level 2</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                    Level 2
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Level 3</p>
+                    </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Level 3</p>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li> -->
+        </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
-</nav>
+</aside>

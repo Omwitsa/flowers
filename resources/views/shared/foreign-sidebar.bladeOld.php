@@ -20,7 +20,7 @@
             <li class="active">
                 <a href="{{env('APP_ROOT')}}" class="waves-effect waves-dark" wire:navigate>
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                    <span class="pcoded-mtext">Single Box</span>
+                    <span class="pcoded-mtext">Home</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>

@@ -1,335 +1,301 @@
 <x-app-layout>
-    <div class="row">
-        <!-- Material statustic card start -->
-        <div class="col-xl-4 col-md-12">
-            <div class="card mat-stat-card">
-                <div class="card-block">
-                    <div class="row align-items-center b-b-default">
-                        <div class="col-sm-6 b-r-default p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="far fa-user text-c-purple f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>13K</h5>
-                                    <p class="text-muted m-b-0">{{$data->title}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="fas fa-volume-down text-c-green f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>100%</h5>
-                                    <p class="text-muted m-b-0">Volume</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="far fa-file-alt text-c-red f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>2000+</h5>
-                                    <p class="text-muted m-b-0">Files</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="far fa-envelope-open text-c-blue f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>120</h5>
-                                    <p class="text-muted m-b-0">Mails</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
                 </div>
+                <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+                </div>
+            </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-12">
-            <div class="card mat-stat-card">
-                <div class="card-block">
-                    <div class="row align-items-center b-b-default">
-                        <div class="col-sm-6 b-r-default p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="fas fa-share-alt text-c-purple f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>1000</h5>
-                                    <p class="text-muted m-b-0">Share</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="fas fa-sitemap text-c-green f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>600</h5>
-                                    <p class="text-muted m-b-0">Network</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="fas fa-signal text-c-red f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>350</h5>
-                                    <p class="text-muted m-b-0">Returns</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-b-20 p-t-20">
-                            <div class="row align-items-center text-center">
-                                <div class="col-4 p-r-0">
-                                    <i class="fas fa-wifi text-c-blue f-24"></i>
-                                </div>
-                                <div class="col-8 p-l-0">
-                                    <h5>100%</h5>
-                                    <p class="text-muted m-b-0">Connections</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-md-12">
-            <div class="card mat-clr-stat-card text-white green ">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-3 text-center bg-c-green">
-                            <i class="fas fa-star mat-icon f-24"></i>
-                        </div>
-                        <div class="col-9 cst-cont">
-                            <h5>4000+</h5>
-                            <p class="m-b-0">Ratings Received</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mat-clr-stat-card text-white blue">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-3 text-center bg-c-blue">
-                            <i class="fas fa-trophy mat-icon f-24"></i>
-                        </div>
-                        <div class="col-9 cst-cont">
-                            <h5>17</h5>
-                            <p class="m-b-0">Achievements</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Material statustic card end -->
-        <!-- order-visitor start -->
+        <!-- /.content-header -->
 
-
-        <!-- order-visitor end -->
-
-        <!--  sale analytics start -->
-        <div class="col-xl-6 col-md-12">
-            <div class="card table-card">
-                <div class="card-header">
-                    <h5>Member’s performance</h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                            <li><i class="fa fa-window-maximize full-card"></i></li>
-                            <li><i class="fa fa-minus minimize-card"></i></li>
-                            <li><i class="fa fa-refresh reload-card"></i></li>
-                            <li><i class="fa fa-trash close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-block">
-                    <div class="table-responsive">
-                        <table class="table table-hover m-b-0 without-header">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Shirley Hoe</h6>
-                                                <p class="text-muted m-b-0">Sales executive , NY</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h6 class="f-w-700">$78.001<i class="fas fa-level-down-alt text-c-red m-l-10"></i></h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Shirley Hoe</h6>
-                                                <p class="text-muted m-b-0">Sales executive , NY</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h6 class="f-w-700">$89.051<i class="fas fa-level-up-alt text-c-green m-l-10"></i></h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Shirley Hoe</h6>
-                                                <p class="text-muted m-b-0">Sales executive , NY</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h6 class="f-w-700">$78.001<i class="fas fa-level-down-alt text-c-red m-l-10"></i></h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Shirley Hoe</h6>
-                                                <p class="text-muted m-b-0">Sales executive , NY</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h6 class="f-w-700">$89.051<i class="fas fa-level-up-alt text-c-green m-l-10"></i></h6>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 col-md-12">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
             <div class="row">
-                <!-- sale card start -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                    <h3>150</h3>
 
-                <div class="col-md-6">
-                    <div class="card text-center order-visitor-card">
-                        <div class="card-block">
-                            <h6 class="m-b-0">Total Subscription</h6>
-                            <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-down m-r-15 text-c-red"></i>7652</h4>
-                            <p class="m-b-0">48% From Last 24 Hours</p>
-                        </div>
+                    <p>New Orders</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card text-center order-visitor-card">
-                        <div class="card-block">
-                            <h6 class="m-b-0">Order Status</h6>
-                            <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-up m-r-15 text-c-green"></i>6325</h4>
-                            <p class="m-b-0">36% From Last 6 Months</p>
-                        </div>
+                    <div class="icon">
+                    <i class="ion ion-bag"></i>
                     </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="col-md-6">
-                    <div class="card bg-c-red total-card">
-                        <div class="card-block">
-                            <div class="text-left">
-                                <h4>489</h4>
-                                <p class="m-0">Total Comment</p>
-                            </div>
-                            <span class="label bg-c-red value-badges">15%</span>
-                        </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                    <p>Bounce Rate</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card bg-c-green total-card">
-                        <div class="card-block">
-                            <div class="text-left">
-                                <h4>$5782</h4>
-                                <p class="m-0">Income Status</p>
-                            </div>
-                            <span class="label bg-c-green value-badges">20%</span>
-                        </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
                     </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="col-md-6">
-                    <div class="card text-center order-visitor-card">
-                        <div class="card-block">
-                            <h6 class="m-b-0">Unique Visitors</h6>
-                            <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-down m-r-15 text-c-red"></i>652</h4>
-                            <p class="m-b-0">36% From Last 6 Months</p>
-                        </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                    <h3>44</h3>
+
+                    <p>User Registrations</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card text-center order-visitor-card">
-                        <div class="card-block">
-                            <h6 class="m-b-0">Monthly Earnings</h6>
-                            <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-up m-r-15 text-c-green"></i>5963</h4>
-                            <p class="m-b-0">36% From Last 6 Months</p>
-                        </div>
+                    <div class="icon">
+                    <i class="ion ion-person-add"></i>
                     </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <!-- sale card end -->
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                    <h3>65</h3>
+
+                    <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+                <!-- ./col -->
             </div>
-        </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
+                <section class="col-lg-7 connectedSortable">
+                <div class="card">
+                    <div class="card-header border-transparent">
+                    <h3 class="card-title">Latest Orders</h3>
 
-        <!--  sale analytics end -->
-
-        <!-- Project statustic start -->
-        <div class="col-xl-12">
-            <div class="card proj-progress-card">
-                <div class="card-block">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table m-0">
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Popularity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                            <td>Call of Duty IV</td>
+                            <td><span class="badge badge-success">Shipped</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                            <td>Samsung Smart TV</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                            <td>iPhone 6 Plus</td>
+                            <td><span class="badge badge-danger">Delivered</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                            <td>Samsung Smart TV</td>
+                            <td><span class="badge badge-info">Processing</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                            <td>Samsung Smart TV</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                            <td>iPhone 6 Plus</td>
+                            <td><span class="badge badge-danger">Delivered</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                            <td>Call of Duty IV</td>
+                            <td><span class="badge badge-success">Shipped</span></td>
+                            <td>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                </section>
+                <section class="col-lg-5 connectedSortable">
+                <div class="card bg-gradient-primary">
+                    <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Goal Completion
+                    </h3>
+                    <!-- card tools -->
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
+                        <i class="far fa-calendar-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.card-tools -->
+                    </div>
+                    <div class="card-body">
                     <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <h6>Published Project</h6>
-                            <h5 class="m-b-30 f-w-700">532<span class="text-c-green m-l-10">+1.69%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-c-red" style="width:25%"></div>
+                        <div class="col-md-12">
+                        <div class="progress-group">
+                            Add Products to Cart
+                            <span class="float-right"><b>160</b>/200</span>
+                            <div class="progress progress-sm">
+                            <div class="progress-bar bg-primary" style="width: 80%"></div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <h6>Completed Task</h6>
-                            <h5 class="m-b-30 f-w-700">4,569<span class="text-c-red m-l-10">-0.5%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-c-blue" style="width:65%"></div>
+                        <!-- /.progress-group -->
+
+                        <div class="progress-group">
+                            Complete Purchase
+                            <span class="float-right"><b>310</b>/400</span>
+                            <div class="progress progress-sm">
+                            <div class="progress-bar bg-danger" style="width: 75%"></div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <h6>Successfull Task</h6>
-                            <h5 class="m-b-30 f-w-700">89%<span class="text-c-green m-l-10">+0.99%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-c-green" style="width:85%"></div>
+
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                            <span class="progress-text">Visit Premium Page</span>
+                            <span class="float-right"><b>480</b>/800</span>
+                            <div class="progress progress-sm">
+                            <div class="progress-bar bg-success" style="width: 60%"></div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <h6>Ongoing Project</h6>
-                            <h5 class="m-b-30 f-w-700">365<span class="text-c-green m-l-10">+0.35%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-c-yellow" style="width:45%"></div>
+
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                            Send Inquiries
+                            <span class="float-right"><b>250</b>/500</span>
+                            <div class="progress progress-sm">
+                            <div class="progress-bar bg-warning" style="width: 50%"></div>
                             </div>
+                        </div>
+                        <!-- /.progress-group -->
                         </div>
                     </div>
+                    </div>
                 </div>
+                <!-- solid sales graph -->
+                <div class="card bg-gradient-info">
+                    <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="fas fa-th mr-1"></i>
+                        Sales Graph
+                    </h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    </div>
+                    
+                    <!-- /.card-body -->
+                    <div class="card-footer bg-transparent">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                                data-fgColor="#39CCCC">
+
+                        <div class="text-white">Mail-Orders</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                                data-fgColor="#39CCCC">
+
+                        <div class="text-white">Online</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                                data-fgColor="#39CCCC">
+
+                        <div class="text-white">In-Store</div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                </section>
+                <!-- right col -->
             </div>
-        </div>
-        <!-- Project statustic end -->
+            <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
 </x-app-layout>

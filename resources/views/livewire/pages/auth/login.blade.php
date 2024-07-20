@@ -43,21 +43,22 @@ new #[Layout('layouts.guest')] class extends Component
         <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="roses" style="width:15%;"><br><br><br>
 
         <span>Welcome to...</span>
-        <H1>THE WORLD OF <br> ROSES</H1><br><br>
+        <H1>THE WORLD OF <br> ROSES</H1><br>
 
         <div class="row">
             <div class="col-md-8">
                 <form wire:submit="login" autocomplete="off">
                     <div class="user-credential active">
-                        <label class="form-control-label">UserName</label>
-                        <input  wire:model="form.usercode" name="usercode" type="text" placeholder="AAA" class="form-control" aria-describedby="emailHelp" autocomplete="off" required>
+                        <label>UserName</label>
+                        <input wire:model="form.usercode" name="usercode" type="text" class="form-control form-control-border border-width-2" placeholder="AAA" autocomplete="off" required autofocus>
                         <x-input-error :messages="$errors->get('usercode')" class="mt-2" />
                     </div>
+
                     <div class="user-credential">
-                        <label for="exampleInputPassword1" class="form-control-label">Password</label>
-                        <input wire:model="form.password" name="password" type="password" placeholder="**********" class="form-control" autocomplete="off" required>
+                        <label>Password</label>
+                        <input wire:model="form.password" name="password" type="password" class="form-control form-control-border border-width-2" placeholder="**********" autocomplete="off" required>
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
+                    </div><br><br>
 
                     <div class="row m-t-30">
                         <div class="col-md-12">
@@ -70,6 +71,7 @@ new #[Layout('layouts.guest')] class extends Component
             </div>
         </div>
     </div>
+
     <div class="col-sm-6">
         <img class="login-img" src="{{env('APP_ROOT')}}assets/images/login-img.png" alt="roses">
     </div>
