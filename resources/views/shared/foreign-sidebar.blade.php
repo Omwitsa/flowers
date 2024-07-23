@@ -22,14 +22,37 @@
                 with font-awesome or any other icon font library -->
             
             <li class="nav-item menu-open">
-            <a href="pages/gallery.html" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                Dashboard
-                </p>
-            </a>
+                <a href="pages/gallery.html" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                    Dashboard
+                    </p>
+                </a>
             </li>
             
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Account
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{env('APP_ROOT')}}logout" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Logout</p>
+                    </a>
+                    </li>
+                    
+                    <!-- <li class="nav-item">
+                        <a href="pages/examples/blank.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Blank Page</p>
+                        </a>
+                    </li> -->
+                </ul>
+            </li>
             <!-- <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>

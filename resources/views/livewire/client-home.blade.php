@@ -1,56 +1,37 @@
-<div class="row client-img-bg">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-2 client-home-nav">
-        <div class="row">
-            <a href="{{env('APP_ROOT')}}category-component" class="col-sm-12 btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                        <h4><b>NEW <br>ORDER</b></h4>
-                    </div>
-                </div>
-            </a>
-
-            <a class="col-sm-12 btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                        <h4><b>RECENT <br>ORDERS</b></h4>
-                    </div>
-                </div>
-            </a>
-
-            <a class="col-sm-12 btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                        <h4><b>CATEGORIES</b></h4>
-                    </div>
-                </div>
-            </a>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Home</h1>
         </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active"><a href="#">Home</a></li>
+            <!-- <li class="breadcrumb-item active">Home</li> -->
+          </ol>
+        </div>
+      </div>
     </div>
-    <!-- <div class="col-sm-10">
-        <div class="row">
-            <a href="{{env('APP_ROOT')}}category-component" class="col-sm-3 text-center btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                        <h4><b>RECENT <br>ORDERS</b></h4>
-                    </div>
-                </div>
-            </a>
+  </div>
 
-            <a class="col-sm-3 text-center btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                        <h4><b>RECENT <br>ORDERS</b></h4>
-                    </div>
-                </div>
-            </a>
-            <a class="col-sm-3 text-center btn btn-xlg waves-effect waves-light">
-                <div class="card-block orders">
-                    <div class="text-left">
-                    <h4><b>CATEGORIES</b></h4>
-                    </div>
-                </div>
-            </a>
+  <section class="content client">
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1">
+        <div class="row nav-section">
+          <a href="{{env('APP_ROOT')}}category-component" class="col-sm-3 client-home-nav">
+            <h1><b>NEW <br>ORDER</b></h1>
+          </a>
+          <a href="#" class="col-sm-3 client-home-nav">
+            <h1><b>RECENT <br>ORDERS</b></h1>
+          </a>
+          <a href="#" class="col-sm-3 client-home-nav">
+            <h1><b>OUR <br>FARMS</b></h1>
+          </a>
         </div>
-    </div> -->
+      </div>
+    </div>
+  </section>
 </div>
+
+

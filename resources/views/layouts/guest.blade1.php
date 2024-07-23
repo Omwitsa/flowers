@@ -1,97 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-        <title>AAA FLOWERS PORTAL</title>
-        
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>AAA FLOWERS PORTAL</title>
+
         <!-- Favicon icon -->
         <link rel="shortcut icon" href="{{env('APP_ROOT')}}assets/images/logo.png" type="image/x-icon">
         <link rel="icon" href="{{env('APP_ROOT')}}assets/images/logo.png" type="image/x-icon">
 
-        <!-- Google font-->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
-        <!-- themify -->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/icon/themify-icons/themify-icons.css">
-        <!-- iconfont -->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/icon/icofont/css/icofont.css">
-        <!-- simple line icon -->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/icon/simple-line-icons/css/simple-line-icons.css">
-        <!-- Required Fremwork -->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/plugins/bootstrap/css/bootstrap.min.css">
-        <!-- Chartlist chart css -->
-        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/chartist/dist/chartist.css" type="text/css" media="all">
-        <!-- Weather css -->
-        <link href="{{env('APP_ROOT')}}assets/css/svg-weather.css" rel="stylesheet">
-        <!-- Style.css -->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/css/main.css">
-        <!-- Responsive.css-->
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/css/responsive.css">
-        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/css/custom.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/fontawesome-free/css/all.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- Tempusdominus Bootstrap 4 -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/jqvmap/jqvmap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/dist/css/adminlte.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/daterangepicker/daterangepicker.css">
+        <!-- summernote -->
+        <link rel="stylesheet" href="{{env('APP_ROOT')}}assets/plugins/summernote/summernote-bs4.min.css">
+        <link rel="stylesheet" type="text/css" href="{{env('APP_ROOT')}}assets/dist/css/custom.css">
 
         @livewireStyles
     </head>
 
-    <body class="sidebar-mini fixed">
-        <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
-            <div class="container-fluid">
-                {{ $slot }}
-            </div>
-        </section>
-    
-        <!-- Required Jqurey -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/Jquery/dist/jquery.min.js"></script>
+    <body class="login-content">
+        {{ $slot }}
+        
+        <!-- jQuery -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
         <script src="{{env('APP_ROOT')}}assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <script src="{{env('APP_ROOT')}}assets/plugins/tether/dist/js/tether.min.js"></script>
-
-        <!-- Required Fremwork -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-        <!-- Scrollbar JS-->
-        <script src="{{env('APP_ROOT')}}assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-        <script src="{{env('APP_ROOT')}}assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-
-        <!--classic JS-->
-        <script src="{{env('APP_ROOT')}}assets/plugins/classie/classie.js"></script>
-
-        <!-- notification -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/notification/js/bootstrap-growl.min.js"></script>
-
-        <!-- Sparkline charts -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
-
-        <!-- Counter js  -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="{{env('APP_ROOT')}}assets/plugins/countdown/js/jquery.counterup.js"></script>
-
-        <!-- Echart js -->
-        <script src="{{env('APP_ROOT')}}assets/plugins/charts/echarts/js/echarts-all.js"></script>
-
-        <script src="{{env('APP_ROOT')}}https://code.highcharts.com/highcharts.js"></script>
-        <script src="{{env('APP_ROOT')}}https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="{{env('APP_ROOT')}}https://code.highcharts.com/highcharts-3d.js"></script>
-
-        <!-- custom js -->
-        <script type="text/javascript" src="{{env('APP_ROOT')}}assets/js/main.min.js"></script>
-        <script type="text/javascript" src="{{env('APP_ROOT')}}assets/pages/dashboard.js"></script>
-        <script type="text/javascript" src="{{env('APP_ROOT')}}assets/pages/elements.js"></script>
-        <script src="{{env('APP_ROOT')}}assets/js/menu.min.js"></script>
-        <script src="{{env('APP_ROOT')}}assets/js/custom.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-            var $window = $(window);
-            var nav = $('.fixed-button');
-            $window.scroll(function(){
-                if ($window.scrollTop() >= 200) {
-                nav.addClass('active');
-                }
-                else {
-                nav.removeClass('active');
-                }
-            });
+        $.widget.bridge('uibutton', $.ui.button)
         </script>
-
+        <!-- Bootstrap 4 -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="{{env('APP_ROOT')}}assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/moment/moment.min.js"></script>
+        <script src="{{env('APP_ROOT')}}assets/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="{{env('APP_ROOT')}}assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="{{env('APP_ROOT')}}assets/dist/js/adminlte.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{{env('APP_ROOT')}}assets/dist/js/pages/dashboard.js"></script>
+        
+        <script src="{{env('APP_ROOT')}}assets/dist/js/custom.js"></script>
         @livewireScripts
     </body>
 </html>

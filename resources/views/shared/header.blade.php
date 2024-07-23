@@ -14,7 +14,7 @@
 
    <!-- Right navbar links -->
    <ul class="navbar-nav ml-auto">
-         <!-- <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
          <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
             <span class="badge badge-warning navbar-badge">15</span>
@@ -29,12 +29,53 @@
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
          </div>
-         </li> -->
+      </li> -->
 
-         <!-- <li class="nav-item">
+      <li class="nav-item dropdown">
+         <a class="nav-link" data-toggle="dropdown" href="#">
+            <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/Cart.png" width="40" height="40"  alt="Cart">
+            <?php 
+               $count = 0;
+               // session('order_lines')
+               // if(isset($_SESSION["cartitems"])){
+               //    $count = count($_SESSION["cartitems"]);
+               // }
+            ?>
+            <span class="badge badge-warning navbar-badge">{{$count}}</span>
+         </a>
+         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
+            @if($count < 1)
+               <h6>Cart is empty</h6>
+            @else
+               <?php 
+                  $count = 0;
+                  foreach(session('order_lines') as $row){
+                     $count++;
+                     // $tprice=$row["price"]*$row["quantity"];
+                     // $total=$total+$tprice;
+                  }
+               ?>
+
+               <h6>{{$count}}</h6>
+            @endif
+            <!-- <div class="dropdown-divider"></div> -->
+         </div>
+      </li>
+
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color:  red;">
+            <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/profile.png" alt="Profile">
+         </a>
+         <div class="dropdown-menu dropdown-menu-right">
+            <a href="{{env('APP_ROOT')}}logout" class="dropdown-item">Logout</a>
+            <!-- <div class="dropdown-divider"></div> -->
+         </div>
+      </li>
+
+      <!-- <li class="nav-item">
          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
          </a>
-         </li> -->
+      </li> -->
    </ul>
 </nav>

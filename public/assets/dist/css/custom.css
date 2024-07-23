@@ -1,16 +1,17 @@
-
 .btn-primary{
     background-color: #fc8eac !important;
 }
-.login-content{
+.login-content, .product-category{
 	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/bg.jpg");
 	background-size: 100% 100%;
 }
 .login-img{
 	height: 100%;
-	max-width: 102%;
+	max-width: 100%;
 	display: block;
 	margin: auto;
+	position: relative;
+	right: -10px;
 }
 .login-section{
 	padding-top: 100px;
@@ -43,4 +44,47 @@
 .user-credential label{
 	color: #c3c2c6;
 	margin-left: 10px;
+}
+.header-icon{
+	position: relative;
+	top: -15px;
+}
+.client{
+	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-img.jpg");
+	background-size: 100% 100%;
+}
+.client-home-nav{
+	background-color: #fea0b2;
+    border-radius: 20px;
+    color: #b34f67 !important;
+	padding-top: 2%;
+	padding-left: 2%;
+	padding-bottom: 7%;
+	margin-top: 2%;
+	margin-left: 4%;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 1.0);
+}
+.nav-section{
+	margin-top: 18%;
+	margin-bottom: 16%;
+}
+.category-img{
+	width: 80%;
+	height: 60%;
+	margin-bottom: 8%;
+}
+.product-category{
+	font-family: "Lucida Handwriting", cursive;
+	color: #000000;
+    /* padding-top: 150px; */
+    /* padding-bottom: 150px; */
+	font-size: 30px;
+}
+.product-category img{
+	border-radius: 20px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 1.0);
+}
+.category-section{
+	margin-top: 16%;
+	margin-bottom: 5%;
 }
