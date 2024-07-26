@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{env('APP_ROOT')}}client-home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{env('APP_ROOT')}}">Home</a></li>
                         <li class="breadcrumb-item active">Category</li>
                     </ol>
                 </div>
@@ -19,23 +19,15 @@
         <div class="row">
             <div class="col-sm-10 offset-sm-1">
                 <div class="row category-section">
-                    <div class="col-sm-3 text-center">
-                        <a href="#"><img src="{{env('APP_ROOT')}}assets/images/bellissima.jpg" alt="roses" class="waves-effect waves-light category-img"></a>
-                        <div>Bellissima</div>
-                    </div>
-
-                    <div class="col-sm-3 text-center">
-                        <a href="#"><img src="{{env('APP_ROOT')}}assets/images/roses.jpg" alt="roses" class="waves-effect waves-light category-img"></a>
-                        <div>AAA Roses</div>
-                    </div>
-                    <div class="col-sm-3 text-center">
-                        <a href="#"><img src="{{env('APP_ROOT')}}assets/images/blooms.jpg" alt="roses" class="waves-effect waves-light category-img"></a>
-                        <div>Wildblooms</div>
-                    </div>
-                    
-                    <!-- <a class="col-sm-3 text-center btn btn-xlg waves-effect waves-light">
-                        <div>Mixed Boxes</div>
-                    </a> -->
+                    @foreach ($categories as $category)
+                        <div class="col-sm-3 text-center">
+                            <!-- <a href="{{env('APP_ROOT')}}sub-category-component"><img src="{{env('APP_ROOT')}}assets/images/bellissima.jpg" alt="roses" class="waves-effect waves-light category-img"></a> -->
+                            <a href="{{env('APP_ROOT')}}sub-category-component/{{$category->name}}">
+                                <img src="{{ asset('storage'.env('IMG_STORAGE').$category->picUrl) }}" alt="{{ $category->name }}" class="waves-effect waves-light category-img">
+                            </a>
+                            <div>{{ $category->name }}</div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

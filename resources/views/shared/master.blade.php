@@ -6,8 +6,8 @@
         <title>AAA FLOWERS PORTAL</title>
 
         <!-- Favicon icon -->
-        <link rel="shortcut icon" href="{{env('APP_ROOT')}}assets/images/logo.png" type="image/x-icon">
-        <link rel="icon" href="{{env('APP_ROOT')}}assets/images/logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="{{env('APP_ROOT')}}assets/images/AAARoses.png" type="image/x-icon">
+        <link rel="icon" href="{{env('APP_ROOT')}}assets/images/AAARoses.png" type="image/x-icon">
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,7 +44,7 @@
             @yield('content')
             
             <footer class="main-footer">
-                <strong>Copyright &copy; 2024<a href="https://aaagrowers.co.ke/"> AAA GROWERS</a>.</strong>
+                <strong>Copyright &copy; {{date('Y')}}<a href="https://aaagrowers.co.ke/"> AAA GROWERS</a>.</strong>
                 All rights reserved.
                 <!-- <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 3.2.0

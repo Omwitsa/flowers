@@ -42,17 +42,19 @@ class HomeController extends Controller
         }
 
         if(auth()->user()->role === 'Foreign') {
-            $categories = DB::table('categories')
-                ->orderBy('id', 'desc')
-                ->get();
-            foreach ($categories as $key => $value) {
-                $category = (object) $value;
-                $category->param = Str::lower(Str::replace(' ', '-', $category->name));
-            }
+            // $categories = DB::table('categories')
+            //     ->orderBy('id', 'desc')
+            //     ->get();
+            // foreach ($categories as $key => $value) {
+            //     $category = (object) $value;
+            //     $category->param = Str::lower(Str::replace(' ', '-', $category->name));
+            // }
 
-            return view('category')->with([
-                'categories' => $categories
-            ]);
+            // return view('category')->with([
+            //     'categories' => $categories
+            // ]);
+
+            return redirect('client-home');
         }
 
         return view('local-dashboard');

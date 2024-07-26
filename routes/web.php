@@ -39,6 +39,7 @@ use App\Livewire\EditDropOff;
 use App\Livewire\SubCategoryList;
 use App\Livewire\ClientHome;
 use App\Livewire\CategoryComponent;
+use App\Livewire\SubCategoryComponent;
 
 use App\Models\OrderHeader;
 use App\Mail\OrderNotification;
@@ -94,6 +95,7 @@ Route::get('/new-price', NewPrice::class);
 Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
+Route::get('/sub-category-component/{category}', SubCategoryComponent::class); 
 // Route::get('/sub-category/{category}', SubCategory::class); 
 
 // Route for mailing

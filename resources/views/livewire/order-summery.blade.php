@@ -59,7 +59,7 @@
                                         <option value="{{ $boxType->Name }}">{{ $boxType->Name }}</option>
                                     @endforeach
                                 </select></td>
-                                <td>{{ $line->PackRate }}</td>
+                                <td>{{ $line->PackRate }}</td> 
                                 <td><input wire:blur="onEnterQuantity({{ $index }}, $event.target.value)" wire:key="{{ $index }}" type="number" wire:model="order_lines.{{ $index }}.Boxes" class="form-control" required></td>
                                 <td><input wire:key="{{ $index }}" type="text" wire:model="order_lines.{{ $index }}.BoxMarking" class="form-control"></td>
                                 <td>{{ $line->StemQty}}</td>

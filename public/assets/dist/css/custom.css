@@ -76,8 +76,6 @@
 .product-category{
 	font-family: "Lucida Handwriting", cursive;
 	color: #000000;
-    /* padding-top: 150px; */
-    /* padding-bottom: 150px; */
 	font-size: 30px;
 }
 .product-category img{
@@ -87,4 +85,64 @@
 .category-section{
 	margin-top: 16%;
 	margin-bottom: 5%;
+}
+[class*=sidebar-dark-]{
+	background-color: #f66d8a;
+}
+.navbar-white{
+	background-color: #603c44;
+}
+.navbar-light .navbar-nav .nav-link{
+	color: #fff;
+}
+.product-sub-category{
+	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/BELLISIMA-BG.jpg");
+	color: #fff;
+	/* background-size: 100% 100%; */
+}
+.hr-lines {
+	display: flex;
+	flex-direction: row;
+ }
+ .hr-lines:before,
+ .hr-lines:after {
+	content: "";
+	flex: 1 1;
+	border-bottom: 1px solid #fff;
+	margin: auto 1%;
+ }
+ .variety-img{
+	width: 60%;
+	height: 60%;
+	/* margin-bottom: 8%; */
+ }
+ .variety-section select, .variety-section .btn{
+	background-color: #f66d8a;
+ }
+ .variety-section .btn{
+	color: #fff;
+	padding: 0px 20px;
+	border-radius: 15px;
+	font-size: 12px;
+ }
+ .variety-section select, .ordered-quantity{
+	margin-bottom: 1%;
+ }
+ .variety-section select{
+	padding: 0px 30px;
+	font-size: 12px;
+ }
+ .ordered-quantity input{
+	text-align:center;
+	width: 7ch;
+	color: #f66d8a;
+	font-size: 14px;
+	font-weight: bold;
+ }
+.ordered-quantity button{
+	background-color: transparent;
+	color: #f66d8a;
+	border: none;
+	font-weight: bold;
+	font-size: 25px;
 }
