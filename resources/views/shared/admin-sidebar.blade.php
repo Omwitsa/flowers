@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{env('APP_ROOT')}}" class="brand-link">
-        <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="AAA" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AAA</span>
+        <img src="{{env('APP_ROOT')}}assets/images/icons/roses.png" alt="AAA" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <!-- <span class="brand-text font-weight-light">AAA</span> -->
     </a>
 
     <div class="sidebar">

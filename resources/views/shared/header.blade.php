@@ -33,7 +33,7 @@
 
       <li class="nav-item dropdown">
          <a class="nav-link" data-toggle="dropdown" href="#">
-            <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/Cart.png" width="40" height="40"  alt="Cart">
+            <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/Cart.png" width="30" height="30"  alt="Cart">
             <?php 
                $count = 0;
                // session('order_lines')
@@ -63,7 +63,7 @@
       </li>
 
       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color:  red;">
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: #f46c88;">
             <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/profile.png" alt="Profile">
          </a>
          <div class="dropdown-menu dropdown-menu-right">

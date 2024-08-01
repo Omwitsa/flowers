@@ -28,7 +28,7 @@ class NewSubCategory extends Component
     {
         $validated = $this->validate([
             'Name' => ['required', 'string', 'max:100'],
-            'HeadSize' => ['required', 'string', 'max:100'],
+            'HeadSize' => ['string', 'max:100'],
             'Category' => ['required', 'string', 'max:100'],
             'file' => 'image|max:1024', // 1MB Max
         ]);

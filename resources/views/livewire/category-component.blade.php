@@ -19,6 +19,11 @@
         <div class="row">
             <div class="col-sm-10 offset-sm-1">
                 <div class="row category-section">
+                    <div class="col-sm-3 text-center">
+                        <a href="{{env('APP_ROOT')}}sub-category-component"><img src="{{env('APP_ROOT')}}assets/images/bellissima.jpg" alt="roses" class="waves-effect waves-light category-img"></a>
+                       
+                        <img src="{{env('APP_ROOT')}}assets/images/icons/bellissima_name.png" alt="roses" class="waves-effect waves-light">
+                    </div>
                     @foreach ($categories as $category)
                         <div class="col-sm-3 text-center">
                             <!-- <a href="{{env('APP_ROOT')}}sub-category-component"><img src="{{env('APP_ROOT')}}assets/images/bellissima.jpg" alt="roses" class="waves-effect waves-light category-img"></a> -->

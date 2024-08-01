@@ -100,6 +100,9 @@
 	color: #fff;
 	/* background-size: 100% 100%; */
 }
+.product-sub-category .col-sub-category{
+	margin-top: 3%;
+}
 .hr-lines {
 	display: flex;
 	flex-direction: row;
@@ -114,8 +117,12 @@
  .variety-img{
 	width: 60%;
 	height: 60%;
+
+	/* width: 200px; */
+    /* height: 200px; */
 	/* margin-bottom: 8%; */
  }
+
  .variety-section select, .variety-section .btn{
 	background-color: #f66d8a;
  }
@@ -132,6 +139,9 @@
 	padding: 0px 30px;
 	font-size: 12px;
  }
+ .variety-section .variety{
+	margin-top: 3%;
+ }
  .ordered-quantity input{
 	text-align:center;
 	width: 7ch;
@@ -145,4 +155,8 @@
 	border: none;
 	font-weight: bold;
 	font-size: 25px;
+}
+.user-panel img {
+	margin: 2rem 0rem;
+    width: 3.1rem !important;
 }

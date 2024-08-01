@@ -23,15 +23,13 @@ class EditVariety extends Component
     public string $VarietyCode = '';
     public string $FlowerType = '';
     public string $Colour = '';
-    public string $category = 'AAA ROSES';
+    public string $Category = '';
     public string $subCategory = '';
     #[Validate('image|max:1024')] // 1MB Max
     public $file;
     
     public function mount($id)
     {
-        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
-        $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->category]);
         $this->variety = Variety::find($id);
         $this->VarietyName = $this->variety->VarietyName;
         $this->VarietyCode = $this->variety->VarietyCode;
@@ -39,9 +37,11 @@ class EditVariety extends Component
         $this->MinimumOrder = $this->variety->MinimumOrder;
         $this->Colour = $this->variety->Colour;
         $this->subCategory = $this->variety->SubCategory;
-        $this->category = $this->variety->Category;
+        $this->Category = $this->variety->Category;
         $this->picUrl = $this->variety->picUrl;
         $this->active = $this->variety->Active === 1;
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
+        $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     } 
 
     public function UpdateVariety()
@@ -57,13 +57,18 @@ class EditVariety extends Component
         $this->variety->FlowerType = $this->FlowerType;
         $this->variety->MinimumOrder = $this->MinimumOrder;
         $this->variety->Colour = $this->Colour;
-        $this->variety->Category = $this->category;
+        $this->variety->Category = $this->Category;
         $this->variety->SubCategory = $this->subCategory;
         $this->variety->Active = $this->active;
         $this->variety->save();
 
         toastr()->success('Variety updated successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
         $this->redirect(env('APP_ROOT').'varieties');
+    }
+
+    public function updatedCategory()
+    {
+        $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     }
 
     public function render()

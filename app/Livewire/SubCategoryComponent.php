@@ -25,7 +25,6 @@ class SubCategoryComponent extends Component
         // dd($this->subCategories);
     }
 
-    public $quantity=1;
     public function render()
     {
         return view('livewire.sub-category-component');
@@ -42,5 +41,11 @@ class SubCategoryComponent extends Component
         $variety = $this->subCategories[$index]->varieties[$v_index];
         $variety->quantity--;
         $variety->quantity = $variety->quantity < 1 ? 1 : $variety->quantity;
+    }
+
+    public function add($index, $v_index)
+    {
+        $variety = $this->subCategories[$index]->varieties[$v_index];
+        // dd($variety);
     }
 }

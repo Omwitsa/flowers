@@ -18,16 +18,17 @@
     <section class="content product-sub-category">
         <div class="row ">
             @foreach ($subCategories as $index => $subCategory)
-                <div class="col-sm-10 offset-sm-1 text-center">
+                <div class="col-sm-10 offset-sm-1 text-center col-sub-category">
                     <h3 >{{ $subCategory->Name }}</h3> 
                     <h6 class="hr-lines">COLLECTION</h6>
-                    <h6> {{ $subCategory->HeadSize }} HEADSIZE</h6>
-
+                    @if($subCategory->HeadSize)
+                        <h6> {{ $subCategory->HeadSize }} HEADSIZE</h6>
+                    @endif
                     <div class="row">
                         <div class="col-sm-10 offset-sm-1">
                             <div class="row variety-section">
                                 @foreach ($subCategory->varieties as $v_index => $variety)
-                                    <div class="col-sm-4 text-center">
+                                    <div class="col-sm-4 text-center variety">
                                         <a href="#"><img src="{{ asset('storage'.env('IMG_STORAGE').$variety->picUrl) }}" alt="{{ $variety->VarietyName }}" class="waves-effect waves-light variety-img"></a>
                                         <h5>{{ $variety->VarietyName }}</h5>
                                         <select wire:model.live="length" required>
@@ -46,7 +47,7 @@
                                             <button wire:click="increment({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}">+</button>
                                         </div>
 
-                                        <button type="button" class="btn">ADD</button>
+                                        <button wire:click="add({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" class="btn">ADD</button>
                                     </div>
                                 @endforeach
                             </div>
