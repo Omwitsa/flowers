@@ -1,17 +1,17 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{env('APP_ROOT')}}" class="brand-link">
-        <img src="{{env('APP_ROOT')}}assets/images/icons/roses.png" alt="AAA" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <!-- <span class="brand-text font-weight-light">AAA</span> -->
-    </a>
+    <!-- <a href="{{env('APP_ROOT')}}" class="brand-link">
+        <img src="{{env('APP_ROOT')}}assets/images/AAARoses.png" alt="AAA" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AAA</span>
+    </a> -->
 
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{env('APP_ROOT')}}assets/images/avatar-4.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="{{env('APP_ROOT')}}assets/images/icons/roses.png" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{env('APP_ROOT')}}" class="d-block">{{auth()->user()->usercode}}</a>
+                <!-- <a href="{{env('APP_ROOT')}}" class="d-block">{{auth()->user()->usercode}}</a> -->
             </div>
         </div>
 

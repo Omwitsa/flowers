@@ -64,6 +64,25 @@
                             </div>
 
                             <div class="form-group row">
+                                <label class="col-xs-12 col-sm-2 col-form-label">Upload Name Image</label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input wire:model="name_url" type="file" class="form-control">
+                                    <x-input-error :messages="$errors->get('name_url')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-xs-12 col-sm-1">
+                                    <div wire:loading wire:target="name_url"> Uploading... </div>
+                                    @if($name_url)         
+                                        <img src="{{ $name_url->temporaryUrl() }}" alt="Flowers" style="width:100%;">
+                                    @else
+                                        <img src="{{ asset('storage'.env('IMG_STORAGE').$category->nameUrl) }}" alt="Flowers" style="width:100%;">
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <div class="form-check form-check-inline">
                                     <input wire:model="active" class="form-check-input" type="checkbox" id="active">
                                     <label class="form-check-label" for="active">Active</label>

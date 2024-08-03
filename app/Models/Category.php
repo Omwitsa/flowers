@@ -14,5 +14,6 @@ class Category extends Model
         'farm',
         'active',
         'picUrl',
+        'nameUrl',
     ];
 }

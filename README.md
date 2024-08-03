@@ -16,6 +16,7 @@ Create a virtual link with the below command
 
 - Cut public content into the root folder. Exclude storage folder if present in the public folder.
 - Modify the index file to read autoload and bootstrap from the root folder
+- Run php artisan livewire:publish --assets
 - Modify .evn file to match the appriopriate production properties
 
 ## Optimization Cammand

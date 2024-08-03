@@ -12,7 +12,7 @@ class CategoryComponent extends Component
     public function mount()
     {
         // $this->categories = Category::all();
-        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX'");
+        $this->categories = DB::select("SELECT * FROM categories WHERE name != 'MIXED BOX' ORDER BY id DESC");
         // $this->subCategories = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$this->Category]);
     }
     public function render()

@@ -45,10 +45,6 @@
 	color: #c3c2c6;
 	margin-left: 10px;
 }
-.header-icon{
-	position: relative;
-	top: -15px;
-}
 .client{
 	background-image: url("https://www.aaagrowers.co.ke/flowers/assets/images/home-img.jpg");
 	background-size: 100% 100%;
@@ -78,7 +74,7 @@
 	color: #000000;
 	font-size: 30px;
 }
-.product-category img{
+.product-category img:not(.categoty-name){
 	border-radius: 20px;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 1.0);
 }

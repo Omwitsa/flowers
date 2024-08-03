@@ -63,7 +63,7 @@
       </li>
 
       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: #f46c88;">
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: #b55068;">
             <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/profile.png" alt="Profile">
          </a>
          <div class="dropdown-menu dropdown-menu-right">
