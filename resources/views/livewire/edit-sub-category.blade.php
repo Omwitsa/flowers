@@ -37,7 +37,7 @@
 
                                 <label class="col-xs-12 col-sm-2 col-form-label">Head Size</label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input wire:model="HeadSize" name="HeadSize" type="text" class="form-control" autocomplete="off" required>
+                                    <input wire:model="HeadSize" name="HeadSize" type="text" class="form-control" autocomplete="off">
                                     <x-input-error :messages="$errors->get('HeadSize')" class="mt-2" />
                                 </div>
                             </div>

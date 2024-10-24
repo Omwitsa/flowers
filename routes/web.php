@@ -40,6 +40,7 @@ use App\Livewire\SubCategoryList;
 use App\Livewire\ClientHome;
 use App\Livewire\CategoryComponent;
 use App\Livewire\SubCategoryComponent;
+use App\Livewire\Checkout;
 
 use App\Models\OrderHeader;
 use App\Mail\OrderNotification;
@@ -54,6 +55,9 @@ Route::get('/sub-category/{categoryName}', [SubCategoryController::class, 'subCa
 Route::get('/variety/{subCategory}', [SubCategoryController::class, 'variety']);
 Route::get('/add-to-cart/{param}', [SubCategoryController::class, 'addToCart']);
 Route::view('/foreign-dashboard', 'foreign-dashboard');
+Route::get('/increment-order-item/{variety}', [HomeController::class, 'incrementOrderItem']);
+Route::get('/decrement-order-item/{variety}', [HomeController::class, 'decrementOrderItem']);
+Route::get('/remove-order-item/{variety}', [HomeController::class, 'removeOrderItem']);
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
@@ -96,7 +100,7 @@ Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
 Route::get('/sub-category-component/{category}', SubCategoryComponent::class); 
-// Route::get('/sub-category/{category}', SubCategory::class); 
+Route::get('/checkout/{order}', Checkout::class); 
 
 // Route for mailing
 Route::get('/email', function(){

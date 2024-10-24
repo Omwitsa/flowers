@@ -145,14 +145,26 @@
 	font-size: 14px;
 	font-weight: bold;
  }
-.ordered-quantity button{
+.ordered-quantity button, .cart-card a{
 	background-color: transparent;
 	color: #f66d8a;
 	border: none;
-	font-weight: bold;
-	font-size: 25px;
 }
 .user-panel img {
 	margin: 2rem 0rem;
     width: 3.1rem !important;
+}
+.variety-section .variety-name{
+	font-size: larger;
+}
+.media input{
+	text-align:center;
+	width: 5ch;
+	color: #f66d8a;
+	font-size: 14px;
+	font-weight: bold;
+}
+.btn-checkout{
+	background-color: #f66d8a !important;
+	color: #fff !important;
 }

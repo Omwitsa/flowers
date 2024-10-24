@@ -41,7 +41,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-
+                 
                             <tbody>
                                 @foreach ($subCategories as $subCategory)
                                     <tr>

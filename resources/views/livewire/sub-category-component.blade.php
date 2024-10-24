@@ -30,7 +30,7 @@
                                 @foreach ($subCategory->varieties as $v_index => $variety)
                                     <div class="col-sm-4 text-center variety">
                                         <a href="#"><img src="{{ asset('storage'.env('IMG_STORAGE').$variety->picUrl) }}" alt="{{ $variety->VarietyName }}" class="waves-effect waves-light variety-img"></a>
-                                        <h5>{{ $variety->VarietyName }}</h5>
+                                        <div> <strong class="variety-name">{{ $variety->VarietyName }}</strong> ({{$stemsPerBunch}} stems per bunch)</div> 
                                         <select wire:model.live="length" required>
                                             <option disabled selected>LENGTH</option>
                                             <option value="len40">40 cm</option>
@@ -40,14 +40,16 @@
                                             <option value="len80">80 cm</option>
                                             <option value="len90">90 cm</option>
                                         </select>
+
+                                        <div>{{$currency}} {{$amount}}</div>
                                         
                                         <div class="ordered-quantity">
-                                            <button wire:click="decrement({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" wire:key="{{ $variety->id }}">-</button>
+                                            <button wire:click="decrement({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" wire:key="{{ $variety->id }}"><i class="fas fa-minus"></i></button>
                                             <input type="number" wire:model="subCategories.{{ $index }}.varieties.{{ $v_index }}.quantity" min="1" oninput="validity.valid||(value='');">
-                                            <button wire:click="increment({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}">+</button>
+                                            <button wire:click="increment({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}"><i class="fas fa-plus"></i></button>
                                         </div>
 
-                                        <button wire:click="add({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" class="btn">ADD</button>
+                                        <button wire:click="add({{ $index }}, {{ $v_index }})" wire:key="{{ $variety->id }}" class="btn">ADD TO BOX ({{session('currentBoxQuantity')}} / {{$boxCapacity}})</button>
                                     </div>
                                 @endforeach
                             </div>

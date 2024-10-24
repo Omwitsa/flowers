@@ -73,4 +73,16 @@ class HomeController extends Controller
             'categories' => $categories
         ]);
     }
+
+    public function incrementOrderItem($variety) {
+       dd("Increment");
+    }
+
+    public function decrementOrderItem($variety) {
+        dd("Decrement");
+    }
+
+    public function removeOrderItem($variety) {
+        dd("Remove");
+    }
 }
