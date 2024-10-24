@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -74,15 +75,31 @@ class HomeController extends Controller
         ]);
     }
 
-    public function incrementOrderItem($variety) {
-       dd("Increment");
+    public function incrementOrderItem($index) {
+        $order_lines = session('order_lines');
+        $order_line = $order_lines[$index];
+        $order_line->bunches = $order_line->bunches + 1;
+        unset($order_lines[$index]);
+        array_push($order_lines, $order_line);
+        session(['order_lines' => $order_lines]);
+        return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category);
     }
 
-    public function decrementOrderItem($variety) {
-        dd("Decrement");
+    public function decrementOrderItem($index) {
+        $order_lines = session('order_lines');
+        $order_line = $order_lines[$index];
+        $order_line->bunches = $order_line->bunches - 1;
+        unset($order_lines[$index]);
+        array_push($order_lines, $order_line);
+        session(['order_lines' => $order_lines]);
+        return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category); 
     }
 
-    public function removeOrderItem($variety) {
-        dd("Remove");
+    public function removeOrderItem($index) {
+        $order_lines = session('order_lines');
+        $order_line = $order_lines[$index];
+        unset($order_lines[$index]);
+        session(['order_lines' => $order_lines]);
+        return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category);
     }
 }

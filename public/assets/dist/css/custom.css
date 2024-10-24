@@ -168,3 +168,7 @@
 	background-color: #f66d8a !important;
 	color: #fff !important;
 }
+.cart-header{
+	padding: .5rem 1rem;
+	font-size: 1.5rem;
+}

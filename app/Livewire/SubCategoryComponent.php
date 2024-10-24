@@ -104,9 +104,9 @@ class SubCategoryComponent extends Component
             Session::push('order_lines', $order_line);
         }
 
-        $order_lines = session('order_lines');
-        $arr_bunches  = Arr::pluck($order_lines, 'bunches');
-        session(['totalStems' => array_sum($arr_bunches)]);
+        // $order_lines = session('order_lines');
+        // $arr_bunches  = Arr::pluck($order_lines, 'bunches');
+        // session(['totalStems' => array_sum($arr_bunches)]);
         // dd($order_lines);
         return redirect(request()->header('Referer'));
     }
