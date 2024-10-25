@@ -79,19 +79,20 @@ class HomeController extends Controller
         $order_lines = session('order_lines');
         $order_line = $order_lines[$index];
         $order_line->bunches = $order_line->bunches + 1;
-        unset($order_lines[$index]);
-        array_push($order_lines, $order_line);
-        session(['order_lines' => $order_lines]);
+        // unset($order_lines[$index]);
+        // array_push($order_lines, $order_line);
+        // session(['order_lines' => $order_lines]);
         return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category);
     }
 
     public function decrementOrderItem($index) {
         $order_lines = session('order_lines');
         $order_line = $order_lines[$index];
-        $order_line->bunches = $order_line->bunches - 1;
-        unset($order_lines[$index]);
-        array_push($order_lines, $order_line);
-        session(['order_lines' => $order_lines]);
+        $order_line->bunches = $order_line->bunches > 0 ? $order_line->bunches - 1 : $order_line->bunches;
+        if($order_line->bunches == 0){
+            unset($order_lines[$index]);
+            session(['order_lines' => $order_lines]);
+        }
         return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category); 
     }
 
