@@ -25,18 +25,33 @@ class SubCategoryComponent extends Component
             session(['currentBoxQuantity' => 0]);
         }
         $this->subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$category]);
+        $this->populateQuantity();
+    }
+
+    public function populateQuantity()
+    {
+        $box = session('box');
         foreach ($this->subCategories as $key => $value) {
             $subCategory = (object) $value;
-            $varieties= DB::select('SELECT * FROM variety WHERE Category = ? AND SubCategory = ?', [$category, $subCategory->Name]);
+            $varieties= DB::select('SELECT * FROM variety WHERE Category = ? AND SubCategory = ?', [$subCategory->Category, $subCategory->Name]);
             foreach ($varieties as $v_key => $v_value) {
                 $variety = (object) $v_value;
-                // $variety->quantity = $variety->MinimumOrder;
-                $variety->quantity = 1;
-                // $variety->remainingQnty = $variety->MinimumOrder;
+                $variety->quantity = $variety->MinimumOrder;
+                if($box){
+                     // $filtered = array_filter($orderedItems, function ($order_line) use ($variety)  {
+                    //     return ($order_line->VarietyName == $variety->VarietyName);
+                    // });
+                    $orderedItem = Arr::first($box->bunches, function ($bunch) use ($variety) {
+                        return ($bunch->VarietyName == $variety->VarietyName);
+                    });
+
+                    if($orderedItem){
+                        $variety->quantity = $orderedItem->quantity;
+                    }
+                }
             }
             $subCategory->varieties = $varieties;
         }
-        // dd($this->subCategories);
     }
 
     public function render()
@@ -61,53 +76,48 @@ class SubCategoryComponent extends Component
     {
         $subCategory = $this->subCategories[$index];
         $variety = $subCategory->varieties[$v_index];
-        $order_lines = session('order_lines');
-        if($order_lines != null){
-            $arr_bunches  = Arr::pluck($order_lines, 'bunches');
-            $this->currentBoxQuantity = array_sum($arr_bunches) % $this->boxCapacity;
-        }
         
-        $currentBoxQuantity = $this->currentBoxQuantity;
-        $this->currentBoxQuantity += $variety->quantity;
-        if($this->currentBoxQuantity > $this->boxCapacity){
-            $this->currentBoxQuantity = $currentBoxQuantity;
+        // if($order_lines != null){
+        //     $arr_bunches  = Arr::pluck($order_lines, 'bunches');
+        //     $this->currentBoxQuantity = array_sum($arr_bunches) % $this->boxCapacity;
+        // }
+        
+        $box = session('box'); 
+        if(!isset($box)){
+            $box = new StdClass();
+            $box->bunches = [];
+        }
+
+        $box->BoxType = '';
+        $box->BoxMarking = '';
+        $box->Length = $this->length;
+        $box->category = $subCategory->Category;
+        $box->PackRate = 0;
+        $box->capacity = $this->boxCapacity;
+        $box->currentQuantity = isset($box->currentQuantity) ? $box->currentQuantity : 0;
+        $currentQuantity = $box->currentQuantity + $variety->quantity;
+        if($currentQuantity > $box->capacity){
+            toastr()->error('Maximum box capacity is '.$box->capacity.' bunches', 'Sorry', ['positionClass' => 'toast-top-center']);
             return;
         }
-
-        session(['currentBoxQuantity' => $this->currentBoxQuantity]);
-        // if($this->currentBoxQuantity == $this->boxCapacity){
-        //     $this->currentBoxQuantity = 0;
-        //     return;
-        // }
-
-        $order_line = new StdClass();
-        $order_line->BoxType = '';
-        $order_line->BoxMarking = '';
-        $order_line->VarietyCode = $variety->VarietyCode;
-        $order_line->VarietyName = $variety->VarietyName;
-        $order_line->subCategory = $subCategory->Name;
-        $order_line->category = $subCategory->Category;
-        $order_line->Length = $this->length;
-        $order_line->bunches = $variety->quantity;
-        $order_line->MinimumOrder = $variety->MinimumOrder;
-        $order_line->PackRate = 0;
-        $order_line->Boxes = $variety->MinimumOrder;
-        $order_line->picUrl = $variety->picUrl;
-
-        // $order_line->StemQty = $order_line->PackRate * $order_line->Boxes;
-        
-        if($order_lines == null){
-            Session::push('order_lines', $order_line);
+       
+        if(in_array($variety->VarietyName, array_column($box->bunches, 'VarietyName'))){
+            toastr()->error('The box already has the variety', 'Sorry', ['positionClass' => 'toast-top-center']);
+            return redirect(request()->header('Referer'));
         }
         
-        if($order_lines != null && !in_array($variety->VarietyName, array_column($order_lines, 'VarietyName'))){
-            Session::push('order_lines', $order_line);
+        $box->currentQuantity += $variety->quantity;
+        array_push($box->bunches, $variety);
+        session(['box' => $box]);
+        
+        if($box->currentQuantity == $box->capacity){
+            Session::push('boxes', $box);
+            $this->subCategories  = SubCategory::all();
+            Session::forget('box');
+            $box->currentQuantity = 0;
         }
 
-        // $order_lines = session('order_lines');
-        // $arr_bunches  = Arr::pluck($order_lines, 'bunches');
-        // session(['totalStems' => array_sum($arr_bunches)]);
-        // dd($order_lines);
+        session(['currentBoxQuantity' => $box->currentQuantity]);
         return redirect(request()->header('Referer'));
     }
 }

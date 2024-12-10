@@ -36,13 +36,13 @@
             <img class="header-icon" src="{{env('APP_ROOT')}}assets/images/icons/Cart.png" width="30" height="30"  alt="Cart">
             <?php 
                $count = 0;
-               if(session('order_lines')){
-                  // $count = count(session('order_lines'));
+               if(session('boxes')){
+                  $count = count(session('boxes'));
 
-                  $order_lines = session('order_lines');
-                  $arr_bunches  = Arr::pluck($order_lines, 'bunches');
-                  session(['totalStems' => array_sum($arr_bunches)]);
-                  $count = session('totalStems');
+                  // $order_lines = session('order_lines');
+                  // $arr_bunches  = Arr::pluck($order_lines, 'bunches');
+                  // session(['totalStems' => array_sum($arr_bunches)]);
+                  // $count = session('totalStems');
                }
             ?>
             <span class="badge badge-warning navbar-badge">{{$count}}</span>
@@ -53,18 +53,18 @@
             @else
                <strong class="cart-header">Your Cart</strong>
                <div class="dropdown-divider"></div>
-               @foreach (session('order_lines') as $index => $order_line)
+               @foreach (session('boxes') as $index => $box)
+               <?php //dd($box) ?>
                   <div class="media">
-                     <img src="{{ asset('storage'.env('IMG_STORAGE').$order_line->picUrl) }}" alt="{{ $order_line->VarietyName }}" class="img-size-50 mr-3 img-circle">
+                     <!-- <img src="" alt="" class="img-size-50 mr-3 img-circle">
                      <div class="media-body">
-                        <h3 class="dropdown-item-title"> {{ $order_line->VarietyName }}</h3>
-                        <!-- <h2 class="text-sm">KSH. 200</h2> -->
+                        <h3 class="dropdown-item-title">VarietyName</h3>
                      </div>
 
                      <a href="{{env('APP_ROOT')}}decrement-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-minus mr-1"></i></a>
-                     <span class="float-right text-muted text-sm mr-1"><input type="number" min="1" oninput="validity.valid||(value='');" value="{{ $order_line->bunches }}"></span>
+                     <span class="float-right text-muted text-sm mr-1"><input type="number" min="1" oninput="validity.valid||(value='');" value="1"></span>
                      <a href="{{env('APP_ROOT')}}increment-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-plus mr-2"></i></a>
-                     <a href="{{env('APP_ROOT')}}remove-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-trash mr-2"></i></a>
+                     <a href="{{env('APP_ROOT')}}remove-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-trash mr-2"></i></a> -->
                   </div>
 
                   <div class="dropdown-divider"></div>
