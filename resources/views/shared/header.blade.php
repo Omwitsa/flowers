@@ -53,10 +53,9 @@
             @else
                <strong class="cart-header">Your Cart</strong>
                <div class="dropdown-divider"></div>
-               @foreach (session('boxes') as $index => $box)
-               <?php //dd($box) ?>
+               <!-- @foreach (session('boxes') as $index => $box)
                   <div class="media">
-                     <!-- <img src="" alt="" class="img-size-50 mr-3 img-circle">
+                     <img src="" alt="" class="img-size-50 mr-3 img-circle">
                      <div class="media-body">
                         <h3 class="dropdown-item-title">VarietyName</h3>
                      </div>
@@ -64,11 +63,36 @@
                      <a href="{{env('APP_ROOT')}}decrement-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-minus mr-1"></i></a>
                      <span class="float-right text-muted text-sm mr-1"><input type="number" min="1" oninput="validity.valid||(value='');" value="1"></span>
                      <a href="{{env('APP_ROOT')}}increment-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-plus mr-2"></i></a>
-                     <a href="{{env('APP_ROOT')}}remove-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-trash mr-2"></i></a> -->
+                     <a href="{{env('APP_ROOT')}}remove-order-item/{{$index}}" class="float-right text-muted text-sm"><i class="fas fa-trash mr-2"></i></a>
                   </div>
-
                   <div class="dropdown-divider"></div>
-               @endforeach
+               @endforeach -->
+
+               <table class="table table-hover text-nowrap">
+                  <thead>
+                     <tr>
+                        <th>Variety</th>
+                        <th>Bunches</th>
+                        <th>Cost</th>
+                     </tr>
+                  </thead>
+
+                  
+                  @foreach (session('boxes') as $index => $box)
+                     <tbody>
+                        <tr><td colspan="3" class="text-center"><b>Box {{++$index}}</b></td></tr>
+                        @foreach ($box->bunches as $bunch_index => $bunch)
+                           <tr>
+                                 <td>{{ $bunch->VarietyName }}</td>
+                                 <td>{{ $bunch->quantity }}</td>
+                                 <td>{{ $bunch->cost }}</td>
+                           </tr>
+                        @endforeach
+                     </tbody>
+                  @endforeach
+               </table>
+
+               <div class="dropdown-divider"></div>
 
                <!-- <a href="#" class="dropdown-item dropdown-footer">See All Messages</a> -->
                <div class="dropdown-item dropdown-footer row">

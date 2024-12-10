@@ -95,6 +95,7 @@ class SubCategoryComponent extends Component
         $box->PackRate = 0;
         $box->capacity = $this->boxCapacity;
         $box->currentQuantity = isset($box->currentQuantity) ? $box->currentQuantity : 0;
+        $variety->cost = $variety->quantity * $this->amount;
         $currentQuantity = $box->currentQuantity + $variety->quantity;
         if($currentQuantity > $box->capacity){
             toastr()->error('Maximum box capacity is '.$box->capacity.' bunches', 'Sorry', ['positionClass' => 'toast-top-center']);
