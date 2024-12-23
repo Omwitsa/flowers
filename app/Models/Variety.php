@@ -21,5 +21,7 @@ class Variety extends Model
         'SubCategory',
         'MinimumOrder',
         'picUrl',
+        'AltVarieties',
+        'InStock',
     ];
 }

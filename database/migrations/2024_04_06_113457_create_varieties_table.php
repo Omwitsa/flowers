@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('SubCategory', length: 50);
             $table->integer('MinimumOrder')->default(0);
             $table->string('picUrl');
+            $table->string('AltVarieties', length: 100); 
+            $table->boolean('InStock')->default(true);
             $table->timestamps();
         });
     }

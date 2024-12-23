@@ -12,6 +12,7 @@ use Illuminate\Support\Arr;
 class SubCategoryComponent extends Component
 {
     public $subCategories;
+    public $selectedVariety;
     public $length = 'len60';
     public $boxCapacity = 10;
     public $stemsPerBunch = 10;
@@ -24,7 +25,7 @@ class SubCategoryComponent extends Component
         if(!session('currentBoxQuantity')){
             session(['currentBoxQuantity' => 0]);
         }
-        $this->subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$category]);
+        $this->subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ? AND Active = true', [$category]);
         $this->populateQuantity();
     }
 
@@ -33,7 +34,7 @@ class SubCategoryComponent extends Component
         $box = session('box');
         foreach ($this->subCategories as $key => $value) {
             $subCategory = (object) $value;
-            $varieties= DB::select('SELECT * FROM variety WHERE Category = ? AND SubCategory = ?', [$subCategory->Category, $subCategory->Name]);
+            $varieties= DB::select('SELECT * FROM variety WHERE Category = ? AND SubCategory = ? AND Active = true', [$subCategory->Category, $subCategory->Name]);
             foreach ($varieties as $v_key => $v_value) {
                 $variety = (object) $v_value;
                 $variety->quantity = $variety->MinimumOrder;
@@ -77,11 +78,11 @@ class SubCategoryComponent extends Component
         $subCategory = $this->subCategories[$index];
         $variety = $subCategory->varieties[$v_index];
         
-        // if($order_lines != null){
-        //     $arr_bunches  = Arr::pluck($order_lines, 'bunches');
-        //     $this->currentBoxQuantity = array_sum($arr_bunches) % $this->boxCapacity;
-        // }
-        
+        $this->handleCurrentBox($variety);
+        return redirect(request()->header('Referer'));
+    }
+
+    public function handleCurrentBox($variety){
         $box = session('box'); 
         if(!isset($box)){
             $box = new StdClass();
@@ -91,7 +92,7 @@ class SubCategoryComponent extends Component
         $box->BoxType = '';
         $box->BoxMarking = '';
         $box->Length = $this->length;
-        $box->category = $subCategory->Category;
+        $box->category = $variety->Category;
         $box->PackRate = 0;
         $box->capacity = $this->boxCapacity;
         $box->currentQuantity = isset($box->currentQuantity) ? $box->currentQuantity : 0;
@@ -110,7 +111,6 @@ class SubCategoryComponent extends Component
         $box->currentQuantity += $variety->quantity;
         array_push($box->bunches, $variety);
         session(['box' => $box]);
-        
         if($box->currentQuantity == $box->capacity){
             Session::push('boxes', $box);
             $this->subCategories  = SubCategory::all();
@@ -119,6 +119,35 @@ class SubCategoryComponent extends Component
         }
 
         session(['currentBoxQuantity' => $box->currentQuantity]);
+    }
+
+    public function loadAlternatives($index, $v_index)
+    {
+        $subCategory = $this->subCategories[$index];
+        $this->selectedVariety = $subCategory->varieties[$v_index];
+        
+        if(!$this->selectedVariety->AltVarieties){
+            $this->selectedVariety->AltVarieties = '';
+        }
+
+        $AltVarieties = explode(',',  $this->selectedVariety->AltVarieties);
+        $alternatives = DB::table('variety')
+            ->where('Active', '=', true)
+            ->where('InStock', '=', true)
+            ->whereIn('id', $AltVarieties)
+            ->get();
+
+        foreach ($alternatives as $v_key => $value){
+            $value->quantity = $value->MinimumOrder;
+        }   
+
+        $this->selectedVariety->alternatives = $alternatives;
+    }
+
+    public function addAlternative($index)
+    {
+        $alternative = $this->selectedVariety->alternatives[$index];
+        $this->handleCurrentBox($alternative);
         return redirect(request()->header('Referer'));
     }
 }

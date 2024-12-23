@@ -108,12 +108,31 @@
                                     <input wire:model="Colour" name="Colour" type="color" class="form-control">
                                     <x-input-error :messages="$errors->get('Colour')" class="mt-2" />
                                 </div>
+
+                                <label class="col-xs-12 col-sm-2 col-form-label">Alternative(s)</label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <select wire:model.live="AltVarieties" multiple class="custom-select">
+                                            @foreach($varieties as $variety)
+                                                <option value="{{ $variety->id }}">{{ $variety->VarietyName }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <x-input-error :messages="$errors->get('AltVarieties')" class="mt-2" />
+                                </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="form-check form-check-inline">
                                     <input wire:model="active" class="form-check-input" type="checkbox" id="active">
                                     <label class="form-check-label" for="active">Active</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="form-check form-check-inline">
+                                    <input wire:model="inStock" class="form-check-input" type="checkbox" id="inStock">
+                                    <label class="form-check-label" for="inStock">In Stock</label>
                                 </div>
                             </div><br>
                             

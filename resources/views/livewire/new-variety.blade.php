@@ -68,7 +68,7 @@
                             <div class="form-group row">
                                 <label class="col-xs-12 col-sm-2 col-form-label">Sub-Category</label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <select wire:model="SubCategory" class="form-control" required>
+                                    <select wire:model.live="SubCategory" class="form-control" required>
                                         <option disabled value=""></option>
                                         @foreach($subCategories as $subCategory)
                                             <option value="{{ $subCategory->Name }}">{{ $subCategory->Name }}</option>
@@ -106,6 +106,18 @@
                                 <div class="col-xs-12 col-sm-4">
                                     <input wire:model="Colour" name="Colour" type="color" class="form-control">
                                     <x-input-error :messages="$errors->get('Colour')" class="mt-2" />
+                                </div>
+
+                                <label class="col-xs-12 col-sm-2 col-form-label">Alternative(s)</label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <select wire:model.live="AltVarieties" multiple class="custom-select">
+                                            @foreach($varieties as $variety)
+                                                <option value="{{ $variety->id }}">{{ $variety->VarietyName }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <x-input-error :messages="$errors->get('AltVarieties')" class="mt-2" />
                                 </div>
                             </div>
                             
