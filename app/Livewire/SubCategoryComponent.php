@@ -22,9 +22,8 @@ class SubCategoryComponent extends Component
 
     public function mount($category)
     {
-        if(!session('currentBoxQuantity')){
-            session(['currentBoxQuantity' => 0]);
-        }
+        $box = session('box');
+        $this->currentBoxQuantity = isset($box) ? $box->currentQuantity : 0;
         $this->subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ? AND Active = true', [$category]);
         $this->populateQuantity();
     }
@@ -38,26 +37,30 @@ class SubCategoryComponent extends Component
             foreach ($varieties as $v_key => $v_value) {
                 $variety = (object) $v_value;
                 $variety->quantity = $variety->MinimumOrder;
-                if($box){
-                     // $filtered = array_filter($orderedItems, function ($order_line) use ($variety)  {
-                    //     return ($order_line->VarietyName == $variety->VarietyName);
-                    // });
-                    $orderedItem = Arr::first($box->bunches, function ($bunch) use ($variety) {
-                        return ($bunch->VarietyName == $variety->VarietyName);
-                    });
-
-                    if($orderedItem){
-                        $variety->quantity = $orderedItem->quantity;
-                    }
-                }
+                $this->orderedQnty($box, $variety);
             }
             $subCategory->varieties = $varieties;
         }
     }
 
+    public function orderedQnty($box, $variety){
+        if($box){
+            // $filtered = array_filter($orderedItems, function ($order_line) use ($variety)  {
+           //     return ($order_line->VarietyName == $variety->VarietyName);
+           // });
+           $orderedItem = Arr::first($box->bunches, function ($bunch) use ($variety) {
+               return ($bunch->VarietyName == $variety->VarietyName);
+           });
+
+           if($orderedItem){
+               $variety->quantity = $orderedItem->quantity;
+           }
+       }
+    }
+
     public function render()
     {
-        return view('livewire.sub-category-component');
+        return view(view: 'livewire.sub-category-component');
     }
 
     public function increment($index, $v_index)
@@ -97,14 +100,16 @@ class SubCategoryComponent extends Component
         $box->capacity = $this->boxCapacity;
         $box->currentQuantity = isset($box->currentQuantity) ? $box->currentQuantity : 0;
         $variety->cost = $variety->quantity * $this->amount;
+        $variety->normalizedName = $variety->VarietyName;
         $currentQuantity = $box->currentQuantity + $variety->quantity;
+        $this->currentBoxQuantity = $box->currentQuantity;
         if($currentQuantity > $box->capacity){
             toastr()->error('Maximum box capacity is '.$box->capacity.' bunches', 'Sorry', ['positionClass' => 'toast-top-center']);
             return;
         }
        
         if(in_array($variety->VarietyName, array_column($box->bunches, 'VarietyName'))){
-            toastr()->error('The box already has the variety', 'Sorry', ['positionClass' => 'toast-top-center']);
+            toastr()->error('The variety already exist in the box', 'Sorry', ['positionClass' => 'toast-top-center']);
             return redirect(request()->header('Referer'));
         }
         
@@ -117,8 +122,6 @@ class SubCategoryComponent extends Component
             Session::forget('box');
             $box->currentQuantity = 0;
         }
-
-        session(['currentBoxQuantity' => $box->currentQuantity]);
     }
 
     public function loadAlternatives($index, $v_index)
@@ -137,9 +140,11 @@ class SubCategoryComponent extends Component
             ->whereIn('id', $AltVarieties)
             ->get();
 
+        $box = session('box');
         foreach ($alternatives as $v_key => $value){
             $value->quantity = $value->MinimumOrder;
-        }   
+            $this->orderedQnty($box, $value);
+        }  
 
         $this->selectedVariety->alternatives = $alternatives;
     }
@@ -149,5 +154,18 @@ class SubCategoryComponent extends Component
         $alternative = $this->selectedVariety->alternatives[$index];
         $this->handleCurrentBox($alternative);
         return redirect(request()->header('Referer'));
+    }
+
+    public function incrementAlternative($index)
+    {
+        $alternative = $this->selectedVariety->alternatives[$index];
+        $alternative->quantity++;
+    }
+
+    public function decrementAlternative($index)
+    {
+        $alternative = $this->selectedVariety->alternatives[$index];
+        $alternative->quantity--;
+        $alternative->quantity = $alternative->quantity < 1 ? 1 : $alternative->quantity;
     }
 }

@@ -97,10 +97,12 @@ class HomeController extends Controller
     }
 
     public function removeOrderItem($index) {
-        $order_lines = session('order_lines');
-        $order_line = $order_lines[$index];
-        unset($order_lines[$index]);
-        session(['order_lines' => $order_lines]);
-        return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category);
+        $box = session('box');
+        $box->currentQuantity = $box->currentQuantity - $box->bunches[$index]->quantity;
+        unset($box->bunches[$index]);
+        $box = count($box->bunches) > 0 ? $box : null;
+        session(['box' => $box]);
+
+        return redirect(request()->header('Referer'));
     }
 }

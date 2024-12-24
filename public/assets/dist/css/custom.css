@@ -119,10 +119,10 @@
 	/* margin-bottom: 8%; */
  }
 
- .variety-section select, .variety-section .btn{
+ .variety-section select, .variety .btn{
 	background-color: #f66d8a;
  }
- .variety-section .btn{
+ .variety .btn{
 	color: #fff;
 	padding: 0px 20px;
 	border-radius: 15px;
