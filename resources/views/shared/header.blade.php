@@ -79,7 +79,7 @@
                               <td>{{ $bunch->normalizedName }}</td>
                               <td>{{ $bunch->quantity }}</td>
                               <td>{{ $bunch->cost }}</td>
-                              <td><a href="{{env('APP_ROOT')}}remove-order-item/{{$index}}"><i class="fas fa-trash"></i></a></td>
+                              <td><a href="{{env('APP_ROOT')}}remove-bunch/{{$index}}"><i class="fas fa-trash"></i></a></td>
                         </tr>
                      @endforeach
                   </tbody>
@@ -115,7 +115,7 @@
 
                   </div>
                   <div class="col-sm-6">
-                     <a href="{{env('APP_ROOT')}}checkout/{{$boxesCount}}" class="btn btn-xs btn-checkout">CHECKOUT</a>
+                     <a href="{{env('APP_ROOT')}}checkout" class="btn btn-xs btn-checkout">CHECKOUT</a>
                   </div>
                </div>
             @endif

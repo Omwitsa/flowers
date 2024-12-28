@@ -57,7 +57,7 @@ Route::get('/add-to-cart/{param}', [SubCategoryController::class, 'addToCart']);
 Route::view('/foreign-dashboard', 'foreign-dashboard');
 Route::get('/increment-order-item/{variety}', [HomeController::class, 'incrementOrderItem']);
 Route::get('/decrement-order-item/{variety}', [HomeController::class, 'decrementOrderItem']);
-Route::get('/remove-order-item/{variety}', [HomeController::class, 'removeOrderItem']);
+Route::get('/remove-bunch/{variety}', [HomeController::class, 'removeBunch']);
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
@@ -100,7 +100,8 @@ Route::get('/packrates', PackRateList::class);
 Route::get('/new-packrate', NewPackRate::class);
 Route::get('/order-summary', OrderSummery::class); 
 Route::get('/sub-category-component/{category}', SubCategoryComponent::class); 
-Route::get('/checkout/{order}', Checkout::class); 
+Route::get('/checkout', Checkout::class); 
+
 
 // Route for mailing
 Route::get('/email', function(){

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 class SubCategoryController extends Controller
 {
     public function subCategory($categoryName) {
+        dd($categoryName);
         $categoryName = Str::upper(Str::replace('-', ' ', $categoryName));
         $category = Category::firstWhere('name', $categoryName);
         $subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ?', [$categoryName]);

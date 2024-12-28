@@ -6,17 +6,25 @@ use Livewire\Component;
 
 class Checkout extends Component
 {
-    public $orders;
+    public $boxes;
+    public $stemsPerBunch = 10;
+    public $amount = 500;
     public function mount()
     {
-        // $this->orders = OrderHeader::all();
-        $this->orders = session('order_lines');
+        $this->boxes = session('boxes');
+    }
+
+    public function delete($box_index){
+        unset($this->boxes[$box_index]);
+        session(['boxes' => $this->boxes]);
+        toastr()->success('Box deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
+        $this->redirect(env('APP_ROOT').'checkout');
     }
 
     public function render()
     {
         return view('livewire.checkout')->with([
-            'orders' => $this->orders,
+            'boxes' => $this->boxes,
         ]);
     }
 }

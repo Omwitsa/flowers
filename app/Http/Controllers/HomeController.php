@@ -96,12 +96,14 @@ class HomeController extends Controller
         return redirect(env('APP_ROOT').'sub-category-component/'.$order_line->category); 
     }
 
-    public function removeOrderItem($index) {
+    public function removeBunch($index) {
         $box = session('box');
         $box->currentQuantity = $box->currentQuantity - $box->bunches[$index]->quantity;
         unset($box->bunches[$index]);
         $box = count($box->bunches) > 0 ? $box : null;
         session(['box' => $box]);
+
+        toastr()->success('Bunch deleted successfully', 'Congrats', ['positionClass' => 'toast-top-center']);
 
         return redirect(request()->header('Referer'));
     }
