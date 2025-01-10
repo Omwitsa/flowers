@@ -37,6 +37,7 @@ class SubCategoryComponent extends Component
             foreach ($varieties as $v_key => $v_value) {
                 $variety = (object) $v_value;
                 $variety->quantity = $variety->MinimumOrder;
+                $variety->focused = false;
                 $this->orderedQnty($box, $variety);
             }
             $subCategory->varieties = $varieties;
@@ -129,6 +130,11 @@ class SubCategoryComponent extends Component
         $subCategory = $this->subCategories[$index];
         $this->selectedVariety = $subCategory->varieties[$v_index];
         
+        foreach ($subCategory->varieties as $key => $value) {
+            $value->focused = false;
+        }
+        $this->selectedVariety->focused = true;
+        
         if(!$this->selectedVariety->AltVarieties){
             $this->selectedVariety->AltVarieties = '';
         }
@@ -147,6 +153,13 @@ class SubCategoryComponent extends Component
         }  
 
         $this->selectedVariety->alternatives = $alternatives;
+
+    }
+
+    public function closeAlternative($index, $v_index){
+        $subCategory = $this->subCategories[$index];
+        $this->selectedVariety = $subCategory->varieties[$v_index];
+        $this->selectedVariety->focused = false;
     }
 
     public function addAlternative($index)
