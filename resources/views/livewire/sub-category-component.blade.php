@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Sub Category</h1>
+                    <h1> {{ $category }} sub-Categories</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{env('APP_ROOT')}}category-component">Category</a></li>
-                        <li class="breadcrumb-item active">Sub Category</li>
+                        <li class="breadcrumb-item active"> Sub-categories</li>
                     </ol>
                 </div>
             </div>

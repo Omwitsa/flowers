@@ -12,6 +12,7 @@ use Illuminate\Support\Arr;
 class SubCategoryComponent extends Component
 {
     public $subCategories;
+    public $category;
     public $selectedVariety;
     public $length = 'len60';
     public $boxCapacity = 10;
@@ -22,8 +23,10 @@ class SubCategoryComponent extends Component
 
     public function mount($category)
     {
+        $this->category = $category;
         $box = session('box');
         $this->currentBoxQuantity = isset($box) ? $box->currentQuantity : 0;
+        $this->length = isset($box) ? $box->Length : 'len60';
         $this->subCategories  = DB::select('SELECT * FROM sub_categories WHERE Category = ? AND Active = true', [$category]);
         $this->populateQuantity();
     }
@@ -81,29 +84,44 @@ class SubCategoryComponent extends Component
     {
         $subCategory = $this->subCategories[$index];
         $variety = $subCategory->varieties[$v_index];
-        
-        $this->handleCurrentBox($variety);
-        return redirect(request()->header('Referer'));
-    }
 
-    public function handleCurrentBox($variety){
         $box = session('box'); 
         if(!isset($box)){
             $box = new StdClass();
+            $box->category = null;
+            $box->Length = null;
             $box->bunches = [];
         }
+        
+        if($box->category &&  $box->category != $variety->Category){
+            toastr()->error('Current active box category is '.$box->category . '. Mixing within a box not allowed', 'Sorry', ['positionClass' => 'toast-top-center']);
+            return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+        }
 
+        if($box->Length &&  $box->Length != $this->length){
+            $length = substr($box->Length,3);
+            toastr()->error('Current active box length is  '.$length . ' cm. Mixing within a box not allowed', 'Sorry', ['positionClass' => 'toast-top-center']);
+            return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+        }
+
+        $this->handleCurrentBox($variety, $box);
+        return redirect(request()->header('Referer'));
+    }
+
+    public function handleCurrentBox($variety, $box){
         $box->BoxType = '';
         $box->BoxMarking = '';
         $box->Length = $this->length;
-        $box->category = $variety->Category;
+
         $box->PackRate = 0;
         $box->capacity = $this->boxCapacity;
+        $box->category = $variety->Category;
         $box->currentQuantity = isset($box->currentQuantity) ? $box->currentQuantity : 0;
         $variety->cost = $variety->quantity * $this->amount;
         $variety->normalizedName = $variety->VarietyName;
         $currentQuantity = $box->currentQuantity + $variety->quantity;
         $this->currentBoxQuantity = $box->currentQuantity;
+        
         if($currentQuantity > $box->capacity){
             toastr()->error('Maximum box capacity is '.$box->capacity.' bunches', 'Sorry', ['positionClass' => 'toast-top-center']);
             return;
