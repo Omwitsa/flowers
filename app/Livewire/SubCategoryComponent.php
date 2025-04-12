@@ -95,13 +95,15 @@ class SubCategoryComponent extends Component
         
         if($box->category &&  $box->category != $variety->Category){
             toastr()->error('Current active box category is '.$box->category . '. Mixing within a box not allowed', 'Sorry', ['positionClass' => 'toast-top-center']);
-            return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+            // return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+            return redirect('/sub-category-component/'.$box->category);
         }
 
         if($box->Length &&  $box->Length != $this->length){
             $length = substr($box->Length,3);
             toastr()->error('Current active box length is  '.$length . ' cm. Mixing within a box not allowed', 'Sorry', ['positionClass' => 'toast-top-center']);
-            return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+            // return redirect(env('APP_ROOT').'sub-category-component/'.$box->category);
+            return redirect('/sub-category-component/'.$box->category);
         }
 
         $this->handleCurrentBox($variety, $box);
@@ -183,7 +185,8 @@ class SubCategoryComponent extends Component
     public function addAlternative($index)
     {
         $alternative = $this->selectedVariety->alternatives[$index];
-        $this->handleCurrentBox($alternative);
+        $box = session('box');
+        $this->handleCurrentBox($alternative, $box);
         return redirect(request()->header('Referer'));
     }
 
